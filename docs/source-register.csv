@@ -1,0 +1,4 @@
+source_id,role,tracked_reference,status,notes
+survey_final,authoritative_analysis_source,restricted authoritative-source alias,frozen_historic_restricted_lineage,The authoritative source was frozen and processed through a historic restricted structured lineage; the live source remains mutable and restricted. The v0.4 rerun may reuse that freeze only after restricted compatibility confirmation. Locator revision row count and provenance hashes remain only in restricted storage; do not commit.
+questionnaire_draft,contextual_instrument_reference,restricted contextual-instrument alias,superseded_for_live_wording,Do not use as the authoritative live-form transcript.
+raffle_archive,restricted_administrative_record,restricted administrative-record alias,excluded_from_analysis,Keep outside the repository and analysis pipeline.

@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+% Keep typographic protrusion while avoiding pdfTeX font expansion on systems
+% where the available T1 fonts are not scalable.
+\usepackage[expansion=false]{microtype}
+
+\title{Graduate Student Engagement with a Collaboratively Maintained\\
+TA Wiki: A Descriptive Departmental Survey Evaluation}
+\author{Antonio Aguirre \and Marcela Alfaro-Cordoba \and Andrew Le}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This descriptive departmental survey evaluation examines graduate-student reports of
+awareness, use, contribution barriers, and perceived value of a collaboratively
+maintained teaching-assistant (TA) Wiki. A manifest-bound, disclosure-controlled
+analysis was used to summarize structured survey responses. This report presents
+only the aggregate result permitted by the pre-specified disclosure policy; all
+other planned structured summaries were withheld rather than selectively
+reported. The released result concerns respondents' assessment of the Wiki as a
+departmental resource. Findings describe this implementation and should not be
+interpreted as causal effects or population estimates.
+\end{abstract}
+
+\section{Study context and purpose}
+
+This study describes how respondents in one departmental implementation
+reported awareness of, use of, and possible engagement with a collaboratively
+maintained TA Wiki. The study is descriptive: it does not identify the effect of
+the Wiki, GitHub hosting, editathon participation, or any other measured
+factor. Its practical aim is to document what can be reported transparently
+while protecting respondents in a small voluntary survey.
+
+\section{Methods}
+
+\subsection{Design, setting, and participants}
+
+This was a voluntary departmental survey evaluation conducted under an
+institutional exemption determination for the survey-only project. Recruitment
+used general announcements to eligible graduate students. The analytic cohort
+was defined from the approved consent and eligibility responses in the frozen
+live export. The invitation denominator was not verified for reporting, so no
+response rate is reported.
+
+\subsection{Instrument and reporting approach}
+
+The analysis covered structured items about background and teaching context,
+resource use, Wiki awareness and use, contribution, GitHub, editathon
+experience, and perceived value. Optional open-text fields were outside the
+automated quantitative pipeline. The reporting structure was informed by
+survey-reporting guidance such as CROSS and, where relevant to electronic
+questionnaire reporting, CHERRIES \cite{cross,cherries}.
+
+\subsection{Data handling and analysis}
+
+The finalized source export, timestamps, row-level derivatives, and open text
+were held only in external restricted storage. Raffle and contact records
+remained separate from the analytic source. A manifest-bound workflow validated
+the immutable source, wrote a minimal cohort ledger, re-opened the frozen source
+only within restricted storage for controlled transformation, and generated
+restricted internal outputs. No missing values were imputed.
+
+Structured items were summarized descriptively with item-specific denominators,
+counts, and percentages. Category order followed the controlled codebook.
+Pre-specified transformation rules handled verified format anomalies, and
+incompatible single-choice values were excluded from that item's valid
+denominator. The direct contribution response was primary; a conditional
+alternative was retained only as an internal sensitivity analysis. Any
+cross-tabulations were exploratory, internal-only, and not interpreted as
+causal, inferential, or population-generalizable.
+
+\subsection{Disclosure controls and qualitative scope}
+
+The release policy suppressed respondent-level records, timestamps, open text,
+and every structured table containing a positive cell below the approved
+minimum-cell threshold. Consequently, a withheld table is a disclosure decision
+rather than evidence of no pattern. Qualitative material was deferred: no
+coded themes, paraphrases, or quotations are reported.
+
+\section{Results}
+
+The disclosure-approved candidate retained one structured summary, presented in
+Table~\ref{tab:structured-survey-summaries}. The remaining pre-specified
+structured tables were fully withheld under the release policy. Accordingly,
+this report makes no item-level claims about awareness, use, contribution
+barriers, GitHub, editathon experience, or resource preferences beyond what is
+shown in the released table.
+
+\input{generated-results.tex}
+
+\section{Discussion}
+
+The released result concerns perceived departmental value only. Its distribution
+indicates a favorable assessment of the TA Wiki among the analytic cohort, while
+the disclosure boundary appropriately prevents stronger conclusions about other
+survey domains. This is useful evidence for maintaining a departmental resource,
+but it does not demonstrate that the Wiki changed teaching practice, increased
+engagement, or would yield the same pattern outside this setting.
+
+The report's narrow scope is itself an important limitation. Participation was
+voluntary, the invitation denominator was unavailable for a response-rate
+calculation, and most planned summaries could not be shared without exposing
+small cells. The analysis therefore prioritizes transparent withholding over
+apparently comprehensive but unsafe reporting. It also does not include
+qualitative findings, which would require a separate manual coding and
+disclosure-review process.
+
+\section{Conclusion}
+
+Within this departmental survey evaluation, the disclosure-approved evidence supports
+a limited descriptive conclusion about the TA Wiki's perceived value. Future
+work should use a larger or differently designed evaluation if the team wishes
+to study awareness, adoption, barriers, or outreach effectiveness in greater
+detail. Any such work should retain the separation of survey data from raffle
+records and apply disclosure controls before sharing results.
+
+\section*{Ethics and data availability}
+
+The survey-only project received an institutional exemption determination. Code,
+controlled metadata, and synthetic tests may be shared. Survey data, timestamps,
+respondent-level derivatives, open text, and restricted governance records
+remain unavailable. The numerical table in this manuscript is generated only
+from the approved aggregate release candidate.
+
+\begin{thebibliography}{9}
+
+\bibitem{cross}
+Sharma A, Minh Duc NT, Luu Lam Thang T, et al.
+A Consensus-Based Checklist for Reporting of Survey Studies (CROSS).
+\textit{Journal of General Internal Medicine}. 2021;36(10):3179--3187.
+doi:\href{https://doi.org/10.1007/s11606-021-06737-1}{10.1007/s11606-021-06737-1}.
+
+\bibitem{cherries}
+Eysenbach G.
+Improving the Quality of Web Surveys: the Checklist for Reporting Results of
+Internet E-Surveys (CHERRIES).
+\textit{Journal of Medical Internet Research}. 2004;6(3):e34.
+doi:\href{https://doi.org/10.2196/jmir.6.3.e34}{10.2196/jmir.6.3.e34}.
+
+\end{thebibliography}
+
+\end{document}

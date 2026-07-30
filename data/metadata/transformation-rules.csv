@@ -1,0 +1,3 @@
+rule_id,analysis_name,operation,match_key,replacement,scope,rationale
+RULE-AWARENESS-001,awareness_source,replace_exact,"department orientation or seminaron 1","Department orientation or seminar",scalar,"Corrects the observed contaminated option label without changing any other response."
+RULE-DISADVANTAGE-001,github_disadvantages,replace_substring,"requires technical setup (cloning repos, using a text editor, etc.)ion 5","Requires technical setup (cloning repos, using a text editor, etc.)",checkbox,"Removes the observed trailing form-contamination suffix before exact checkbox parsing."

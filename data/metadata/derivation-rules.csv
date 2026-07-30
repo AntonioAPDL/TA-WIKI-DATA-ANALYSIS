@@ -1,0 +1,2 @@
+rule_id,analysis_name,analysis_variant,evidence_item,evidence_state,when_primary_state,derived_value,derived_state,scope,rationale
+RULE-CONTRIBUTION-001,contributed,sensitivity_inferred_from_valid_reason,noncontribution_reasons,valid,missing,No,inferred,internal_sensitivity,"Sensitivity only: when the direct contribution response is missing and the conditional non-contribution-reason checkbox parses as valid, record No contribution. Invalid, partial-invalid, structural-skip, and raw unparsed values do not trigger an inference."

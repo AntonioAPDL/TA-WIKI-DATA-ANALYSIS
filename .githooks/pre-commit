@@ -1,0 +1,35 @@
+#!/bin/sh
+set -eu
+
+PYTHON_EXECUTABLE=""
+if command -v python3 >/dev/null 2>&1 && python3 -c "import sys" >/dev/null 2>&1; then
+  PYTHON_EXECUTABLE="python3"
+elif command -v python >/dev/null 2>&1 && python -c "import sys" >/dev/null 2>&1; then
+  PYTHON_EXECUTABLE="python"
+elif command -v py >/dev/null 2>&1 && py -3 -c "import sys" >/dev/null 2>&1; then
+  PYTHON_EXECUTABLE="py -3"
+elif [ -n "${TA_WIKI_PYTHON:-}" ] && "${TA_WIKI_PYTHON}" -c "import sys" >/dev/null 2>&1; then
+  PYTHON_EXECUTABLE="${TA_WIKI_PYTHON}"
+else
+  APPDATA_ROOT="${LOCALAPPDATA:-}"
+  if command -v cygpath >/dev/null 2>&1 && [ -n "${APPDATA_ROOT}" ]; then
+    APPDATA_ROOT="$(cygpath -u "${APPDATA_ROOT}")"
+  fi
+  for candidate in "${APPDATA_ROOT}"/Programs/Python/*/python.exe; do
+    if [ -f "${candidate}" ] && "${candidate}" -c "import sys" >/dev/null 2>&1; then
+      PYTHON_EXECUTABLE="${candidate}"
+      break
+    fi
+  done
+fi
+
+if [ -z "${PYTHON_EXECUTABLE}" ]; then
+  echo "Python 3 is required for the privacy pre-commit hook." >&2
+  exit 1
+fi
+
+if [ "${PYTHON_EXECUTABLE}" = "py -3" ]; then
+  py -3 scripts/privacy_scan.py .
+else
+  "${PYTHON_EXECUTABLE}" scripts/privacy_scan.py .
+fi

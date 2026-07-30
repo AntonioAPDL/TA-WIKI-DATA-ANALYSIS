@@ -1,0 +1,64 @@
+# Restricted source material: never commit.
+data/raw/**
+!data/raw/.gitkeep
+data/restricted/**
+!data/restricted/.gitkeep
+data/derived/**
+!data/derived/.gitkeep
+
+# Local R state and rendered intermediates.
+renv/library/
+renv/staging/
+.codex_work/**
+.Rhistory
+.RData
+*.xlsx
+*.xls
+*.zip
+tests/artifacts/
+.env
+.env.*
+!.env.example
+*.rds
+*.Rds
+*.RData
+*.rda
+*.parquet
+*.feather
+__pycache__/
+*.pyc
+
+# Local reports may contain restricted review material.
+reports/internal/**
+!reports/internal/.gitkeep
+reports/reproducibility/**
+!reports/reproducibility/.gitkeep
+outputs/internal/**
+!outputs/internal/.gitkeep
+
+# Additional local-only workspaces used by related analysis environments.
+application/data_local/**
+application/cache/**
+application/runs/**
+application/logs/**
+application/outputs/**
+literature/pdfs/**
+
+# LaTeX build products.
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.pdf
+manuscript/*.build.json

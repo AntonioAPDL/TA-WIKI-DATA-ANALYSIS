@@ -1,0 +1,21 @@
+Package: tawikiassessment
+Type: Project
+Title: Reproducible TA Wiki Assessment Workflow
+Version: 0.1.0
+Authors@R: c(
+    person("Antonio", "Aguirre", role = c("aut", "cre"))
+    )
+Description: Dependency declaration and reproducibility metadata for the
+    privacy-controlled TA Wiki assessment workflow. This is a project manifest,
+    not a distributable R package.
+License: file LICENSE
+Encoding: UTF-8
+Imports:
+    digest,
+    jsonlite,
+    readxl,
+    renv
+Suggests:
+    testthat (>= 3.0.0),
+    writexl
+Config/testthat/edition: 3

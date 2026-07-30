@@ -1,0 +1,10 @@
+public_release:
+  permitted_only_after_pi_approval: true
+  minimum_cell_count: 5
+  suppress_free_text: true
+  suppress_timestamps: true
+  suppress_respondent_level_rows: true
+  require_manual_disclosure_review: true
+internal_outputs:
+  git_ignored: true
+  may_contain_small_cells: true

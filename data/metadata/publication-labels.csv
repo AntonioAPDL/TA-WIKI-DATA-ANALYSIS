@@ -1,0 +1,36 @@
+analysis_name,publication_label,domain_label,domain_order
+program_year,Graduate-program year,Background and teaching context,1
+ta_quarters,TA quarters in the department,Background and teaching context,1
+git_comfort,Comfort with Git and GitHub,Background and teaching context,1
+teaching_interest,Interest in developing teaching skills,Background and teaching context,1
+resource_seeking,Seeks teaching-support resources,Teaching-support resources,2
+current_resources,Current teaching-support resources,Teaching-support resources,2
+ideal_resource_use,Likelihood of using a comprehensive resource,Teaching-support resources,2
+desired_features,Desired features of a teaching resource,Teaching-support resources,2
+wiki_awareness,Awareness of the TA Wiki,TA Wiki awareness and use,3
+awareness_source,First source of awareness,TA Wiki awareness and use,3
+wiki_visited,Prior visit to the TA Wiki,TA Wiki awareness and use,3
+consult_frequency,Frequency of consulting the TA Wiki,TA Wiki awareness and use,3
+consult_when,When the TA Wiki is consulted,TA Wiki awareness and use,3
+useful_content,TA Wiki content found useful,TA Wiki awareness and use,3
+needs_met,How well the TA Wiki meets TA needs,TA Wiki awareness and use,3
+needs_reason,Reason the TA Wiki does not fully meet needs,TA Wiki awareness and use,3
+contributed,Previously contributed to the TA Wiki,Contribution and participation,4
+understand_contribution,Understands how to contribute,Contribution and participation,4
+contribution_straightforward,Contribution process is straightforward,Contribution and participation,4
+simpler_interface,Simpler interface would increase willingness to contribute,Contribution and participation,4
+training_walkthrough,Training or walkthrough would increase willingness to contribute,Contribution and participation,4
+wiki_ownership,Sense of ownership of the TA Wiki,Contribution and participation,4
+github_use_effect,Effect of GitHub hosting on willingness to use the TA Wiki,GitHub-related perceptions,5
+github_contribution_effect,Effect of GitHub hosting on willingness to contribute,GitHub-related perceptions,5
+github_advantages,Perceived advantages of GitHub hosting,GitHub-related perceptions,5
+github_disadvantages,Perceived disadvantages of GitHub hosting,GitHub-related perceptions,5
+editathon_awareness,Awareness of the TA Wiki editathon,Editathon experience,6
+editathon_nonparticipant_reasons,Reasons for editathon nonparticipation,Editathon experience,6
+editathon_experience,Reported editathon experience,Editathon experience,6
+editathon_improvement,Changes that would improve the editathon,Editathon experience,6
+wiki_value,TA Wiki is or could be a valuable departmental resource,Perceived value and maintenance,7
+teaching_value,Maintained TA Wiki would improve teaching quality,Perceived value and maintenance,7
+new_tas_value,New TAs would benefit from consulting the TA Wiki,Perceived value and maintenance,7
+recommend_wiki,Would recommend the TA Wiki to another graduate student,Perceived value and maintenance,7
+maintain_wiki,TA Wiki should be maintained as an ongoing resource,Perceived value and maintenance,7
