@@ -56,6 +56,11 @@ Those inputs are intentionally not stored in Git. The file-by-file repository
 audit is recorded in [reproducibility audit report](reproducibility-audit-report.md)
 and [reproducibility file ledger](reproducibility-file-ledger.csv).
 
+The recommended next reproducibility upgrade is to track a reviewed
+disclosure-safe aggregate bundle and add a `reproduce-results --check` command.
+The options and implementation stages are documented in
+[clone-reproducible results plan](clone-reproducible-results-plan.md).
+
 ## What is deliberately excluded
 
 The current manuscript does not include:

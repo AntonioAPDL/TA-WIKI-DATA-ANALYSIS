@@ -50,6 +50,10 @@ That is intentional: raw survey exports, row-level derivatives, open text,
 timestamps, raffle/contact material, and restricted review artifacts are not
 stored in this coauthor-facing repository.
 
+The plan to make manuscript values and tables fully reproducible from a clone,
+without adding raw survey rows, is documented in
+[clone-reproducible results plan](docs/clone-reproducible-results-plan.md).
+
 ## Current manuscript scope
 
 The manuscript is a structured-only departmental descriptive survey/evaluation.

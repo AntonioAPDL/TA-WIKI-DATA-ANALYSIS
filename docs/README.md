@@ -16,6 +16,10 @@ artifacts, and remaining coauthor-review work.
 - [Reproducibility audit report](reproducibility-audit-report.md) - current
   file-by-file audit findings, verification commands, and remaining technical
   risks for the coauthor/Overleaf repository.
+- [Clone-reproducible results plan](clone-reproducible-results-plan.md) -
+  options and recommended path for making manuscript values, tables,
+  supplement, and claim ledger reproducible from a clean clone without tracking
+  raw survey rows.
 - [Reproducibility file ledger](reproducibility-file-ledger.csv) - one-row-per
   tracked-file inventory documenting purpose, consumer, and reproducibility
   status.
