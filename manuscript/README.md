@@ -1,4 +1,19 @@
-# Building the manuscript
+# Manuscript sources and local builds
+
+For normal coauthor review and Overleaf editing, use the repository-root
+`main.tex` file. That is the canonical Overleaf-facing manuscript source.
+
+The files in this directory are supporting controlled-build and review sources.
+They are retained for reproducibility/provenance and for specific local build
+commands, but they are not the primary file coauthors should open in Overleaf.
+
+Run this from the repository root before sharing manuscript-facing edits:
+
+```powershell
+Rscript scripts/run.R manuscript-check
+```
+
+## Controlled-build sources
 
 article.tex contains only evidence-bounded methods, limitations, and declaration
 placeholders. generated-results.tex is intentionally nonnumeric until a

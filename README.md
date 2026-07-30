@@ -16,16 +16,39 @@ counts, denominators, tables, or result claims.
 ## Start here
 
 1. Open the Overleaf project and compile `main.tex`.
-2. Read [current status](docs/current-status.md) for what the manuscript
+2. For prose edits, edit `main.tex` directly in Overleaf or Git.
+3. For any change to counts, denominators, tables, or result wording, regenerate
+   and validate the aggregate analysis/manuscript package before editing
+   `main.tex`.
+4. Run `Rscript scripts/run.R manuscript-check` before sharing manuscript-facing
+   changes.
+5. Read [current status](docs/current-status.md) for what the manuscript
    supports, what is excluded, and what remains for coauthor review.
-3. Read [coauthor package guide](docs/coauthor-package-guide.md) for the
+6. Read [coauthor package guide](docs/coauthor-package-guide.md) for the
    manuscript/supplement/evidence files used in review packages.
-4. Read [analysis overview](docs/analysis-overview.md) for the scope and
+7. Read [analysis overview](docs/analysis-overview.md) for the scope and
    explicit nonclaims.
-5. Read [reproducibility guide](docs/reproducibility-guide.md) before rerunning
+8. Read [reproducibility guide](docs/reproducibility-guide.md) before rerunning
    or modifying the analysis workflow.
-6. Read [new-repo transition plan](docs/new-repo-transition-plan.md) for the
+9. Read [new-repo transition plan](docs/new-repo-transition-plan.md) for the
    migration record and operating model for this GitHub/Overleaf repository.
+
+## What is reproducible from this repo
+
+From a clean clone, this repository supports:
+
+- locked-environment restoration;
+- privacy and repository-boundary checks;
+- synthetic workflow tests;
+- metadata-contract checks;
+- root `main.tex` source validation and local PDF compilation when `pdflatex`
+  is installed.
+
+Exact regeneration of the current empirical manuscript values requires the
+approved restricted source or a disclosure-safe aggregate package outside Git.
+That is intentional: raw survey exports, row-level derivatives, open text,
+timestamps, raffle/contact material, and restricted review artifacts are not
+stored in this coauthor-facing repository.
 
 ## Current manuscript scope
 
@@ -63,6 +86,7 @@ For routine repository checks:
 ```powershell
 Rscript scripts/run.R privacy
 Rscript scripts/run.R test
+Rscript scripts/run.R manuscript-check
 ```
 
 For the generated manuscript package workflow:

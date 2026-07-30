@@ -39,6 +39,8 @@ jobs:
         run: python tests/test_private_handoff.py
       - name: Run synthetic and manifest-lineage tests
         run: Rscript scripts/run.R test
+      - name: Check Overleaf-facing manuscript source
+        run: Rscript scripts/run.R manuscript-check
       - name: Verify final clean-clone baseline
         run: python scripts/verify_private_handoff.py . --strict-history
       - name: Ensure checks did not alter tracked files

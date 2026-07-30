@@ -39,6 +39,23 @@ The generated working copies live under `reports/internal/journal-manuscript/`
 when the manuscript builder is run locally. Those outputs are ignored because
 they are review artifacts. The tracked Overleaf source is `main.tex`.
 
+## Current reproducibility state
+
+The clean-clone reproducibility target for this coauthor repository is:
+
+- restore the locked R environment;
+- run privacy and synthetic tests;
+- verify tracked metadata and documentation wiring;
+- check the root `main.tex` manuscript source;
+- compile `main.tex` locally when a TeX engine is available, or in Overleaf
+  during coauthor review.
+
+Exact regeneration of the empirical values in `main.tex` requires the approved
+restricted source or the ignored disclosure-safe aggregate manuscript package.
+Those inputs are intentionally not stored in Git. The file-by-file repository
+audit is recorded in [reproducibility audit report](reproducibility-audit-report.md)
+and [reproducibility file ledger](reproducibility-file-ledger.csv).
+
 ## What is deliberately excluded
 
 The current manuscript does not include:

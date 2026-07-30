@@ -13,6 +13,12 @@ artifacts, and remaining coauthor-review work.
 
 - [Current status](current-status.md) - the shortest coauthor-facing summary of
   what is complete, what is excluded, and what decisions remain.
+- [Reproducibility audit report](reproducibility-audit-report.md) - current
+  file-by-file audit findings, verification commands, and remaining technical
+  risks for the coauthor/Overleaf repository.
+- [Reproducibility file ledger](reproducibility-file-ledger.csv) - one-row-per
+  tracked-file inventory documenting purpose, consumer, and reproducibility
+  status.
 - [Coauthor manuscript package guide](coauthor-package-guide.md) - current package
   contents, supported claims, and coauthor decision list.
 - [Final manuscript completion plan](final-manuscript-completion-plan.md) -

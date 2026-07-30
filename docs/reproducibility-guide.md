@@ -51,11 +51,38 @@ $env:TA_WIKI_ALLOW_RENV_BOOTSTRAP='1'
 Rscript scripts/run.R bootstrap
 Rscript scripts/run.R privacy
 Rscript scripts/run.R test
+Rscript scripts/run.R manuscript-check
 ```
 
 The lockfile controls the R dependency set. A platform-local locale warning may
 be reported by R; it is not a data or test failure. Any failed test, privacy
 scan, lockfile mismatch, or unexpected tracked-file change blocks a handoff.
+
+`manuscript-check` reads the tracked root `main.tex`, verifies that it is the
+standalone Overleaf-facing manuscript source, checks for stale internal-review
+labels, and compiles the manuscript in a temporary directory when `pdflatex` is
+available. Use `Rscript scripts/run.R manuscript-check --require-pdf` when a
+local PDF build is required rather than optional.
+
+## Coauthor-facing manuscript layer
+
+The canonical coauthor manuscript source in this repository is the root
+`main.tex` file. It is the file linked to Overleaf and the file coauthors should
+read or edit for prose, structure, and comments.
+
+Numerical result changes are different. Do not hand-edit counts, denominators,
+tables, or result claims in `main.tex` unless the change is traceable to the
+aggregate analysis package and claim-ledger validation route:
+
+```powershell
+Rscript scripts/run.R journal-style-manuscript --analysis-dir reports/internal/full-analysis --out-dir reports/internal/journal-manuscript
+Rscript scripts/run.R journal-claim-validation --manuscript-dir reports/internal/journal-manuscript --analysis-dir reports/internal/full-analysis
+```
+
+Those generated folders are ignored. If they are unavailable in a local clone,
+the clone can still validate code, metadata, privacy boundaries, and the
+manuscript source, but it cannot independently regenerate the current empirical
+numbers from Git alone.
 
 ## Coauthor review brief
 

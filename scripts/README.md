@@ -29,6 +29,7 @@ for the required record and source-context contract; synthetic commands and
 | `release` | Prepare a restricted release candidate. | Requires signed `release` authorization, approved threshold, and a complete current `01` → `02` → `03` real-data chain. It does not publish. |
 | `verify-release` | Verify a restricted, byte-bound release attestation. | Requires signed `verify-release` authorization, an exact candidate, and approval identifier; v0.4 records analytical, verifier, and manuscript-build provenance separately without authorizing a later checkout. |
 | `readiness` | Report machine-enforceable real-data prerequisites. | Does not access the survey, create a run, or claim institutional approval. |
+| `manuscript-check` | Check the root `main.tex` Overleaf manuscript source. | Uses only tracked TeX source. It verifies the canonical source structure and stale-label boundary, then compiles in a temporary directory when `pdflatex` is available. Use `--require-pdf` to fail if no TeX engine is found. |
 | `manuscript-preview` | Build a local, controlled manuscript preview. | Uses only tracked manuscript inputs; output is ignored. |
 | `manuscript-attested-build` | Build a restricted manuscript-integration PDF. | Requires signed `manuscript-attested-build` authorization, exact candidate, byte-bound attestation, and prior verification. It stages results only in restricted storage and never delivers or copies them into Git. |
 | `coauthor-brief` | Build a local, results-free coauthor review brief. | Uses one tracked self-contained TeX source; output is ignored and not submission-ready. |
@@ -46,6 +47,7 @@ $env:TA_WIKI_ALLOW_RENV_BOOTSTRAP='1'
 Rscript scripts/run.R bootstrap
 Rscript scripts/run.R privacy
 Rscript scripts/run.R test
+Rscript scripts/run.R manuscript-check
 ```
 
 For a real-data workflow, follow the

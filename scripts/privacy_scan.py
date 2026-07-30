@@ -60,6 +60,7 @@ SAFE_EXACT = {
 SAFE_DATA_PATHS = {
     "config/analysis-control-files.csv",
     "docs/evidence-index.csv",
+    "docs/reproducibility-file-ledger.csv",
     "docs/results-inventory.csv",
     "docs/source-register.csv",
     "data/metadata/category-codebook.csv",

@@ -19,6 +19,7 @@ targets <- c(
   release = "04_prepare_release.R",
   `verify-release` = "05_verify_release_attestation.R",
   readiness = "check_readiness.R",
+  `manuscript-check` = "check_main_manuscript.R",
   `manuscript-preview` = "build_manuscript_preview.R",
   `manuscript-attested-build` = "build_attested_manuscript.R",
   `coauthor-brief` = "build_coauthor_review_brief.R",
@@ -43,6 +44,7 @@ usage <- c(
   "  release               Prepare a restricted release candidate; never publishes (signed authorization required).",
   "  verify-release        Verify a restricted release attestation (signed authorization required).",
   "  readiness             Report technical prerequisites without accessing survey data.",
+  "  manuscript-check      Check the root main.tex Overleaf manuscript source; compiles when pdflatex is available.",
   "  manuscript-preview    Build a local controlled manuscript preview.",
   "  manuscript-attested-build  Build a restricted PDF from an attested results fragment (signed authorization required).",
   "  coauthor-brief        Build a local results-free coauthor review brief.",
@@ -76,6 +78,8 @@ if (identical(task, "bootstrap")) {
 } else if (identical(task, "privacy")) {
   python <- python_command()
   status <- system2(python$executable, c(python$prefix, file.path(root, "scripts", "privacy_scan.py"), root, forward))
+} else if (identical(task, "manuscript-check")) {
+  status <- system2(rscript, quote_args(c(file.path(root, "scripts", targets[[task]]), forward)))
 } else if (identical(task, "journal-claim-validation")) {
   renv_lib <- renv_library_for_child(root)
   old_autoloader <- Sys.getenv("RENV_CONFIG_AUTOLOADER_ENABLED", unset = NA)

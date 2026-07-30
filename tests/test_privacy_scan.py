@@ -101,6 +101,17 @@ def test_new_controlled_metadata_csv_is_allowed() -> None:
         scan(repo, 0)
 
 
+def test_reproducibility_file_ledger_csv_is_allowed() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        repo = pathlib.Path(directory)
+        init_repo(repo)
+        ledger = repo / "docs" / "reproducibility-file-ledger.csv"
+        ledger.parent.mkdir(parents=True)
+        ledger.write_text("path,file_class\nREADME.md,repository_control\n", encoding="utf-8")
+        run(repo, GIT, "add", "docs/reproducibility-file-ledger.csv")
+        scan(repo, 0)
+
+
 def test_unapproved_metadata_csv_is_rejected() -> None:
     with tempfile.TemporaryDirectory() as directory:
         repo = pathlib.Path(directory)
@@ -194,6 +205,7 @@ if __name__ == "__main__":
     test_spreadsheet_or_serialized_fixture_is_rejected_by_default()
     test_explicit_controlled_metadata_csv_is_allowed()
     test_new_controlled_metadata_csv_is_allowed()
+    test_reproducibility_file_ledger_csv_is_allowed()
     test_unapproved_metadata_csv_is_rejected()
     test_index_content_not_worktree_content_is_scanned()
     test_tracked_results_placeholder_rejects_numeric_or_import_content()
