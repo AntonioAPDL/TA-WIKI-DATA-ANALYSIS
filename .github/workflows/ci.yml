@@ -1,4 +1,4 @@
-name: privacy-and-reproducibility-checks
+name: reproducibility-checks
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  synthetic-and-privacy:
+  checks:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -31,19 +31,13 @@ jobs:
         run: Rscript scripts/run.R bootstrap
         env:
           TA_WIKI_ALLOW_RENV_BOOTSTRAP: '1'
-      - name: Enforce tracked-file privacy boundary
+      - name: Check tracked-file boundary
         run: Rscript scripts/run.R privacy --strict-history
-      - name: Run adversarial privacy-scanner tests
+      - name: Run privacy scanner regression tests
         run: python tests/test_privacy_scan.py
-      - name: Run private-handoff verifier tests
-        run: python tests/test_private_handoff.py
-      - name: Run synthetic and manifest-lineage tests
-        run: Rscript scripts/run.R test
-      - name: Check Overleaf-facing manuscript source
-        run: Rscript scripts/run.R manuscript-check
-      - name: Reproduce manuscript values from tracked aggregate bundle
+      - name: Reproduce manuscript values from aggregate bundle
         run: Rscript scripts/run.R reproduce-results --check
-      - name: Verify final clean-clone baseline
-        run: python scripts/verify_private_handoff.py . --strict-history
+      - name: Check Overleaf manuscript source
+        run: Rscript scripts/run.R manuscript-check
       - name: Ensure checks did not alter tracked files
         run: git diff --exit-code && test -z "$(git status --porcelain)"

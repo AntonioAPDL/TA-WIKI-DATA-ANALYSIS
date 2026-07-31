@@ -57,15 +57,15 @@
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-style-manuscript.tex",
       "rebuilt_relative": "journal-style-manuscript.tex",
-      "sha256": "a85158d5fa553bf4005a7fe84a00f1ecdcbb079e482231e30fcf1a05d55ec4fc",
-      "canonical_text_bytes": 18678,
+      "sha256": "ebd3290e009d894d63dfa7c61907f7d0b3a0121ec8574929ee0b980e9e21a102",
+      "canonical_text_bytes": 18679,
       "must_match_main_tex": true
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-style-manuscript-supplement.md",
       "rebuilt_relative": "journal-style-manuscript-supplement.md",
-      "sha256": "9ec7576f12273a2626acbd6f342d26af5bcb98962ce5c3bd488ff0ac060fd64b",
-      "canonical_text_bytes": 44312
+      "sha256": "7de445e6bcb322721a1eb7f1ca0a03dd26461a0e84272e84e0e495299cd33fd3",
+      "canonical_text_bytes": 43298
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
@@ -82,8 +82,8 @@
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
       "rebuilt_relative": "supplemental-structured-indicators.csv",
-      "sha256": "612dbccb78d0e88a2b9546ecda3c63c70078aa2b9803f00863d7bb4c673b658c",
-      "canonical_text_bytes": 5380
+      "sha256": "2a84443298b02d6e612bb173a8fea4d62ef9698f296b33c18cb542830cc20163",
+      "canonical_text_bytes": 5224
     }
   ],
   "notes": [

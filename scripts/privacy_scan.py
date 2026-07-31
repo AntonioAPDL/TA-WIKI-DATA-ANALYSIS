@@ -11,7 +11,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 
-EXACT_PLACEHOLDERS = {
+HISTORICAL_EXACT_PLACEHOLDERS = {
     "data/raw/.gitkeep",
     "data/restricted/.gitkeep",
     "data/derived/.gitkeep",
@@ -29,11 +29,6 @@ FORBIDDEN_PREFIXES = (
 )
 SAFE_PREFIXES = (
     ".github/",
-    ".githooks/",
-    "docs/",
-    "config/",
-    "data/metadata/",
-    "manuscript/",
     "renv/",
     "results/structured-aggregate/",
     "scripts/",
@@ -41,24 +36,44 @@ SAFE_PREFIXES = (
 )
 # Pre-reorganization paths are accepted only when scanning reachable history.
 HISTORICAL_SAFE_PREFIXES = (
+    ".githooks/",
     "admin/",
+    "config/",
+    "data/metadata/",
+    "docs/",
+    "manuscript/",
 )
 SAFE_EXACT = {
     ".Rprofile",
     ".gitattributes",
     ".gitignore",
-    "AGENTS.md",
-    "CHANGELOG.md",
-    "CONTRIBUTING.md",
     "DESCRIPTION",
     "LICENSE",
     "main.tex",
     "Makefile",
     "README.md",
     "renv.lock",
+}
+HISTORICAL_SAFE_EXACT = {
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
     "STYLE_PROFILE.md",
 }
 SAFE_DATA_PATHS = {
+    "results/structured-aggregate/aggregate-data/quantitative-cohort-flow.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-contribution-sensitivity.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-item-completeness.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-structured-summary-labeled.csv",
+    "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
+    "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
+}
+HISTORICAL_SAFE_DATA_PATHS = {
+    "admin/evidence-index.csv",
+    "admin/results-inventory.csv",
+    "admin/source-register.csv",
     "config/analysis-control-files.csv",
     "docs/evidence-index.csv",
     "docs/reproducibility-file-ledger.csv",
@@ -74,19 +89,6 @@ SAFE_DATA_PATHS = {
     "data/metadata/transformation-rules.csv",
     "data/metadata/variable_map.csv",
     "tests/synthetic-survey-fixture.csv",
-    "results/structured-aggregate/aggregate-data/quantitative-cohort-flow.csv",
-    "results/structured-aggregate/aggregate-data/quantitative-contribution-sensitivity.csv",
-    "results/structured-aggregate/aggregate-data/quantitative-item-completeness.csv",
-    "results/structured-aggregate/aggregate-data/quantitative-structured-summary-labeled.csv",
-    "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
-    "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
-    "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
-    "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
-}
-HISTORICAL_SAFE_DATA_PATHS = {
-    "admin/evidence-index.csv",
-    "admin/results-inventory.csv",
-    "admin/source-register.csv",
     "tests/fixtures_synthetic.csv",
 }
 FORBIDDEN_EXTENSIONS = {
@@ -162,7 +164,9 @@ def blob(root: pathlib.Path, object_name: str) -> bytes:
 
 
 def path_allowed(path: str, include_historical_paths: bool = False) -> bool:
-    if path in EXACT_PLACEHOLDERS or path in SAFE_EXACT:
+    if path in SAFE_EXACT:
+        return True
+    if include_historical_paths and (path in HISTORICAL_EXACT_PLACEHOLDERS or path in HISTORICAL_SAFE_EXACT):
         return True
     return path.startswith(SAFE_PREFIXES) or (
         include_historical_paths and path.startswith(HISTORICAL_SAFE_PREFIXES)
@@ -204,7 +208,9 @@ def scan_entries(root: pathlib.Path, entries: list[Entry], label: str) -> list[s
         if entry.mode in {"120000", "160000"}:
             errors.append(f"{label}: symlink or submodule is not permitted: {path}")
             continue
-        if path.startswith(FORBIDDEN_PREFIXES) and path not in EXACT_PLACEHOLDERS:
+        if path.startswith(FORBIDDEN_PREFIXES) and not (
+            include_historical_paths and path in HISTORICAL_EXACT_PLACEHOLDERS
+        ):
             errors.append(f"{label}: restricted path is tracked: {path}")
             continue
         if not path_allowed(path, include_historical_paths=include_historical_paths):

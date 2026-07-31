@@ -22,7 +22,7 @@ if (!requireNamespace("renv", quietly = TRUE)) {
 }
 activate_project(root)
 renv::restore(project = root, prompt = FALSE)
-required <- c("digest", "jsonlite", "readxl", "renv", "testthat", "writexl")
+required <- c("digest", "jsonlite", "renv")
 missing <- required[!vapply(required, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing)) stop("Locked restore incomplete: ", paste(missing, collapse = ", "))
 renv::status(project = root)

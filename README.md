@@ -1,123 +1,57 @@
-# TA Wiki data analysis and manuscript
+# TA Wiki descriptive analysis
 
-This is the coauthor-facing repository for the TA Wiki descriptive
-survey/evaluation manuscript and reproducible analysis workflow.
+This repository contains the Overleaf manuscript source and the minimal
+reproducible files needed to check the current descriptive analysis.
 
-The repository is connected to Overleaf. The Overleaf main file is:
+The Overleaf main file is:
 
 ```text
 main.tex
 ```
 
-Use `main.tex` for manuscript reading and coauthor prose edits. Use the analysis
-workflow, metadata, and claim ledger process for any future changes to reported
-counts, denominators, tables, or result claims.
+## What is included
 
-## Start here
-
-1. Open the Overleaf project and compile `main.tex`.
-2. For prose edits, edit `main.tex` directly in Overleaf or Git.
-3. For any change to counts, denominators, tables, or result wording, regenerate
-   and validate the tracked aggregate bundle before editing `main.tex`.
-4. Run `Rscript scripts/run.R reproduce-results --check` before sharing
-   result-facing changes.
-5. Run `Rscript scripts/run.R manuscript-check` before sharing manuscript-facing
-   changes.
-6. Read [current status](docs/current-status.md) for what the manuscript
-   supports, what is excluded, and what remains for coauthor review.
-7. Read [coauthor package guide](docs/coauthor-package-guide.md) for the
-   manuscript/supplement/evidence files used in review packages.
-8. Read [analysis overview](docs/analysis-overview.md) for the scope and
-   explicit nonclaims.
-9. Read [reproducibility guide](docs/reproducibility-guide.md) before rerunning
-   or modifying the analysis workflow.
-10. Read [new-repo transition plan](docs/new-repo-transition-plan.md) for the
-   migration record and operating model for this GitHub/Overleaf repository.
-
-## What is reproducible from this repo
-
-From a clean clone, this repository supports:
-
-- locked-environment restoration;
-- privacy and repository-boundary checks;
-- synthetic workflow tests;
-- metadata-contract checks;
-- root `main.tex` source validation and local PDF compilation when `pdflatex`
-  is installed;
-- current manuscript values, tables, structured supplement snapshots, and
-  claim ledger from the tracked disclosure-safe aggregate bundle.
-
-Use this command for the result-bearing reproducibility check:
-
-```powershell
-Rscript scripts/run.R reproduce-results --check
-```
-
-The command reads only `results/structured-aggregate/`, rebuilds the
-journal-style manuscript outputs in a temporary directory, validates the claim
-ledger, and confirms that the rebuilt TeX matches root `main.tex`.
-
-Raw survey exports, row-level derivatives, open text, timestamps,
-raffle/contact material, and restricted review artifacts are still deliberately
-excluded from Git.
-
-## Current manuscript scope
-
-The manuscript is a structured-only departmental descriptive survey/evaluation.
-It reports observed survey-record counts, item-specific denominators,
-missing/invalid responses, direct contribution status, and an extreme-case
-deterministic missing-response range.
-
-It does not report raw survey rows, timestamps, open-text responses,
-raffle/contact material, response rates, causal effects, department-wide
-prevalence, or routing-dependent conditional findings.
-
-## Repository map
-
-| Location | Purpose |
+| Path | Purpose |
 |---|---|
-| `main.tex` | Overleaf-facing manuscript source. |
-| [`docs/`](docs/README.md) | Current status, coauthor guidance, analysis design, and reproducibility documentation. |
-| [`data/metadata/`](data/metadata/README.md) | Respondent-free schema, codebook, and transformation contracts. |
-| [`scripts/`](scripts/README.md) | Reproducible workflow commands and implementation modules. |
-| [`results/structured-aggregate/`](results/structured-aggregate/README.md) | Disclosure-safe aggregate bundle used to reproduce current manuscript values and tables from a clone. |
-| [`tests/`](tests) | Synthetic fixtures and automated checks. |
-| [`config/`](config) | Controlled project configuration. |
+| `main.tex` | Manuscript source used by Overleaf. |
+| `results/structured-aggregate/` | Aggregate tables, expected manuscript/table snapshots, and a manifest. |
+| `scripts/` | Small command interface for rebuilding/checking the manuscript from the aggregate tables. |
+| `renv.lock`, `renv/` | Locked R environment metadata. |
+| `.github/workflows/ci.yml` | Reproducibility checks run on GitHub. |
 
-## Data boundary
+Raw survey exports, row-level records, timestamps, open-text responses, and
+raffle/contact information are not stored in this repository.
 
-Raw survey exports, timestamps, respondent rows, open text, raffle/contact
-records, and restricted governance records are not stored in this repository.
-The tracked files contain source-safe code, respondent-free metadata, synthetic
-tests, manuscript source, and documentation.
+## Reproduce the current manuscript values
 
-## Validation
-
-For routine repository checks:
+From a clean clone:
 
 ```powershell
-Rscript scripts/run.R privacy
-Rscript scripts/run.R test
+$env:TA_WIKI_ALLOW_RENV_BOOTSTRAP='1'
+Rscript scripts/run.R bootstrap
+Rscript scripts/run.R reproduce-results --check
 Rscript scripts/run.R manuscript-check
+```
+
+`reproduce-results --check` rebuilds the manuscript tables, claim ledger,
+structured supplement snapshot, and manuscript TeX from
+`results/structured-aggregate/`. It then checks that the rebuilt manuscript TeX
+matches `main.tex`.
+
+`manuscript-check` verifies the root manuscript source and compiles it in a
+temporary directory when `pdflatex` is available.
+
+## Repository boundary
+
+This is an aggregate-result reproducibility repository, not a raw-data
+repository. The current descriptive numbers can be regenerated from the tracked
+aggregate tables, but individual survey records cannot be reconstructed from
+this repository.
+
+If a result changes, regenerate the aggregate bundle through the approved
+analysis workflow, replace the files under `results/structured-aggregate/`, and
+rerun:
+
+```powershell
 Rscript scripts/run.R reproduce-results --check
 ```
-
-For rebuilding a local review package from an ignored internal analysis package:
-
-```powershell
-Rscript scripts/run.R journal-style-manuscript --analysis-dir reports/internal/full-analysis --out-dir reports/internal/journal-manuscript
-Rscript scripts/run.R journal-claim-validation --manuscript-dir reports/internal/journal-manuscript --analysis-dir reports/internal/full-analysis
-Rscript scripts/run.R coauthor-package --manuscript-dir reports/internal/journal-manuscript
-```
-
-The generated package paths under `reports/internal/` are ignored because they
-are local review artifacts. The Overleaf-facing manuscript source is the tracked
-`main.tex`.
-
-## Migration record
-
-This repository was prepared from the clean manuscript workflow at source commit
-`de5c2d87ad11ce046090c94c048575e45d87fdd1` of
-`AntonioAPDL/ta-wiki-assessment-publication`. The original repository remains
-the provenance/working repository; this repository is the clean
-coauthor/Overleaf collaboration repository.

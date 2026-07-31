@@ -10,7 +10,7 @@ script_file <- function() {
 
 project_root_from_script <- function(path = script_file()) {
   root <- normalizePath(file.path(dirname(path), ".."), winslash = "/", mustWork = TRUE)
-  required <- c("renv.lock", "scripts", "data", "docs")
+  required <- c("renv.lock", "scripts", "results", "main.tex")
   if (!all(file.exists(file.path(root, required)))) {
     stop("The executing script is not located in a TA Wiki assessment project.")
   }

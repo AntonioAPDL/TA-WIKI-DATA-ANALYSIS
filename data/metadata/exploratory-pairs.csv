@@ -1,5 +1,0 @@
-pair_id,row_item,column_item,rationale,analysis_variant,internal_only
-EXP-001,git_comfort,github_contribution_effect,Describe the joint distribution of reported Git and GitHub comfort and the reported effect of GitHub hosting on willingness to contribute.,primary,yes
-EXP-002,teaching_interest,github_contribution_effect,Describe the joint distribution of reported interest in developing teaching skills and the reported effect of GitHub hosting on willingness to contribute.,primary,yes
-EXP-003,program_year,wiki_visited,Describe the joint distribution of graduate-program year and reported prior TA Wiki visitation.,primary,yes
-EXP-004,ta_quarters,contributed,Describe the joint distribution of prior TA experience in the department and directly reported TA Wiki contribution.,primary,yes

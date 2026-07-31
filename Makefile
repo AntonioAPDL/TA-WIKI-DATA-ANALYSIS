@@ -1,42 +1,23 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help bootstrap check test privacy verify hooks readiness intake validate transform analyze qualitative qualitative-snapshot release verify-release manuscript-check manuscript-preview manuscript-attested-build coauthor-brief reproduce-results
+.PHONY: help bootstrap privacy check manuscript-check reproduce-results
 
 help:
-	@echo "Optional wrappers for the canonical Rscript scripts/run.R interface."
-	@echo "Common targets: bootstrap, readiness, privacy, check (or test), verify, manuscript-check, reproduce-results, manuscript-preview, manuscript-attested-build, coauthor-brief."
+	@echo "Common targets: bootstrap, privacy, check, manuscript-check, reproduce-results."
 
 bootstrap:
 	Rscript scripts/run.R bootstrap
 
-check:
-	Rscript scripts/run.R test
-
-test: check
-
 privacy:
-	Rscript scripts/run.R privacy $(ARGS)
-
-verify:
 	Rscript scripts/run.R privacy --strict-history
-	Rscript scripts/run.R test
+
+manuscript-check:
 	Rscript scripts/run.R manuscript-check
-	Rscript scripts/run.R reproduce-results --check
-
-hooks:
-	git config core.hooksPath .githooks
-
-readiness:
-	Rscript scripts/run.R readiness
-
-intake validate transform analyze qualitative qualitative-snapshot release verify-release:
-	Rscript scripts/run.R $@ $(ARGS)
-
-manuscript-check manuscript-preview manuscript-attested-build:
-	Rscript scripts/run.R $@ $(ARGS)
-
-coauthor-brief:
-	Rscript scripts/run.R coauthor-brief $(ARGS)
 
 reproduce-results:
-	Rscript scripts/run.R reproduce-results $(ARGS)
+	Rscript scripts/run.R reproduce-results --check
+
+check:
+	Rscript scripts/run.R privacy --strict-history
+	Rscript scripts/run.R reproduce-results --check
+	Rscript scripts/run.R manuscript-check

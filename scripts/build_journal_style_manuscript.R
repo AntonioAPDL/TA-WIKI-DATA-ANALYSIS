@@ -699,13 +699,13 @@ supplemental_indicators <- data.frame(
     "routing_unverified"
   ),
   `Release status` = c(
-    rep("coauthor_review_exact_count", 3),
-    rep("coauthor_review_exact_count", 4),
-    rep("coauthor_review_exact_count", 3),
-    rep("coauthor_review_exact_count", 6),
-    rep("coauthor_review_exact_count", 5),
-    rep("coauthor_review_exact_count", 2),
-    rep("coauthor_review_exact_count", 3),
+    rep("aggregate_exact_count", 3),
+    rep("aggregate_exact_count", 4),
+    rep("aggregate_exact_count", 3),
+    rep("aggregate_exact_count", 6),
+    rep("aggregate_exact_count", 5),
+    rep("aggregate_exact_count", 2),
+    rep("aggregate_exact_count", 3),
     "internal_only_not_manuscript_evidence"
   ),
   stringsAsFactors = FALSE,
@@ -750,7 +750,7 @@ appendix_full$`Routing status` <- ifelse(
 appendix_full$`Release status` <- ifelse(
   appendix_full$`Item ID` %in% conditional_or_diagnostic_items,
   "internal_only_not_manuscript_evidence",
-  "coauthor_review_exact_count"
+  "aggregate_exact_count"
 )
 appendix_contribution <- data.frame(
   Classification = c("Direct item", "Extreme-case deterministic missing-response range", "Internal reason-informed diagnostic"),
@@ -921,7 +921,7 @@ references_html <- function(refs) {
   c("<ol>", paste0("<li>", html_escape(refs$text), " <a href=\"", html_escape(refs$url), "\">", html_escape(refs$url), "</a></li>"), "</ol>")
 }
 references_tex <- function(refs) {
-  text <- sub(" doi:[A-Za-z0-9./-]+\\.$", ".", refs$text)
+  text <- sub(" doi:[A-Za-z0-9./-]+\\.$", "", refs$text)
   c(
     "\\begin{sloppypar}",
     "\\small",
@@ -1114,7 +1114,7 @@ tex <- c(
   paste0("\\title{", latex_escape(manuscript_title), "}"),
   "\\author{Antonio Aguirre\\\\University of California, Santa Cruz \\and Andrew Le\\\\University of California, Santa Cruz \\and Marcela Alfaro-C\\'ordoba\\\\University of California, Santa Cruz}",
   paste0("\\date{", latex_escape(version_date), "}"),
-  paste0("\\hypersetup{pdftitle={", latex_escape(manuscript_title), "},pdfauthor={Antonio Aguirre, Andrew Le, and Marcela Alfaro-Cordoba},pdfsubject={Departmental TA Wiki descriptive survey},pdfkeywords={TA Wiki, teaching assistants, descriptive survey, coauthor review}}"),
+  paste0("\\hypersetup{pdftitle={", latex_escape(manuscript_title), "},pdfauthor={Antonio Aguirre, Andrew Le, and Marcela Alfaro-Cordoba},pdfsubject={Departmental TA Wiki descriptive survey},pdfkeywords={TA Wiki, teaching assistants, descriptive survey, descriptive analysis}}"),
   "\\begin{document}",
   "\\maketitle",
   "\\linenumbers",
@@ -1187,7 +1187,7 @@ git_status <- git_status_short()
 
 build_record <- list(
   generated_at_utc = utc_now(),
-  manuscript_profile = "structured_only_internal_coauthor_draft",
+  manuscript_profile = "structured_aggregate_manuscript",
   repository = list(
     commit = git_value(c("rev-parse", "HEAD")),
     branch = git_value(c("branch", "--show-current")),
@@ -1200,7 +1200,6 @@ build_record <- list(
     tex_engine = rel_path(pdflatex, root),
     tex_version = tex_version,
     renv_lock_sha256 = sha256_file(file.path(root, "renv.lock")),
-    style_profile_sha256 = sha256_file(file.path(root, "STYLE_PROFILE.md")),
     project_context_sha256 = sha256_file(file.path(root, "scripts", "lib", "project_context.R"))
   ),
   analysis_dir = rel_path(analysis_dir, root),
@@ -1254,7 +1253,7 @@ build_record$output_hashes <- lapply(output_files, function(path) if (nzchar(pat
 if (nzchar(copy_to)) {
   dir.create(copy_to, recursive = TRUE, showWarnings = FALSE)
   copied <- list(
-    profile = "coauthor_review_copy",
+    profile = "manuscript_copy",
     request_reference = "local copy requested by command",
     destination = "user_specified_local_directory_not_recorded",
     artifacts = list()

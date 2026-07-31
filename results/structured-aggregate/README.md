@@ -15,7 +15,8 @@ It deliberately does not contain:
 - local PDF/log/build intermediates.
 
 The bundle is generated from the aggregate-only manuscript package whose TeX
-output is byte-identical to the repository-root `main.tex` file. Use:
+output is text-identical to the repository-root `main.tex` file after
+LF/CRLF-normalization. Use:
 
 ```powershell
 Rscript scripts/run.R reproduce-results --check
