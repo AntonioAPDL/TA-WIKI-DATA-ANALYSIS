@@ -1,0 +1,165 @@
+"item","domain","item_type","analysis_variant","response","display_order","n","eligible_n","applicable_n","observed_valid_n","inferred_n","missing_n","invalid_n","structural_skip_n","denominator","percent","publication_label","domain_label","domain_order"
+"git_comfort","background","ordinal","primary","Slightly comfortable - I understand the basics but rarely use it",1,3,12,12,12,0,0,0,0,12,25,"Comfort with Git and GitHub","Background and teaching context",1
+"git_comfort","background","ordinal","primary","Moderately comfortable - I use it for my own work occasionally",2,6,12,12,12,0,0,0,0,12,50,"Comfort with Git and GitHub","Background and teaching context",1
+"git_comfort","background","ordinal","primary","Very comfortable - I use it regularly",3,2,12,12,12,0,0,0,0,12,16.7,"Comfort with Git and GitHub","Background and teaching context",1
+"git_comfort","background","ordinal","primary","Expert - I use advanced features (branching, PRs, CI/CD, etc.)",4,1,12,12,12,0,0,0,0,12,8.3,"Comfort with Git and GitHub","Background and teaching context",1
+"program_year","background","single_choice","primary","1st year",1,1,12,12,12,0,0,0,0,12,8.3,"Graduate-program year","Background and teaching context",1
+"program_year","background","single_choice","primary","2nd year",2,5,12,12,12,0,0,0,0,12,41.7,"Graduate-program year","Background and teaching context",1
+"program_year","background","single_choice","primary","3rd year",3,4,12,12,12,0,0,0,0,12,33.3,"Graduate-program year","Background and teaching context",1
+"program_year","background","single_choice","primary","4th year",4,2,12,12,12,0,0,0,0,12,16.7,"Graduate-program year","Background and teaching context",1
+"ta_quarters","background","ordinal","primary","1-2 quarters",1,1,12,12,12,0,0,0,0,12,8.3,"TA quarters in the department","Background and teaching context",1
+"ta_quarters","background","ordinal","primary","3-4 quarters",2,2,12,12,12,0,0,0,0,12,16.7,"TA quarters in the department","Background and teaching context",1
+"ta_quarters","background","ordinal","primary","5 or more quarters",3,9,12,12,12,0,0,0,0,12,75,"TA quarters in the department","Background and teaching context",1
+"teaching_interest","background","ordinal","primary","Slightly interested - I want to do a decent job but don't actively seek development",1,2,12,12,12,0,0,0,0,12,16.7,"Interest in developing teaching skills","Background and teaching context",1
+"teaching_interest","background","ordinal","primary","Moderately interested - I look for ways to improve when convenient",2,6,12,12,12,0,0,0,0,12,50,"Interest in developing teaching skills","Background and teaching context",1
+"teaching_interest","background","ordinal","primary","Very interested - I actively seek out teaching development opportunities",3,3,12,12,12,0,0,0,0,12,25,"Interest in developing teaching skills","Background and teaching context",1
+"teaching_interest","background","ordinal","primary","Extremely interested - teaching is a significant part of my professional goals",4,1,12,12,12,0,0,0,0,12,8.3,"Interest in developing teaching skills","Background and teaching context",1
+"current_resources","resource_ecosystem","checkbox","primary","Advice from other grad students in Stats",1,11,12,12,12,0,0,0,0,12,91.7,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","Advice from other grad students in other programs",2,2,12,12,12,0,0,0,0,12,16.7,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","Advice from the course instructor or faculty",3,7,12,12,12,0,0,0,0,12,58.3,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","Department orientation or training materials (STAT 200)",4,5,12,12,12,0,0,0,0,12,41.7,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","The TA Wiki",5,4,12,12,12,0,0,0,0,12,33.3,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","University-wide teaching center (TLC) or workshops",6,3,12,12,12,0,0,0,0,12,25,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","Online resources (blogs, YouTube, subreddits, etc.)",7,7,12,12,12,0,0,0,0,12,58.3,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","Published books or articles on pedagogy",8,1,12,12,12,0,0,0,0,12,8.3,"Current teaching-support resources","Teaching-support resources",2
+"current_resources","resource_ecosystem","checkbox","primary","AI",9,1,12,12,12,0,0,0,0,12,8.3,"Current teaching-support resources","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Course-specific tips from previous TAs",1,8,12,12,10,0,0,2,0,10,80,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Grading rubrics and examples",2,8,12,12,10,0,0,2,0,10,80,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Lesson plans or activity ideas",3,8,12,12,10,0,0,2,0,10,80,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Policies and logistics (office hours, room bookings, tech setup)",4,5,12,12,10,0,0,2,0,10,50,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Advice on handling difficult classroom situations",5,6,12,12,10,0,0,2,0,10,60,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Templates (syllabi, emails to students, feedback forms)",6,7,12,12,10,0,0,2,0,10,70,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Guidance on pedagogy and inclusive teaching practices",7,3,12,12,10,0,0,2,0,10,30,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","Information about available departmental and university support",8,3,12,12,10,0,0,2,0,10,30,"Desired features of a teaching resource","Teaching-support resources",2
+"desired_features","resource_ecosystem","checkbox","primary","A space for TAs to ask questions and share experiences",9,5,12,12,10,0,0,2,0,10,50,"Desired features of a teaching resource","Teaching-support resources",2
+"ideal_resource_use","resource_ecosystem","single_choice","primary","Neutral - I might check it out",1,3,12,12,11,0,0,1,0,11,27.3,"Likelihood of using a comprehensive resource","Teaching-support resources",2
+"ideal_resource_use","resource_ecosystem","single_choice","primary","Likely - I would use it when needs arise",2,5,12,12,11,0,0,1,0,11,45.5,"Likelihood of using a comprehensive resource","Teaching-support resources",2
+"ideal_resource_use","resource_ecosystem","single_choice","primary","Very likely - I would consult it regularly",3,3,12,12,11,0,0,1,0,11,27.3,"Likelihood of using a comprehensive resource","Teaching-support resources",2
+"resource_seeking","resource_ecosystem","single_choice","primary","No, I don't feel the need for additional resources",1,3,12,12,11,0,1,0,0,11,27.3,"Seeks teaching-support resources","Teaching-support resources",2
+"resource_seeking","resource_ecosystem","single_choice","primary","No, I would like resources but don't know where to find them",2,1,12,12,11,0,1,0,0,11,9.1,"Seeks teaching-support resources","Teaching-support resources",2
+"resource_seeking","resource_ecosystem","single_choice","primary","Yes, occasionally when a specific need arises",3,6,12,12,11,0,1,0,0,11,54.5,"Seeks teaching-support resources","Teaching-support resources",2
+"resource_seeking","resource_ecosystem","single_choice","primary","Yes, regularly",4,1,12,12,11,0,1,0,0,11,9.1,"Seeks teaching-support resources","Teaching-support resources",2
+"awareness_source","awareness","single_choice","primary","Department orientation or seminar",1,4,12,12,12,0,0,0,0,12,33.3,"First source of awareness","TA Wiki awareness and use",3
+"awareness_source","awareness","single_choice","primary","A fellow grad student told me",2,2,12,12,12,0,0,0,0,12,16.7,"First source of awareness","TA Wiki awareness and use",3
+"awareness_source","awareness","single_choice","primary","A faculty member or course coordinator mentioned it",3,2,12,12,12,0,0,0,0,12,16.7,"First source of awareness","TA Wiki awareness and use",3
+"awareness_source","awareness","single_choice","primary","The editathon announcement",4,4,12,12,12,0,0,0,0,12,33.3,"First source of awareness","TA Wiki awareness and use",3
+"consult_frequency","usage","single_choice","primary","Never",1,4,12,12,9,0,3,0,0,9,44.4,"Frequency of consulting the TA Wiki","TA Wiki awareness and use",3
+"consult_frequency","usage","single_choice","primary","Rarely (once or twice a quarter)",2,2,12,12,9,0,3,0,0,9,22.2,"Frequency of consulting the TA Wiki","TA Wiki awareness and use",3
+"consult_frequency","usage","single_choice","primary","Sometimes (a few times a quarter)",3,3,12,12,9,0,3,0,0,9,33.3,"Frequency of consulting the TA Wiki","TA Wiki awareness and use",3
+"consult_when","usage","checkbox","primary","Before the start of a new TA assignment",1,1,12,12,8,0,4,0,0,8,12.5,"When the TA Wiki is consulted","TA Wiki awareness and use",3
+"consult_when","usage","checkbox","primary","During the first few weeks of a quarter",2,2,12,12,8,0,4,0,0,8,25,"When the TA Wiki is consulted","TA Wiki awareness and use",3
+"consult_when","usage","checkbox","primary","When a specific issue comes up (e.g., grading disputes, office hours logistics)",3,4,12,12,8,0,4,0,0,8,50,"When the TA Wiki is consulted","TA Wiki awareness and use",3
+"consult_when","usage","checkbox","primary","When preparing course materials or lesson plans",4,3,12,12,8,0,4,0,0,8,37.5,"When the TA Wiki is consulted","TA Wiki awareness and use",3
+"consult_when","usage","checkbox","primary","Out of general curiosity",5,3,12,12,8,0,4,0,0,8,37.5,"When the TA Wiki is consulted","TA Wiki awareness and use",3
+"needs_met","usage","single_choice","primary","I haven't used the Wiki enough to say",1,3,12,12,9,0,3,0,0,9,33.3,"How well the TA Wiki meets TA needs","TA Wiki awareness and use",3
+"needs_met","usage","single_choice","primary","Moderately - it covers the basics but could be more comprehensive",2,2,12,12,9,0,3,0,0,9,22.2,"How well the TA Wiki meets TA needs","TA Wiki awareness and use",3
+"needs_met","usage","single_choice","primary","Very well - it addresses most of what I need",3,3,12,12,9,0,3,0,0,9,33.3,"How well the TA Wiki meets TA needs","TA Wiki awareness and use",3
+"needs_met","usage","single_choice","primary","Completely - it is an excellent, comprehensive resource",4,1,12,12,9,0,3,0,0,9,11.1,"How well the TA Wiki meets TA needs","TA Wiki awareness and use",3
+"needs_reason","usage","single_choice","primary","The Wiki does meet my needs",1,3,12,12,4,0,3,5,0,4,75,"Reason the TA Wiki does not fully meet needs","TA Wiki awareness and use",3
+"needs_reason","usage","single_choice","primary","Content is not relevant to the courses I TA",2,0,12,12,4,0,3,5,0,4,0,"Reason the TA Wiki does not fully meet needs","TA Wiki awareness and use",3
+"needs_reason","usage","single_choice","primary","Hard to navigate or find what I need",3,0,12,12,4,0,3,5,0,4,0,"Reason the TA Wiki does not fully meet needs","TA Wiki awareness and use",3
+"needs_reason","usage","single_choice","primary","I prefer getting help from people rather than a wiki",4,1,12,12,4,0,3,5,0,4,25,"Reason the TA Wiki does not fully meet needs","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","General TA policies and expectations",1,1,12,12,9,0,3,0,0,9,11.1,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","Tips on preparing and leading sections",2,3,12,12,9,0,3,0,0,9,33.3,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","Grading guidelines and rubrics",3,1,12,12,9,0,3,0,0,9,11.1,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","Classroom management and pedagogy advice",4,2,12,12,9,0,3,0,0,9,22.2,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","Logistics (office hours, room bookings, tech setup, etc.)",5,3,12,12,9,0,3,0,0,9,33.3,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","Information about department resources or support",6,1,12,12,9,0,3,0,0,9,11.1,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","I haven't explored the Wiki enough to say",7,3,12,12,9,0,3,0,0,9,33.3,"TA Wiki content found useful","TA Wiki awareness and use",3
+"useful_content","usage","checkbox","primary","I haven't found any content particularly useful",8,1,12,12,9,0,3,0,0,9,11.1,"TA Wiki content found useful","TA Wiki awareness and use",3
+"wiki_awareness","awareness","single_choice","primary","No",1,0,12,12,12,0,0,0,0,12,0,"Awareness of the TA Wiki","TA Wiki awareness and use",3
+"wiki_awareness","awareness","single_choice","primary","I had heard of it but didn't know what it was",2,1,12,12,12,0,0,0,0,12,8.3,"Awareness of the TA Wiki","TA Wiki awareness and use",3
+"wiki_awareness","awareness","single_choice","primary","Yes",3,11,12,12,12,0,0,0,0,12,91.7,"Awareness of the TA Wiki","TA Wiki awareness and use",3
+"wiki_visited","usage","single_choice","primary","No, but I knew it existed",1,3,12,12,12,0,0,0,0,12,25,"Prior visit to the TA Wiki","TA Wiki awareness and use",3
+"wiki_visited","usage","single_choice","primary","Yes, once or twice",2,4,12,12,12,0,0,0,0,12,33.3,"Prior visit to the TA Wiki","TA Wiki awareness and use",3
+"wiki_visited","usage","single_choice","primary","Yes, multiple times",3,5,12,12,12,0,0,0,0,12,41.7,"Prior visit to the TA Wiki","TA Wiki awareness and use",3
+"contributed","contribution","single_choice","primary","No",1,4,12,12,9,0,3,0,0,9,44.4,"Previously contributed to the TA Wiki","Contribution and participation",4
+"contributed","contribution","single_choice","primary","Yes",2,5,12,12,9,0,3,0,0,9,55.6,"Previously contributed to the TA Wiki","Contribution and participation",4
+"contributed","contribution","single_choice","sensitivity_inferred_from_valid_reason","No",1,6,12,12,9,2,1,0,0,11,54.5,"Previously contributed to the TA Wiki","Contribution and participation",4
+"contributed","contribution","single_choice","sensitivity_inferred_from_valid_reason","Yes",2,5,12,12,9,2,1,0,0,11,45.5,"Previously contributed to the TA Wiki","Contribution and participation",4
+"contribution_straightforward","contribution","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"Contribution process is straightforward","Contribution and participation",4
+"contribution_straightforward","contribution","likert","primary","Disagree",2,1,12,12,12,0,0,0,0,12,8.3,"Contribution process is straightforward","Contribution and participation",4
+"contribution_straightforward","contribution","likert","primary","Neutral",3,6,12,12,12,0,0,0,0,12,50,"Contribution process is straightforward","Contribution and participation",4
+"contribution_straightforward","contribution","likert","primary","Agree",4,4,12,12,12,0,0,0,0,12,33.3,"Contribution process is straightforward","Contribution and participation",4
+"contribution_straightforward","contribution","likert","primary","Strongly agree",5,1,12,12,12,0,0,0,0,12,8.3,"Contribution process is straightforward","Contribution and participation",4
+"noncontribution_reasons","contribution","checkbox","primary","I didn't have anything to add",1,2,12,12,6,0,3,3,0,6,33.3,"Reasons for not contributing to the TA Wiki","Contribution and participation",4
+"noncontribution_reasons","contribution","checkbox","primary","I didn't have time",2,3,12,12,6,0,3,3,0,6,50,"Reasons for not contributing to the TA Wiki","Contribution and participation",4
+"noncontribution_reasons","contribution","checkbox","primary","I wasn't sure my contributions would be valued or used",3,2,12,12,6,0,3,3,0,6,33.3,"Reasons for not contributing to the TA Wiki","Contribution and participation",4
+"simpler_interface","contribution","likert","primary","Strongly disagree",1,1,12,12,12,0,0,0,0,12,8.3,"Simpler interface would increase willingness to contribute","Contribution and participation",4
+"simpler_interface","contribution","likert","primary","Disagree",2,2,12,12,12,0,0,0,0,12,16.7,"Simpler interface would increase willingness to contribute","Contribution and participation",4
+"simpler_interface","contribution","likert","primary","Neutral",3,1,12,12,12,0,0,0,0,12,8.3,"Simpler interface would increase willingness to contribute","Contribution and participation",4
+"simpler_interface","contribution","likert","primary","Agree",4,4,12,12,12,0,0,0,0,12,33.3,"Simpler interface would increase willingness to contribute","Contribution and participation",4
+"simpler_interface","contribution","likert","primary","Strongly agree",5,4,12,12,12,0,0,0,0,12,33.3,"Simpler interface would increase willingness to contribute","Contribution and participation",4
+"training_walkthrough","contribution","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"Training or walkthrough would increase willingness to contribute","Contribution and participation",4
+"training_walkthrough","contribution","likert","primary","Disagree",2,2,12,12,12,0,0,0,0,12,16.7,"Training or walkthrough would increase willingness to contribute","Contribution and participation",4
+"training_walkthrough","contribution","likert","primary","Neutral",3,4,12,12,12,0,0,0,0,12,33.3,"Training or walkthrough would increase willingness to contribute","Contribution and participation",4
+"training_walkthrough","contribution","likert","primary","Agree",4,5,12,12,12,0,0,0,0,12,41.7,"Training or walkthrough would increase willingness to contribute","Contribution and participation",4
+"training_walkthrough","contribution","likert","primary","Strongly agree",5,1,12,12,12,0,0,0,0,12,8.3,"Training or walkthrough would increase willingness to contribute","Contribution and participation",4
+"understand_contribution","contribution","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"Understands how to contribute","Contribution and participation",4
+"understand_contribution","contribution","likert","primary","Disagree",2,1,12,12,12,0,0,0,0,12,8.3,"Understands how to contribute","Contribution and participation",4
+"understand_contribution","contribution","likert","primary","Neutral",3,3,12,12,12,0,0,0,0,12,25,"Understands how to contribute","Contribution and participation",4
+"understand_contribution","contribution","likert","primary","Agree",4,3,12,12,12,0,0,0,0,12,25,"Understands how to contribute","Contribution and participation",4
+"understand_contribution","contribution","likert","primary","Strongly agree",5,5,12,12,12,0,0,0,0,12,41.7,"Understands how to contribute","Contribution and participation",4
+"wiki_ownership","contribution","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"Sense of ownership of the TA Wiki","Contribution and participation",4
+"wiki_ownership","contribution","likert","primary","Disagree",2,2,12,12,12,0,0,0,0,12,16.7,"Sense of ownership of the TA Wiki","Contribution and participation",4
+"wiki_ownership","contribution","likert","primary","Neutral",3,4,12,12,12,0,0,0,0,12,33.3,"Sense of ownership of the TA Wiki","Contribution and participation",4
+"wiki_ownership","contribution","likert","primary","Agree",4,4,12,12,12,0,0,0,0,12,33.3,"Sense of ownership of the TA Wiki","Contribution and participation",4
+"wiki_ownership","contribution","likert","primary","Strongly agree",5,2,12,12,12,0,0,0,0,12,16.7,"Sense of ownership of the TA Wiki","Contribution and participation",4
+"github_advantages","github","checkbox","primary","Version control / edit history",1,9,12,12,11,0,0,1,0,11,81.8,"Perceived advantages of GitHub hosting","GitHub-related perceptions",5
+"github_advantages","github","checkbox","primary","Transparency (anyone can see changes and who made them)",2,7,12,12,11,0,0,1,0,11,63.6,"Perceived advantages of GitHub hosting","GitHub-related perceptions",5
+"github_advantages","github","checkbox","primary","Customizability and flexibility of the format",3,4,12,12,11,0,0,1,0,11,36.4,"Perceived advantages of GitHub hosting","GitHub-related perceptions",5
+"github_advantages","github","checkbox","primary","Integration with other tools (e.g., CI/CD, issue tracking)",4,4,12,12,11,0,0,1,0,11,36.4,"Perceived advantages of GitHub hosting","GitHub-related perceptions",5
+"github_advantages","github","checkbox","primary","Familiarity (I already use GitHub for other work)",5,3,12,12,11,0,0,1,0,11,27.3,"Perceived advantages of GitHub hosting","GitHub-related perceptions",5
+"github_advantages","github","checkbox","primary","I don't see any particular advantages",6,2,12,12,11,0,0,1,0,11,18.2,"Perceived advantages of GitHub hosting","GitHub-related perceptions",5
+"github_contribution_effect","github","single_choice","primary","It makes me less likely to contribute (I find GitHub workflows difficult)",1,3,12,12,12,0,0,0,0,12,25,"Effect of GitHub hosting on willingness to contribute","GitHub-related perceptions",5
+"github_contribution_effect","github","single_choice","primary","It makes no difference",2,6,12,12,12,0,0,0,0,12,50,"Effect of GitHub hosting on willingness to contribute","GitHub-related perceptions",5
+"github_contribution_effect","github","single_choice","primary","It makes me more likely to contribute (I'm comfortable with GitHub workflows)",3,3,12,12,12,0,0,0,0,12,25,"Effect of GitHub hosting on willingness to contribute","GitHub-related perceptions",5
+"github_disadvantages","github","checkbox","primary","Steep learning curve for those unfamiliar with Git",1,6,12,12,11,0,0,1,0,11,54.5,"Perceived disadvantages of GitHub hosting","GitHub-related perceptions",5
+"github_disadvantages","github","checkbox","primary","Difficult to browse or search for information",2,2,12,12,11,0,0,1,0,11,18.2,"Perceived disadvantages of GitHub hosting","GitHub-related perceptions",5
+"github_disadvantages","github","checkbox","primary","Less intuitive than a traditional wiki (e.g., MediaWiki, Notion, Google Docs)",3,4,12,12,11,0,0,1,0,11,36.4,"Perceived disadvantages of GitHub hosting","GitHub-related perceptions",5
+"github_disadvantages","github","checkbox","primary","Contribution process (pull requests, branches) feels overly formal",4,5,12,12,11,0,0,1,0,11,45.5,"Perceived disadvantages of GitHub hosting","GitHub-related perceptions",5
+"github_disadvantages","github","checkbox","primary","Requires technical setup (cloning repos, using a text editor, etc.)",5,6,12,12,11,0,0,1,0,11,54.5,"Perceived disadvantages of GitHub hosting","GitHub-related perceptions",5
+"github_disadvantages","github","checkbox","primary","I don't see any particular disadvantages",6,2,12,12,11,0,0,1,0,11,18.2,"Perceived disadvantages of GitHub hosting","GitHub-related perceptions",5
+"github_use_effect","github","single_choice","primary","It makes me less likely to use it (GitHub feels unfamiliar or intimidating)",1,3,12,12,12,0,0,0,0,12,25,"Effect of GitHub hosting on willingness to use the TA Wiki","GitHub-related perceptions",5
+"github_use_effect","github","single_choice","primary","It makes no difference to me",2,5,12,12,12,0,0,0,0,12,41.7,"Effect of GitHub hosting on willingness to use the TA Wiki","GitHub-related perceptions",5
+"github_use_effect","github","single_choice","primary","It makes me more likely to use it (I prefer GitHub)",3,4,12,12,12,0,0,0,0,12,33.3,"Effect of GitHub hosting on willingness to use the TA Wiki","GitHub-related perceptions",5
+"editathon_awareness","editathon","single_choice","primary","Yes, but I did not participate",1,8,12,12,12,0,0,0,0,12,66.7,"Awareness of the TA Wiki editathon","Editathon experience",6
+"editathon_awareness","editathon","single_choice","primary","Yes, and I participated",2,4,12,12,12,0,0,0,0,12,33.3,"Awareness of the TA Wiki editathon","Editathon experience",6
+"editathon_experience","editathon","single_choice","primary","Negative",1,0,12,12,4,0,7,1,0,4,0,"Reported editathon experience","Editathon experience",6
+"editathon_experience","editathon","single_choice","primary","Neutral",2,1,12,12,4,0,7,1,0,4,25,"Reported editathon experience","Editathon experience",6
+"editathon_experience","editathon","single_choice","primary","Positive",3,3,12,12,4,0,7,1,0,4,75,"Reported editathon experience","Editathon experience",6
+"editathon_improvement","editathon","checkbox","primary","A clearer explanation of what to expect and how to contribute",1,3,12,12,5,0,5,2,0,5,60,"Changes that would improve the editathon","Editathon experience",6
+"editathon_improvement","editathon","checkbox","primary","A hands-on Git/GitHub tutorial as part of the event",2,3,12,12,5,0,5,2,0,5,60,"Changes that would improve the editathon","Editathon experience",6
+"editathon_improvement","editathon","checkbox","primary","A more flexible timeframe",3,2,12,12,5,0,5,2,0,5,40,"Changes that would improve the editathon","Editathon experience",6
+"editathon_improvement","editathon","checkbox","primary","Snacks, social incentives, or community-building elements",4,0,12,12,5,0,5,2,0,5,0,"Changes that would improve the editathon","Editathon experience",6
+"editathon_improvement","editathon","checkbox","primary","Smaller, focused tasks or a list of “wanted” contributions",5,3,12,12,5,0,5,2,0,5,60,"Changes that would improve the editathon","Editathon experience",6
+"editathon_improvement","editathon","checkbox","primary","Recognition or credit for contributions",6,0,12,12,5,0,5,2,0,5,0,"Changes that would improve the editathon","Editathon experience",6
+"editathon_nonparticipant_reasons","editathon","checkbox","primary","Scheduling conflict",1,6,12,12,8,0,4,0,0,8,75,"Reasons for editathon nonparticipation","Editathon experience",6
+"editathon_nonparticipant_reasons","editathon","checkbox","primary","I didn't feel I had relevant knowledge to contribute",2,2,12,12,8,0,4,0,0,8,25,"Reasons for editathon nonparticipation","Editathon experience",6
+"editathon_nonparticipant_reasons","editathon","checkbox","primary","I wasn't motivated or didn't see the value",3,1,12,12,8,0,4,0,0,8,12.5,"Reasons for editathon nonparticipation","Editathon experience",6
+"maintain_wiki","perceived_value","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"TA Wiki should be maintained as an ongoing resource","Perceived value and maintenance",7
+"maintain_wiki","perceived_value","likert","primary","Disagree",2,0,12,12,12,0,0,0,0,12,0,"TA Wiki should be maintained as an ongoing resource","Perceived value and maintenance",7
+"maintain_wiki","perceived_value","likert","primary","Neutral",3,1,12,12,12,0,0,0,0,12,8.3,"TA Wiki should be maintained as an ongoing resource","Perceived value and maintenance",7
+"maintain_wiki","perceived_value","likert","primary","Agree",4,4,12,12,12,0,0,0,0,12,33.3,"TA Wiki should be maintained as an ongoing resource","Perceived value and maintenance",7
+"maintain_wiki","perceived_value","likert","primary","Strongly agree",5,7,12,12,12,0,0,0,0,12,58.3,"TA Wiki should be maintained as an ongoing resource","Perceived value and maintenance",7
+"new_tas_value","perceived_value","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"New TAs would benefit from consulting the TA Wiki","Perceived value and maintenance",7
+"new_tas_value","perceived_value","likert","primary","Disagree",2,0,12,12,12,0,0,0,0,12,0,"New TAs would benefit from consulting the TA Wiki","Perceived value and maintenance",7
+"new_tas_value","perceived_value","likert","primary","Neutral",3,0,12,12,12,0,0,0,0,12,0,"New TAs would benefit from consulting the TA Wiki","Perceived value and maintenance",7
+"new_tas_value","perceived_value","likert","primary","Agree",4,4,12,12,12,0,0,0,0,12,33.3,"New TAs would benefit from consulting the TA Wiki","Perceived value and maintenance",7
+"new_tas_value","perceived_value","likert","primary","Strongly agree",5,8,12,12,12,0,0,0,0,12,66.7,"New TAs would benefit from consulting the TA Wiki","Perceived value and maintenance",7
+"recommend_wiki","perceived_value","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"Would recommend the TA Wiki to another graduate student","Perceived value and maintenance",7
+"recommend_wiki","perceived_value","likert","primary","Disagree",2,0,12,12,12,0,0,0,0,12,0,"Would recommend the TA Wiki to another graduate student","Perceived value and maintenance",7
+"recommend_wiki","perceived_value","likert","primary","Neutral",3,2,12,12,12,0,0,0,0,12,16.7,"Would recommend the TA Wiki to another graduate student","Perceived value and maintenance",7
+"recommend_wiki","perceived_value","likert","primary","Agree",4,2,12,12,12,0,0,0,0,12,16.7,"Would recommend the TA Wiki to another graduate student","Perceived value and maintenance",7
+"recommend_wiki","perceived_value","likert","primary","Strongly agree",5,6,12,12,12,0,0,0,0,12,50,"Would recommend the TA Wiki to another graduate student","Perceived value and maintenance",7
+"recommend_wiki","perceived_value","likert","primary","Not sure",6,2,12,12,12,0,0,0,0,12,16.7,"Would recommend the TA Wiki to another graduate student","Perceived value and maintenance",7
+"teaching_value","perceived_value","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"Maintained TA Wiki would improve teaching quality","Perceived value and maintenance",7
+"teaching_value","perceived_value","likert","primary","Disagree",2,1,12,12,12,0,0,0,0,12,8.3,"Maintained TA Wiki would improve teaching quality","Perceived value and maintenance",7
+"teaching_value","perceived_value","likert","primary","Neutral",3,0,12,12,12,0,0,0,0,12,0,"Maintained TA Wiki would improve teaching quality","Perceived value and maintenance",7
+"teaching_value","perceived_value","likert","primary","Agree",4,4,12,12,12,0,0,0,0,12,33.3,"Maintained TA Wiki would improve teaching quality","Perceived value and maintenance",7
+"teaching_value","perceived_value","likert","primary","Strongly agree",5,7,12,12,12,0,0,0,0,12,58.3,"Maintained TA Wiki would improve teaching quality","Perceived value and maintenance",7
+"wiki_value","perceived_value","likert","primary","Strongly disagree",1,0,12,12,12,0,0,0,0,12,0,"TA Wiki is or could be a valuable departmental resource","Perceived value and maintenance",7
+"wiki_value","perceived_value","likert","primary","Disagree",2,0,12,12,12,0,0,0,0,12,0,"TA Wiki is or could be a valuable departmental resource","Perceived value and maintenance",7
+"wiki_value","perceived_value","likert","primary","Neutral",3,0,12,12,12,0,0,0,0,12,0,"TA Wiki is or could be a valuable departmental resource","Perceived value and maintenance",7
+"wiki_value","perceived_value","likert","primary","Agree",4,6,12,12,12,0,0,0,0,12,50,"TA Wiki is or could be a valuable departmental resource","Perceived value and maintenance",7
+"wiki_value","perceived_value","likert","primary","Strongly agree",5,6,12,12,12,0,0,0,0,12,50,"TA Wiki is or could be a valuable departmental resource","Perceived value and maintenance",7

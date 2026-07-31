@@ -2,14 +2,17 @@
 
 ## Purpose and boundary
 
-This guide defines three distinct reproducibility layers without recording
-restricted paths, source hashes, access identities, or respondent material.
+This guide defines four distinct reproducibility layers without recording
+restricted paths, source-data hashes, access identities, or respondent material.
 
 1. **Code reproducibility:** an authorized coauthor restores the locked R
    environment and runs the synthetic checks.
-2. **Restricted-analysis reproducibility:** an authorized analyst reruns a
+2. **Aggregate-result reproducibility:** a coauthor rebuilds the current
+   manuscript values, tables, structured supplement snapshots, and claim ledger
+   from the tracked disclosure-safe aggregate bundle.
+3. **Restricted-analysis reproducibility:** an authorized analyst reruns a
    frozen source inside the approved restricted root from the recorded lineage.
-3. **Release reproducibility:** a reviewer verifies an approved, disclosure-safe
+4. **Release reproducibility:** a reviewer verifies an approved, disclosure-safe
    candidate against its policy and byte-bound restricted attestation.
 
 The repository is not a data workspace. Never use it or the Downloads folder
@@ -38,6 +41,7 @@ path, such as `& 'C:\Program Files\R\R-4.5.2\bin\Rscript.exe' scripts/run.R help
 |---|---|---|
 | Code, controlled metadata, documentation, and synthetic fixtures | Repository | Tracked after review and privacy checks. |
 | Synthetic run artifacts | `tests/artifacts/` | Ignored; safe to recreate. |
+| Disclosure-safe aggregate manuscript bundle | `results/structured-aggregate/` | Tracked; supports clone-level reproduction of current manuscript values and tables. |
 | Coauthor brief or manuscript preview PDF and build record | `manuscript/` | Ignored; local build evidence only. |
 | Real runs, internal outputs, qualitative workspace, candidate, attestation, and attested manuscript build | Approved restricted root | Outside the repository and never tracked. |
 | Local execution tracker | `reports/internal/` | Ignored and never a release artifact. |
@@ -52,6 +56,7 @@ Rscript scripts/run.R bootstrap
 Rscript scripts/run.R privacy
 Rscript scripts/run.R test
 Rscript scripts/run.R manuscript-check
+Rscript scripts/run.R reproduce-results --check
 ```
 
 The lockfile controls the R dependency set. A platform-local locale warning may
@@ -72,17 +77,27 @@ read or edit for prose, structure, and comments.
 
 Numerical result changes are different. Do not hand-edit counts, denominators,
 tables, or result claims in `main.tex` unless the change is traceable to the
-aggregate analysis package and claim-ledger validation route:
+tracked aggregate bundle and claim-ledger validation route:
+
+```powershell
+Rscript scripts/run.R reproduce-results --check
+```
+
+The command reads only `results/structured-aggregate/`, stages the aggregate
+inputs in a temporary directory, rebuilds the journal-style manuscript outputs,
+validates the claim ledger, and checks the rebuilt outputs against the tracked
+expected snapshots and root `main.tex`.
+
+For maintainers who also have the ignored full internal analysis package, the
+lower-level builder remains available:
 
 ```powershell
 Rscript scripts/run.R journal-style-manuscript --analysis-dir reports/internal/full-analysis --out-dir reports/internal/journal-manuscript
 Rscript scripts/run.R journal-claim-validation --manuscript-dir reports/internal/journal-manuscript --analysis-dir reports/internal/full-analysis
 ```
 
-Those generated folders are ignored. If they are unavailable in a local clone,
-the clone can still validate code, metadata, privacy boundaries, and the
-manuscript source, but it cannot independently regenerate the current empirical
-numbers from Git alone.
+Those folders remain ignored local review artifacts. A clean clone no longer
+needs them to check the current manuscript values.
 
 ## Coauthor review brief
 

@@ -36,6 +36,7 @@ for the required record and source-context contract; synthetic commands and
 | `full-internal-analysis` | Build the ignored structured aggregate internal analysis package. | Reads a completed run directory and writes quantitative aggregate tables to `reports/internal/`. It does not accept `--source-xlsx`, extract open text, or perform automatic qualitative coding. |
 | `journal-style-manuscript` | Build the structured-only coauthor-review manuscript. | Reads the ignored `reports/internal/full-analysis/` package, creates a claim-to-evidence ledger, concise main tables, separate supplement artifacts, PDF/HTML/Markdown review artifacts, and optional local review copies. The main article excludes qualitative claims and routing-dependent diagnostics. |
 | `journal-claim-validation` | Validate the journal manuscript snapshot. | Checks generated main tables, claim-ledger hashes, blocked routing-dependent items, compact table scope, fixed PDF table placement, line-number configuration, and manuscript-profile exclusions without generating manuscript prose. |
+| `reproduce-results` | Rebuild and check the current manuscript values from the tracked aggregate bundle. | Reads only `results/structured-aggregate/`, rebuilds the journal manuscript/tables/ledger in a temporary directory, validates the claim ledger, and confirms the rebuilt TeX matches root `main.tex`. Use `--check` for the standard read-only verification. |
 | `coauthor-package` | Assemble a clean coauthor-review package. | Reads the generated journal manuscript directory and creates a package directory, manifest, cleanly named manuscript/supplement/evidence files, and ZIP when the local zip utility is available. |
 
 ## Common paths
@@ -48,6 +49,7 @@ Rscript scripts/run.R bootstrap
 Rscript scripts/run.R privacy
 Rscript scripts/run.R test
 Rscript scripts/run.R manuscript-check
+Rscript scripts/run.R reproduce-results --check
 ```
 
 For a real-data workflow, follow the

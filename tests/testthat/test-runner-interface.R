@@ -7,6 +7,7 @@ testthat::test_that("the runner provides command help", {
   testthat::expect_match(result$output, "Usage: Rscript scripts/run.R <command>", fixed = TRUE)
   testthat::expect_match(result$output, "manuscript-preview", fixed = TRUE)
   testthat::expect_match(result$output, "manuscript-attested-build", fixed = TRUE)
+  testthat::expect_match(result$output, "reproduce-results", fixed = TRUE)
   testthat::expect_match(result$output, "readiness", fixed = TRUE)
 })
 

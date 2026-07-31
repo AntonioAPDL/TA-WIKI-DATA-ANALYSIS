@@ -17,27 +17,26 @@ GitHub/Overleaf repository, the current manuscript source is the root
   direct structured item first, then an extreme-case deterministic
   missing-response range. The reason-informed diagnostic remains internal and
   routing-dependent.
-- The main PDF/HTML manuscript, structured supplement, and claim ledger are
-  generated from the ignored internal aggregate package by script.
+- The root manuscript source, structured supplement snapshots, compact tables,
+  and claim ledger are reproducible from the tracked disclosure-safe aggregate
+  bundle by script.
 - A modest citation/reporting-standard pass has been applied to support the
   framing and reporting choices without adding new empirical claims.
 
 ## Current manuscript package
 
-Primary coauthor-review files:
+Primary coauthor-review files tracked in this repository:
 
 - `main.tex`
-- `manuscript/TA-Wiki-Manuscript.pdf`
-- `manuscript/TA-Wiki-Manuscript.html`
-- `supplement/TA-Wiki-Structured-Supplement.html`
-- `evidence/TA-Wiki-Claim-Ledger.csv`
-- `evidence/TA-Wiki-Table-1-Survey-Record-Context.csv`
-- `evidence/TA-Wiki-Table-2-Engagement-Indicators.csv`
-- `evidence/TA-Wiki-Supplemental-Structured-Indicators.csv`
+- `results/structured-aggregate/README.md`
+- `results/structured-aggregate/manifest.json`
+- `results/structured-aggregate/aggregate-data/*.csv`
+- `results/structured-aggregate/expected/journal-manuscript/*.csv`
+- `results/structured-aggregate/expected/journal-manuscript/*.md`
+- `results/structured-aggregate/expected/journal-manuscript/journal-style-manuscript.tex`
 
-The generated working copies live under `reports/internal/journal-manuscript/`
-when the manuscript builder is run locally. Those outputs are ignored because
-they are review artifacts. The tracked Overleaf source is `main.tex`.
+Local PDFs, HTML review copies, and coauthor ZIP packages can be generated when
+needed, but they are not tracked. The tracked Overleaf source is `main.tex`.
 
 ## Current reproducibility state
 
@@ -48,18 +47,23 @@ The clean-clone reproducibility target for this coauthor repository is:
 - verify tracked metadata and documentation wiring;
 - check the root `main.tex` manuscript source;
 - compile `main.tex` locally when a TeX engine is available, or in Overleaf
-  during coauthor review.
+  during coauthor review;
+- regenerate and check the current empirical values, main tables, structured
+  supplement snapshots, claim ledger, and manuscript TeX from
+  `results/structured-aggregate/`.
 
-Exact regeneration of the empirical values in `main.tex` requires the approved
-restricted source or the ignored disclosure-safe aggregate manuscript package.
-Those inputs are intentionally not stored in Git. The file-by-file repository
-audit is recorded in [reproducibility audit report](reproducibility-audit-report.md)
+Run:
+
+```powershell
+Rscript scripts/run.R reproduce-results --check
+```
+
+This does not make the repository raw-data-reproducible. It makes the current
+result-bearing manuscript clone-reproducible from reviewed aggregate artifacts
+while still excluding respondent rows, timestamps, open text, contact/raffle
+material, and restricted governance records. The file-by-file repository audit
+is recorded in [reproducibility audit report](reproducibility-audit-report.md)
 and [reproducibility file ledger](reproducibility-file-ledger.csv).
-
-The recommended next reproducibility upgrade is to track a reviewed
-disclosure-safe aggregate bundle and add a `reproduce-results --check` command.
-The options and implementation stages are documented in
-[clone-reproducible results plan](clone-reproducible-results-plan.md).
 
 ## What is deliberately excluded
 

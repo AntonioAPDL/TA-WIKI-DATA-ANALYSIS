@@ -1,0 +1,37 @@
+"domain_order","domain_label","item","publication_label","eligible_n","applicable_n","observed_valid_n","inferred_n","missing_n","invalid_n","structural_skip_n","denominator"
+1,"Background and teaching context","git_comfort","Comfort with Git and GitHub",12,12,12,0,0,0,0,12
+1,"Background and teaching context","program_year","Graduate-program year",12,12,12,0,0,0,0,12
+1,"Background and teaching context","ta_quarters","TA quarters in the department",12,12,12,0,0,0,0,12
+1,"Background and teaching context","teaching_interest","Interest in developing teaching skills",12,12,12,0,0,0,0,12
+2,"Teaching-support resources","current_resources","Current teaching-support resources",12,12,12,0,0,0,0,12
+2,"Teaching-support resources","desired_features","Desired features of a teaching resource",12,12,10,0,0,2,0,10
+2,"Teaching-support resources","ideal_resource_use","Likelihood of using a comprehensive resource",12,12,11,0,0,1,0,11
+2,"Teaching-support resources","resource_seeking","Seeks teaching-support resources",12,12,11,0,1,0,0,11
+3,"TA Wiki awareness and use","awareness_source","First source of awareness",12,12,12,0,0,0,0,12
+3,"TA Wiki awareness and use","consult_frequency","Frequency of consulting the TA Wiki",12,12,9,0,3,0,0,9
+3,"TA Wiki awareness and use","consult_when","When the TA Wiki is consulted",12,12,8,0,4,0,0,8
+3,"TA Wiki awareness and use","needs_met","How well the TA Wiki meets TA needs",12,12,9,0,3,0,0,9
+3,"TA Wiki awareness and use","needs_reason","Reason the TA Wiki does not fully meet needs",12,12,4,0,3,5,0,4
+3,"TA Wiki awareness and use","useful_content","TA Wiki content found useful",12,12,9,0,3,0,0,9
+3,"TA Wiki awareness and use","wiki_awareness","Awareness of the TA Wiki",12,12,12,0,0,0,0,12
+3,"TA Wiki awareness and use","wiki_visited","Prior visit to the TA Wiki",12,12,12,0,0,0,0,12
+4,"Contribution and participation","contributed","Previously contributed to the TA Wiki",12,12,9,0,3,0,0,9
+4,"Contribution and participation","contribution_straightforward","Contribution process is straightforward",12,12,12,0,0,0,0,12
+4,"Contribution and participation","noncontribution_reasons","Reasons for not contributing to the TA Wiki",12,12,6,0,3,3,0,6
+4,"Contribution and participation","simpler_interface","Simpler interface would increase willingness to contribute",12,12,12,0,0,0,0,12
+4,"Contribution and participation","training_walkthrough","Training or walkthrough would increase willingness to contribute",12,12,12,0,0,0,0,12
+4,"Contribution and participation","understand_contribution","Understands how to contribute",12,12,12,0,0,0,0,12
+4,"Contribution and participation","wiki_ownership","Sense of ownership of the TA Wiki",12,12,12,0,0,0,0,12
+5,"GitHub-related perceptions","github_advantages","Perceived advantages of GitHub hosting",12,12,11,0,0,1,0,11
+5,"GitHub-related perceptions","github_contribution_effect","Effect of GitHub hosting on willingness to contribute",12,12,12,0,0,0,0,12
+5,"GitHub-related perceptions","github_disadvantages","Perceived disadvantages of GitHub hosting",12,12,11,0,0,1,0,11
+5,"GitHub-related perceptions","github_use_effect","Effect of GitHub hosting on willingness to use the TA Wiki",12,12,12,0,0,0,0,12
+6,"Editathon experience","editathon_awareness","Awareness of the TA Wiki editathon",12,12,12,0,0,0,0,12
+6,"Editathon experience","editathon_experience","Reported editathon experience",12,12,4,0,7,1,0,4
+6,"Editathon experience","editathon_improvement","Changes that would improve the editathon",12,12,5,0,5,2,0,5
+6,"Editathon experience","editathon_nonparticipant_reasons","Reasons for editathon nonparticipation",12,12,8,0,4,0,0,8
+7,"Perceived value and maintenance","maintain_wiki","TA Wiki should be maintained as an ongoing resource",12,12,12,0,0,0,0,12
+7,"Perceived value and maintenance","new_tas_value","New TAs would benefit from consulting the TA Wiki",12,12,12,0,0,0,0,12
+7,"Perceived value and maintenance","recommend_wiki","Would recommend the TA Wiki to another graduate student",12,12,12,0,0,0,0,12
+7,"Perceived value and maintenance","teaching_value","Maintained TA Wiki would improve teaching quality",12,12,12,0,0,0,0,12
+7,"Perceived value and maintenance","wiki_value","TA Wiki is or could be a valuable departmental resource",12,12,12,0,0,0,0,12

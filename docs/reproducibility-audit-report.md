@@ -3,15 +3,15 @@
 Audit date: 2026-07-30  
 Repository: `AntonioAPDL/TA-WIKI-DATA-ANALYSIS`  
 Local path audited: `C:\Users\anton\Downloads\TA-WIKI-DATA-ANALYSIS`  
-Baseline before audit implementation: `db39389 Migrate coauthor manuscript and analysis workflow`
+Baseline before clone-reproducible result implementation: `5bea123 Plan clone-reproducible result workflow`
 
 ## Executive diagnosis
 
 The repository is suitable as a clean coauthor-facing GitHub/Overleaf project
-for the structured descriptive TA Wiki manuscript, with one important boundary:
-Git alone intentionally does not contain the restricted survey source, row-level
-derivatives, open text, or ignored aggregate review package needed to regenerate
-the current empirical values from raw data.
+for the structured descriptive TA Wiki manuscript. Git still excludes the
+restricted survey source, row-level derivatives, open text, and contact/raffle
+material, but it now contains a reviewed aggregate result bundle that can
+rebuild and check the current manuscript values from a clean clone.
 
 The correct reproducibility target for this repository is therefore:
 
@@ -19,8 +19,8 @@ The correct reproducibility target for this repository is therefore:
 2. privacy-boundary reproducibility;
 3. synthetic workflow reproducibility;
 4. root `main.tex` manuscript-source reproducibility;
-5. claim-ledger traceability when the ignored aggregate manuscript package is
-   available locally.
+5. aggregate-result reproducibility for the current manuscript values, main
+   tables, structured supplement snapshots, and claim ledger.
 
 This is the right operating model for a coauthor/Overleaf repository. It keeps
 restricted material out of Git while preserving a clear route for future
@@ -30,6 +30,11 @@ analysis-result changes.
 
 - Added a tracked file-by-file ledger at
   [`docs/reproducibility-file-ledger.csv`](reproducibility-file-ledger.csv).
+- Added the tracked disclosure-safe aggregate bundle under
+  [`results/structured-aggregate/`](../results/structured-aggregate/README.md).
+- Added `Rscript scripts/run.R reproduce-results --check` as the clone-level
+  check for manuscript values, tables, supplement snapshots, claim ledger, and
+  agreement with root `main.tex`.
 - Added this audit report as the human-readable summary of repository wiring,
   verification status, and unresolved reproducibility boundaries.
 - Added `Rscript scripts/run.R manuscript-check` as the safe source-level check
@@ -76,8 +81,8 @@ main.tex
 
 Coauthors may edit prose, structure, comments, and formatting in `main.tex`.
 Counts, denominators, tables, and result claims should not be changed by hand
-unless the change is traceable to the aggregate analysis and claim-ledger
-validation route.
+unless the change is traceable to the tracked aggregate bundle and the
+`reproduce-results --check` route.
 
 The supporting `manuscript/` directory remains useful for controlled preview,
 attested-build, and provenance files, but it should not be treated as the
@@ -95,14 +100,10 @@ The repository deliberately excludes:
 - restricted governance records;
 - ignored aggregate review packages under `reports/internal/`.
 
-Because of that boundary, a clean clone can validate code, metadata, synthetic
-behavior, privacy rules, and `main.tex`, but it cannot independently regenerate
-the current empirical values from raw data without approved external inputs.
-
-If exact numerical regeneration from Git alone becomes a requirement, the safe
-route is to add a disclosure-safe aggregate package with hashes and a provenance
-manifest after coauthor/release review. The raw source data should remain
-outside Git.
+Because of that boundary, a clean clone cannot audit each original survey
+record from Git alone. It can, however, regenerate and check the current
+result-bearing manuscript from the tracked aggregate bundle. Raw-source review
+remains a separate restricted workflow.
 
 ## Verification commands
 
@@ -116,6 +117,7 @@ python tests/test_privacy_scan.py
 python tests/test_private_handoff.py
 Rscript scripts/run.R test
 Rscript scripts/run.R manuscript-check
+Rscript scripts/run.R reproduce-results --check
 python scripts/verify_private_handoff.py . --strict-history
 git diff --check
 git status --short
@@ -127,7 +129,8 @@ When a local TeX engine is installed, also run:
 Rscript scripts/run.R manuscript-check --require-pdf
 ```
 
-When ignored aggregate manuscript artifacts are available, also run:
+When ignored aggregate manuscript artifacts are available for maintainer review,
+the lower-level validation can also be run:
 
 ```powershell
 Rscript scripts/run.R journal-claim-validation --manuscript-dir reports/internal/journal-manuscript --analysis-dir reports/internal/full-analysis
@@ -139,7 +142,7 @@ Final command results are recorded below after implementation checks:
 
 | Check | Status | Notes |
 |---|---|---|
-| Git baseline/status | passed | Started from clean `main...origin/main` at `db39389`; final audit implementation commit is recorded in Git history. |
+| Git baseline/status | passed | Started from clean `main...origin/main` at `5bea123`; final implementation commit is recorded in Git history. |
 | Privacy scan | passed | `Rscript scripts/run.R privacy` passed. |
 | Strict-history privacy scan | passed | `Rscript scripts/run.R privacy --strict-history` passed. |
 | Python privacy tests | passed | `python tests/test_privacy_scan.py` passed. |
@@ -148,18 +151,20 @@ Final command results are recorded below after implementation checks:
 | `manuscript-check` | passed | `Rscript scripts/run.R manuscript-check --require-pdf` passed. |
 | Local required PDF compile | passed | `main.tex` compiled successfully in a temporary directory through `manuscript-check --require-pdf`. |
 | Private-handoff verifier | passed | `python scripts/verify_private_handoff.py . --strict-history` passed after unreachable local amend objects were pruned. |
-| Claim-ledger validation | not run; artifacts absent | `reports/internal/` contains only `.gitkeep`, so the ignored full-analysis and journal-manuscript packages are not available in this clone. |
+| Aggregate result reproduction | passed | `Rscript scripts/run.R reproduce-results --check` passed after rebuilding and validating outputs from `results/structured-aggregate/`. |
+| Claim-ledger validation | covered by aggregate reproduction | `reproduce-results --check` rebuilds the manuscript package in a temporary directory and runs `journal-claim-validation` against it. |
 | Final Git hygiene | passed | `git diff --check` passed; final clean status is required after this report-status refresh is committed. |
 
 ## Remaining technical risks
 
-1. **Exact claim regeneration depends on ignored/external artifacts.**  
-   This is expected, but it should remain visible. Do not present the coauthor
-   repo as raw-data-self-contained.
+1. **The repo is aggregate-reproducible, not raw-data-reproducible.**
+   This is the correct boundary for coauthor/Overleaf work. Original response
+   auditing remains restricted-source work.
 
 2. **`main.tex` and generated analysis artifacts can drift.**  
-   Any future result-facing edit should be validated against the claim ledger
-   before sharing with coauthors.
+   Any future result-facing edit should be validated with
+   `Rscript scripts/run.R reproduce-results --check` before sharing with
+   coauthors.
 
 3. **Full PDF compilation may depend on local or Overleaf TeX availability.**  
    The new `manuscript-check` command compiles locally when `pdflatex` exists
@@ -175,6 +180,5 @@ Final command results are recorded below after implementation checks:
 Use this simple rule:
 
 - prose and structure: edit `main.tex`;
-- numerical results: regenerate/validate through the analysis and claim-ledger
-  route;
+- numerical results: regenerate/validate with `reproduce-results --check`;
 - raw or restricted material: never store in this repository.

@@ -18,19 +18,20 @@ counts, denominators, tables, or result claims.
 1. Open the Overleaf project and compile `main.tex`.
 2. For prose edits, edit `main.tex` directly in Overleaf or Git.
 3. For any change to counts, denominators, tables, or result wording, regenerate
-   and validate the aggregate analysis/manuscript package before editing
-   `main.tex`.
-4. Run `Rscript scripts/run.R manuscript-check` before sharing manuscript-facing
+   and validate the tracked aggregate bundle before editing `main.tex`.
+4. Run `Rscript scripts/run.R reproduce-results --check` before sharing
+   result-facing changes.
+5. Run `Rscript scripts/run.R manuscript-check` before sharing manuscript-facing
    changes.
-5. Read [current status](docs/current-status.md) for what the manuscript
+6. Read [current status](docs/current-status.md) for what the manuscript
    supports, what is excluded, and what remains for coauthor review.
-6. Read [coauthor package guide](docs/coauthor-package-guide.md) for the
+7. Read [coauthor package guide](docs/coauthor-package-guide.md) for the
    manuscript/supplement/evidence files used in review packages.
-7. Read [analysis overview](docs/analysis-overview.md) for the scope and
+8. Read [analysis overview](docs/analysis-overview.md) for the scope and
    explicit nonclaims.
-8. Read [reproducibility guide](docs/reproducibility-guide.md) before rerunning
+9. Read [reproducibility guide](docs/reproducibility-guide.md) before rerunning
    or modifying the analysis workflow.
-9. Read [new-repo transition plan](docs/new-repo-transition-plan.md) for the
+10. Read [new-repo transition plan](docs/new-repo-transition-plan.md) for the
    migration record and operating model for this GitHub/Overleaf repository.
 
 ## What is reproducible from this repo
@@ -42,17 +43,23 @@ From a clean clone, this repository supports:
 - synthetic workflow tests;
 - metadata-contract checks;
 - root `main.tex` source validation and local PDF compilation when `pdflatex`
-  is installed.
+  is installed;
+- current manuscript values, tables, structured supplement snapshots, and
+  claim ledger from the tracked disclosure-safe aggregate bundle.
 
-Exact regeneration of the current empirical manuscript values requires the
-approved restricted source or a disclosure-safe aggregate package outside Git.
-That is intentional: raw survey exports, row-level derivatives, open text,
-timestamps, raffle/contact material, and restricted review artifacts are not
-stored in this coauthor-facing repository.
+Use this command for the result-bearing reproducibility check:
 
-The plan to make manuscript values and tables fully reproducible from a clone,
-without adding raw survey rows, is documented in
-[clone-reproducible results plan](docs/clone-reproducible-results-plan.md).
+```powershell
+Rscript scripts/run.R reproduce-results --check
+```
+
+The command reads only `results/structured-aggregate/`, rebuilds the
+journal-style manuscript outputs in a temporary directory, validates the claim
+ledger, and confirms that the rebuilt TeX matches root `main.tex`.
+
+Raw survey exports, row-level derivatives, open text, timestamps,
+raffle/contact material, and restricted review artifacts are still deliberately
+excluded from Git.
 
 ## Current manuscript scope
 
@@ -73,6 +80,7 @@ prevalence, or routing-dependent conditional findings.
 | [`docs/`](docs/README.md) | Current status, coauthor guidance, analysis design, and reproducibility documentation. |
 | [`data/metadata/`](data/metadata/README.md) | Respondent-free schema, codebook, and transformation contracts. |
 | [`scripts/`](scripts/README.md) | Reproducible workflow commands and implementation modules. |
+| [`results/structured-aggregate/`](results/structured-aggregate/README.md) | Disclosure-safe aggregate bundle used to reproduce current manuscript values and tables from a clone. |
 | [`tests/`](tests) | Synthetic fixtures and automated checks. |
 | [`config/`](config) | Controlled project configuration. |
 
@@ -91,9 +99,10 @@ For routine repository checks:
 Rscript scripts/run.R privacy
 Rscript scripts/run.R test
 Rscript scripts/run.R manuscript-check
+Rscript scripts/run.R reproduce-results --check
 ```
 
-For the generated manuscript package workflow:
+For rebuilding a local review package from an ignored internal analysis package:
 
 ```powershell
 Rscript scripts/run.R journal-style-manuscript --analysis-dir reports/internal/full-analysis --out-dir reports/internal/journal-manuscript

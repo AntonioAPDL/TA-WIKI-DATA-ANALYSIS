@@ -124,6 +124,41 @@ def test_unapproved_metadata_csv_is_rejected() -> None:
         assert "binary/data extension is not permitted" in output
 
 
+def test_approved_structured_aggregate_csv_is_allowed() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        repo = pathlib.Path(directory)
+        init_repo(repo)
+        aggregate = repo / "results" / "structured-aggregate" / "aggregate-data" / "quantitative-cohort-flow.csv"
+        aggregate.parent.mkdir(parents=True)
+        aggregate.write_text("stage,n\nanalytic_records,10\n", encoding="utf-8")
+        run(repo, GIT, "add", "results/structured-aggregate/aggregate-data/quantitative-cohort-flow.csv")
+        scan(repo, 0)
+
+
+def test_unapproved_structured_aggregate_csv_is_rejected() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        repo = pathlib.Path(directory)
+        init_repo(repo)
+        aggregate = repo / "results" / "structured-aggregate" / "aggregate-data" / "unreviewed.csv"
+        aggregate.parent.mkdir(parents=True)
+        aggregate.write_text("respondent,value\n1,unsafe\n", encoding="utf-8")
+        run(repo, GIT, "add", "results/structured-aggregate/aggregate-data/unreviewed.csv")
+        output = scan(repo, 1)
+        assert "binary/data extension is not permitted" in output
+
+
+def test_structured_aggregate_csv_rejects_identifier_like_content() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        repo = pathlib.Path(directory)
+        init_repo(repo)
+        aggregate = repo / "results" / "structured-aggregate" / "aggregate-data" / "quantitative-cohort-flow.csv"
+        aggregate.parent.mkdir(parents=True)
+        aggregate.write_text("stage,note\nanalytic_records,person@example.org\n", encoding="utf-8")
+        run(repo, GIT, "add", "results/structured-aggregate/aggregate-data/quantitative-cohort-flow.csv")
+        output = scan(repo, 1)
+        assert "possible restricted content in aggregate result artifact" in output
+
+
 def test_index_content_not_worktree_content_is_scanned() -> None:
     with tempfile.TemporaryDirectory() as directory:
         repo = pathlib.Path(directory)
@@ -207,6 +242,9 @@ if __name__ == "__main__":
     test_new_controlled_metadata_csv_is_allowed()
     test_reproducibility_file_ledger_csv_is_allowed()
     test_unapproved_metadata_csv_is_rejected()
+    test_approved_structured_aggregate_csv_is_allowed()
+    test_unapproved_structured_aggregate_csv_is_rejected()
+    test_structured_aggregate_csv_rejects_identifier_like_content()
     test_index_content_not_worktree_content_is_scanned()
     test_tracked_results_placeholder_rejects_numeric_or_import_content()
     test_wrapped_results_placeholder_is_allowed()

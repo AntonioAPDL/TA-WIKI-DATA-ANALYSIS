@@ -1,0 +1,5 @@
+"analysis_variant","response","n","denominator","percent","observed_valid_n","inferred_n","missing_n","invalid_n"
+"primary","No",4,9,44.4,9,0,3,0
+"primary","Yes",5,9,55.6,9,0,3,0
+"sensitivity_inferred_from_valid_reason","No",6,11,54.5,9,2,1,0
+"sensitivity_inferred_from_valid_reason","Yes",5,11,45.5,9,2,1,0

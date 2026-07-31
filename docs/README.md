@@ -17,9 +17,9 @@ artifacts, and remaining coauthor-review work.
   file-by-file audit findings, verification commands, and remaining technical
   risks for the coauthor/Overleaf repository.
 - [Clone-reproducible results plan](clone-reproducible-results-plan.md) -
-  options and recommended path for making manuscript values, tables,
-  supplement, and claim ledger reproducible from a clean clone without tracking
-  raw survey rows.
+  design record and implementation notes for the tracked aggregate bundle that
+  makes manuscript values, tables, supplement snapshots, and claim ledger
+  reproducible from a clean clone without tracking raw survey rows.
 - [Reproducibility file ledger](reproducibility-file-ledger.csv) - one-row-per
   tracked-file inventory documenting purpose, consumer, and reproducibility
   status.
@@ -74,11 +74,17 @@ artifacts, and remaining coauthor-review work.
 - [Reproducibility guide](reproducibility-guide.md) - local checks, restricted
   analysis, and release verification commands.
 
-The ignored full internal structured aggregate package is built with
+The current coauthor manuscript values are reproduced from the tracked
+disclosure-safe aggregate bundle with:
+
+```powershell
+Rscript scripts/run.R reproduce-results --check
+```
+
+The lower-level full internal structured aggregate package is built with
 `Rscript scripts/run.R full-internal-analysis ...` and written under
-`reports/internal/`. It is the working aggregate analysis package for
-authorized review; it does not extract or automatically code open text and is
-not part of the public-safe repository contents.
+`reports/internal/` when authorized local review requires it. It is still
+ignored and is not part of the coauthor-facing tracked bundle.
 
 ## Registers and templates
 

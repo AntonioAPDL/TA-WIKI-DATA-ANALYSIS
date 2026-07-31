@@ -35,6 +35,7 @@ SAFE_PREFIXES = (
     "data/metadata/",
     "manuscript/",
     "renv/",
+    "results/structured-aggregate/",
     "scripts/",
     "tests/",
 )
@@ -73,6 +74,14 @@ SAFE_DATA_PATHS = {
     "data/metadata/transformation-rules.csv",
     "data/metadata/variable_map.csv",
     "tests/synthetic-survey-fixture.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-cohort-flow.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-contribution-sensitivity.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-item-completeness.csv",
+    "results/structured-aggregate/aggregate-data/quantitative-structured-summary-labeled.csv",
+    "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
+    "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
 }
 HISTORICAL_SAFE_DATA_PATHS = {
     "admin/evidence-index.csv",
@@ -88,6 +97,10 @@ FORBIDDEN_EXTENSIONS = {
 RELEASE_PREFIXES = ("outputs/release/", "manuscript/tables/", "manuscript/figures/")
 RELEASE_EXACT = {"manuscript/generated-results.tex"}
 SENSITIVE_TERMS = re.compile(r"(@[A-Za-z0-9.-]+\.[A-Za-z]{2,}|\bTimestamp\b|\bE-?mail\b)", re.I)
+AGGREGATE_RESULT_PREFIXES = (
+    "results/structured-aggregate/aggregate-data/",
+    "results/structured-aggregate/expected/journal-manuscript/",
+)
 RESULTS_PLACEHOLDER_MARKER = "no disclosure-approved numerical result artifact is currently available for this manuscript"
 HISTORICAL_RESULTS_PLACEHOLDER_MARKERS = {
     "results pending reproducible real-data validation and coauthor disclosure review",
@@ -166,6 +179,10 @@ def release_path(path: str) -> bool:
     return path in RELEASE_EXACT or path.startswith(RELEASE_PREFIXES)
 
 
+def aggregate_result_path(path: str) -> bool:
+    return path.startswith(AGGREGATE_RESULT_PREFIXES)
+
+
 def safe_results_placeholder(text: str, include_historical_paths: bool) -> bool:
     normalized = re.sub(r"\s+", " ", text.lower()).strip()
     recognized_marker = RESULTS_PLACEHOLDER_MARKER in normalized or (
@@ -208,6 +225,10 @@ def scan_entries(root: pathlib.Path, entries: list[Entry], label: str) -> list[s
             text = content.decode("utf-8", errors="replace")
             if SENSITIVE_TERMS.search(text):
                 errors.append(f"{label}: possible restricted content in release artifact: {path}")
+        if aggregate_result_path(path):
+            text = content.decode("utf-8", errors="replace")
+            if SENSITIVE_TERMS.search(text):
+                errors.append(f"{label}: possible restricted content in aggregate result artifact: {path}")
         if path == "manuscript/generated-results.tex":
             text = content.decode("utf-8", errors="replace")
             if not safe_results_placeholder(text, include_historical_paths):

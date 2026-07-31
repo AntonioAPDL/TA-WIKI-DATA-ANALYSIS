@@ -19,6 +19,10 @@ if (length(setdiff(cli$flags, character()))) {
 analysis_dir <- option_value(cli, "analysis-dir", default = file.path(root, "reports", "internal", "full-analysis"))
 out_dir <- option_value(cli, "out-dir", default = file.path(root, "reports", "internal", "journal-manuscript"))
 copy_to <- option_value(cli, "copy-to", default = "")
+manuscript_date <- option_value(cli, "manuscript-date", default = Sys.getenv("TA_WIKI_MANUSCRIPT_DATE", unset = ""))
+if (nzchar(manuscript_date) && !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", manuscript_date)) {
+  stop("--manuscript-date must use YYYY-MM-DD format.")
+}
 pdflatex <- Sys.getenv("TA_WIKI_PDFLATEX", unset = Sys.which("pdflatex"))
 if (!nzchar(pdflatex) && file.exists("C:/Users/anton/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe")) {
   pdflatex <- "C:/Users/anton/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe"
@@ -89,6 +93,12 @@ md_table <- function(x) {
   sep <- paste("|", paste(rep("---", ncol(x)), collapse = " | "), "|")
   rows <- apply(x, 1, function(row) paste("|", paste(gsub("\\|", "/", row), collapse = " | "), "|"))
   c(header, sep, rows)
+}
+trim_terminal_blank_lines <- function(x) {
+  while (length(x) && !nzchar(x[[length(x)]])) {
+    x <- x[-length(x)]
+  }
+  x
 }
 html_table <- function(x) {
   x <- as.data.frame(x, stringsAsFactors = FALSE, check.names = FALSE)
@@ -743,7 +753,10 @@ author_lines <- c(
   "Marcela Alfaro-Córdoba -- University of California, Santa Cruz"
 )
 author_line <- paste(author_lines, collapse = "; ")
-version_date <- paste0("Manuscript version: ", format(as.Date(Sys.time(), tz = "UTC"), "%Y-%m-%d"))
+version_date <- paste0(
+  "Manuscript version: ",
+  if (nzchar(manuscript_date)) manuscript_date else format(as.Date(Sys.time(), tz = "UTC"), "%Y-%m-%d")
+)
 
 abstract <- paste0(
   "This brief departmental evaluation examined awareness, use, contribution, and perceived value of a teaching-assistant (TA) Wiki using ", cohort_n, " survey records classified as eligible and consenting under the project's cohort rules. ",
@@ -942,6 +955,7 @@ supplement_md <- c(
   "",
   appendix_domain_md(appendix_full)
 )
+supplement_md <- trim_terminal_blank_lines(supplement_md)
 supplement_md_path <- file.path(out_dir, "journal-style-manuscript-supplement.md")
 writeLines(supplement_md, supplement_md_path, useBytes = TRUE)
 

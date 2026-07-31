@@ -11,6 +11,7 @@ into this pull request. Link only to approved restricted records when needed.
 - [ ] `Rscript scripts/run.R privacy` passed.
 - [ ] Relevant synthetic tests passed.
 - [ ] `Rscript scripts/run.R manuscript-check` passed for manuscript-facing changes.
+- [ ] `Rscript scripts/run.R reproduce-results --check` passed for result-facing changes.
 - [ ] Documentation, metadata, and tests were updated where the interface changed.
 - [ ] I reviewed `git diff --check` and the staged diff.
 

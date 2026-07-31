@@ -26,7 +26,8 @@ targets <- c(
   `full-internal-analysis` = "build_full_internal_analysis.R",
   `journal-style-manuscript` = "build_journal_style_manuscript.R",
   `journal-claim-validation` = "validate_journal_claims.R",
-  `coauthor-package` = "package_coauthor_review.R"
+  `coauthor-package` = "package_coauthor_review.R",
+  `reproduce-results` = "reproduce_results_from_aggregate.R"
 )
 usage <- c(
   "Usage: Rscript scripts/run.R <command> [arguments]",
@@ -52,6 +53,7 @@ usage <- c(
   "  journal-style-manuscript  Build the ignored journal-style manuscript and claim ledger from the full-analysis package.",
   "  journal-claim-validation  Validate journal manuscript tables, ledger hashes, and blocked-item exclusions.",
   "  coauthor-package       Assemble a clean coauthor-review package from generated manuscript artifacts.",
+  "  reproduce-results      Rebuild/check manuscript values and tables from the tracked aggregate bundle.",
   "",
   "See scripts/README.md and docs/reproducibility-guide.md for command details."
 )
