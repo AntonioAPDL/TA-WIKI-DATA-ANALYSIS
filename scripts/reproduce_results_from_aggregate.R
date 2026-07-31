@@ -48,12 +48,28 @@ project_path <- function(relative) {
 
 canonical_text_sha256 <- function(path) {
   path <- normalizePath(path, winslash = "/", mustWork = TRUE)
-  raw <- readBin(path, what = "raw", n = file.info(path)[["size"]])
-  text <- rawToChar(raw)
-  text <- enc2utf8(gsub("\r\n?", "\n", text, perl = TRUE))
+  bytes <- as.integer(readBin(path, what = "raw", n = file.info(path)[["size"]]))
+  normalized <- integer(length(bytes))
+  j <- 0L
+  i <- 1L
+  while (i <= length(bytes)) {
+    if (bytes[[i]] == 13L) {
+      j <- j + 1L
+      normalized[[j]] <- 10L
+      if (i < length(bytes) && bytes[[i + 1L]] == 10L) {
+        i <- i + 2L
+      } else {
+        i <- i + 1L
+      }
+    } else {
+      j <- j + 1L
+      normalized[[j]] <- bytes[[i]]
+      i <- i + 1L
+    }
+  }
   temporary <- tempfile("ta-wiki-canonical-text-", fileext = ".txt")
   on.exit(unlink(temporary, force = TRUE), add = TRUE)
-  writeBin(charToRaw(text), temporary)
+  writeBin(if (j) as.raw(normalized[seq_len(j)]) else raw(0), temporary)
   sha256_file(temporary)
 }
 

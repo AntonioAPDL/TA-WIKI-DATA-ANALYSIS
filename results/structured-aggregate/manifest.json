@@ -45,7 +45,7 @@
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
       "rebuilt_relative": "journal-claim-ledger.csv",
-      "sha256": "759e1e5cf9e9cc67752d94f4646af0f308a0a8dd1006e3b9a60a51968a53f677",
+      "sha256": "af8476da5acf47d7cdf749563fdf543b18c92ec2bfbdc5ec5e1b2b9ec6f4a973",
       "canonical_text_bytes": 36544
     },
     {

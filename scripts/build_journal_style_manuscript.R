@@ -206,6 +206,32 @@ sha256_file <- function(path) {
   }
   stop("No SHA-256 implementation available for: ", path)
 }
+canonical_text_sha256 <- function(path) {
+  if (!file.exists(path)) return("")
+  bytes <- as.integer(readBin(path, what = "raw", n = file.info(path)[["size"]]))
+  normalized <- integer(length(bytes))
+  j <- 0L
+  i <- 1L
+  while (i <= length(bytes)) {
+    if (bytes[[i]] == 13L) {
+      j <- j + 1L
+      normalized[[j]] <- 10L
+      if (i < length(bytes) && bytes[[i + 1L]] == 10L) {
+        i <- i + 2L
+      } else {
+        i <- i + 1L
+      }
+    } else {
+      j <- j + 1L
+      normalized[[j]] <- bytes[[i]]
+      i <- i + 1L
+    }
+  }
+  temporary <- tempfile("ta-wiki-canonical-text-", fileext = ".txt")
+  on.exit(unlink(temporary, force = TRUE), add = TRUE)
+  writeBin(if (j) as.raw(normalized[seq_len(j)]) else raw(0), temporary)
+  sha256_file(temporary)
+}
 rel_path <- function(path, base) {
   path <- normalizePath(path, winslash = "/", mustWork = FALSE)
   base <- paste0(normalizePath(base, winslash = "/", mustWork = FALSE), "/")
@@ -339,7 +365,7 @@ claim_row <- function(claim_id, claim_group, manuscript_section, claim_type, cla
     parent_claim_id = parent_claim_id,
     source_artifact = source_artifact,
     bundle_relative_source = sub("^tables/", "aggregate-data/", source_artifact),
-    source_sha256 = sha256_file(source_path),
+    source_sha256 = canonical_text_sha256(source_path),
     source_item = source_item,
     source_response = source_response,
     source_row_key = source_row_key,

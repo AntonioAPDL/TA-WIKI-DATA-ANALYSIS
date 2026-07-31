@@ -31,11 +31,36 @@ failures <- character()
 check <- function(ok, message) {
   if (!isTRUE(ok)) failures <<- c(failures, message)
 }
+canonical_text_sha256 <- function(path) {
+  bytes <- as.integer(readBin(path, what = "raw", n = file.info(path)[["size"]]))
+  normalized <- integer(length(bytes))
+  j <- 0L
+  i <- 1L
+  while (i <= length(bytes)) {
+    if (bytes[[i]] == 13L) {
+      j <- j + 1L
+      normalized[[j]] <- 10L
+      if (i < length(bytes) && bytes[[i + 1L]] == 10L) {
+        i <- i + 2L
+      } else {
+        i <- i + 1L
+      }
+    } else {
+      j <- j + 1L
+      normalized[[j]] <- bytes[[i]]
+      i <- i + 1L
+    }
+  }
+  temporary <- tempfile("ta-wiki-canonical-text-", fileext = ".txt")
+  on.exit(unlink(temporary, force = TRUE), add = TRUE)
+  writeBin(if (j) as.raw(normalized[seq_len(j)]) else raw(0), temporary)
+  sha256_file(temporary)
+}
 source_hash_cache <- new.env(parent = emptyenv())
 cached_sha256 <- function(path) {
   key <- normalizePath(path, winslash = "/", mustWork = TRUE)
   if (!exists(key, envir = source_hash_cache, inherits = FALSE)) {
-    assign(key, sha256_file(key), envir = source_hash_cache)
+    assign(key, canonical_text_sha256(key), envir = source_hash_cache)
   }
   get(key, envir = source_hash_cache, inherits = FALSE)
 }
