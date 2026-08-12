@@ -71,6 +71,17 @@ def test_approved_aggregate_csv_is_allowed() -> None:
         scan(repo, 0)
 
 
+def test_approved_qualitative_theme_summary_is_allowed() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        repo = pathlib.Path(directory)
+        init_repo(repo)
+        artifact = repo / "results" / "structured-aggregate" / "aggregate-data" / "qualitative-theme-summary.csv"
+        artifact.parent.mkdir(parents=True)
+        artifact.write_text("theme_id,theme,record_count,summary\nQ01,Platform friction,3,Disclosure-safe aggregate paraphrase.\n", encoding="utf-8")
+        run(repo, GIT, "add", "results/structured-aggregate/aggregate-data/qualitative-theme-summary.csv")
+        scan(repo, 0)
+
+
 def test_aggregate_identifier_like_content_is_rejected() -> None:
     with tempfile.TemporaryDirectory() as directory:
         repo = pathlib.Path(directory)
@@ -94,6 +105,7 @@ if __name__ == "__main__":
     test_raw_data_path_is_rejected()
     test_unapproved_csv_is_rejected()
     test_approved_aggregate_csv_is_allowed()
+    test_approved_qualitative_theme_summary_is_allowed()
     test_aggregate_identifier_like_content_is_rejected()
     test_strict_history_scans_clean_history()
     print("privacy scanner regression tests passed")

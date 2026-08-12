@@ -1,19 +1,21 @@
 {
   "schema_version": "1.0",
   "bundle_type": "structured_aggregate_clone_reproduction",
-  "generated_at_utc": "2026-07-30T05:49:05Z",
+  "generated_at_utc": "2026-08-12T07:15:24Z",
   "prepared_for_repository": "AntonioAPDL/TA-WIKI-DATA-ANALYSIS",
-  "source_package_alias": "clean internal journal-manuscript package used for main.tex migration",
+  "source_package_alias": "aggregate manuscript bundle for the TA Wiki platform evaluation",
   "source_repository": {
-    "name": "AntonioAPDL/ta-wiki-assessment-publication",
-    "commit": "de5c2d87ad11ce046090c94c048575e45d87fdd1",
-    "branch": "agent/governed-analysis-readiness"
+    "name": "AntonioAPDL/TA-WIKI-DATA-ANALYSIS",
+    "commit": "see Git commit containing this manifest",
+    "branch": "main"
   },
-  "manuscript_version_date": "2026-07-30",
+  "manuscript_version_date": "2026-08-12",
   "privacy_boundary": {
     "contains_raw_rows": false,
     "contains_timestamps": false,
     "contains_open_text": false,
+    "contains_raw_open_text": false,
+    "contains_disclosure_safe_open_text_themes": true,
     "contains_contact_or_raffle_material": false,
     "contains_source_locator_or_private_path": false,
     "contains_aggregate_results_only": true
@@ -39,39 +41,50 @@
       "path": "results/structured-aggregate/aggregate-data/quantitative-structured-summary-labeled.csv",
       "sha256": "afe1f9365a600d9cbdc2d4a7a73d5410af1f608b0b284f25737f0bbcf77364ec",
       "canonical_text_bytes": 31559
+    },
+    {
+      "path": "results/structured-aggregate/aggregate-data/qualitative-theme-summary.csv",
+      "sha256": "713dd92d17dfa23859f1b185d826f7bb6a18136e192084792e5c670fa51309a5",
+      "canonical_text_bytes": 2811
     }
   ],
   "expected_outputs": [
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
       "rebuilt_relative": "journal-claim-ledger.csv",
-      "sha256": "af8476da5acf47d7cdf749563fdf543b18c92ec2bfbdc5ec5e1b2b9ec6f4a973",
-      "canonical_text_bytes": 36544
+      "sha256": "f17514806e8e0a947e083f1bee97a1db93f1eb00bef475fe7e1bdcdc92728076",
+      "canonical_text_bytes": 40572
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-style-manuscript.md",
       "rebuilt_relative": "journal-style-manuscript.md",
-      "sha256": "481667307b43a494d872a6b451f0f7938c57e202f029149333938b0a7c2f3296",
-      "canonical_text_bytes": 17247
+      "sha256": "a242217b76b21d77870ca7b6c1867bbc39fbbcae947cb2864008fac58128ca41",
+      "canonical_text_bytes": 21449
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-style-manuscript.tex",
       "rebuilt_relative": "journal-style-manuscript.tex",
-      "sha256": "ebd3290e009d894d63dfa7c61907f7d0b3a0121ec8574929ee0b980e9e21a102",
-      "canonical_text_bytes": 18679,
+      "sha256": "376a7ba8324bdab414770ceb863557fe0fab438e30b3974510d7b401fb2533cf",
+      "canonical_text_bytes": 22988,
       "must_match_main_tex": true
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/journal-style-manuscript-supplement.md",
       "rebuilt_relative": "journal-style-manuscript-supplement.md",
-      "sha256": "7de445e6bcb322721a1eb7f1ca0a03dd26461a0e84272e84e0e495299cd33fd3",
-      "canonical_text_bytes": 43298
+      "sha256": "a4ce4196f72b60a68f078827bbad6fc7b923f52f140ae4435a0d6681d49d0ee2",
+      "canonical_text_bytes": 45212
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
       "rebuilt_relative": "main-table-engagement-indicators.csv",
       "sha256": "35c8593b7edce98114e806a373de9cbe9bf6eccc1f4378cb19aa9eed7da5fddb",
       "canonical_text_bytes": 1149
+    },
+    {
+      "path": "results/structured-aggregate/expected/journal-manuscript/main-table-qualitative-themes.csv",
+      "rebuilt_relative": "main-table-qualitative-themes.csv",
+      "sha256": "73cd490cdc86e3faa3096b37ff79128dd606edbffe9dbc2ca3a8f45144128ac6",
+      "canonical_text_bytes": 1774
     },
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
@@ -82,13 +95,13 @@
     {
       "path": "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
       "rebuilt_relative": "supplemental-structured-indicators.csv",
-      "sha256": "2a84443298b02d6e612bb173a8fea4d62ef9698f296b33c18cb542830cc20163",
-      "canonical_text_bytes": 5224
+      "sha256": "0e707970cd671f9ecad1e96cc9cea9fd8abc06bb2f9dabefc3077dac561e97fd",
+      "canonical_text_bytes": 5221
     }
   ],
   "notes": [
     "The root main.tex file is text-identical to expected/journal-manuscript/journal-style-manuscript.tex in this bundle after LF/CRLF normalization.",
     "PDF and HTML artifacts are intentionally regenerated locally rather than tracked.",
-    "This bundle supports clone-level reproduction of manuscript values and tables; it does not replace restricted raw-source review."
+    "This bundle supports clone-level reproduction of manuscript values, tables, and disclosure-safe theme summaries; it does not contain raw survey records."
   ]
 }

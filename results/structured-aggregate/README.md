@@ -1,14 +1,14 @@
-# Structured aggregate result bundle
+# Aggregate result bundle
 
 This directory contains the disclosure-safe aggregate inputs and expected
-manuscript outputs needed to reproduce the current structured descriptive TA
-Wiki manuscript from a clean clone.
+manuscript outputs needed to reproduce the current TA Wiki platform-evaluation
+manuscript from a clean clone.
 
 It deliberately does not contain:
 
 - raw survey rows;
 - timestamps;
-- open-text responses;
+- raw open-text responses or direct quotations;
 - contact or raffle material;
 - source workbook locators;
 - restricted governance records;
@@ -25,6 +25,9 @@ Rscript scripts/run.R reproduce-results --check
 The command stages the tracked aggregate inputs in a temporary directory,
 rebuilds the journal-style manuscript artifacts, validates the claim ledger, and
 checks that rebuilt outputs match the tracked expected snapshots and `main.tex`.
+
+The aggregate inputs include structured item summaries and a disclosure-safe
+summary of open-text themes. They do not include row-level records.
 
 Directory layout:
 

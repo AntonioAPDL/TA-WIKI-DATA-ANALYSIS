@@ -2,7 +2,7 @@
 
 # Reproduce the current result-bearing manuscript artifacts from the tracked
 # disclosure-safe aggregate bundle. This command never reads row-level survey
-# data, timestamps, open text, contact material, or restricted storage.
+# data, timestamps, raw open text, contact material, or restricted storage.
 
 this_script <- sub("^--file=", "", commandArgs(FALSE)[grepl("^--file=", commandArgs(FALSE))][[1]])
 this_script <- normalizePath(this_script, winslash = "/", mustWork = TRUE)

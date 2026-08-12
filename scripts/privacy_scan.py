@@ -65,8 +65,10 @@ SAFE_DATA_PATHS = {
     "results/structured-aggregate/aggregate-data/quantitative-contribution-sensitivity.csv",
     "results/structured-aggregate/aggregate-data/quantitative-item-completeness.csv",
     "results/structured-aggregate/aggregate-data/quantitative-structured-summary-labeled.csv",
+    "results/structured-aggregate/aggregate-data/qualitative-theme-summary.csv",
     "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
     "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-qualitative-themes.csv",
     "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
     "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
 }

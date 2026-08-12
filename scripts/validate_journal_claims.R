@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Independent validation for the structured-only journal manuscript outputs.
+# Independent validation for the platform-focused manuscript outputs.
 # This script does not generate manuscript prose or tables. It checks the
 # already-generated snapshot against source hashes and profile-specific
 # exclusions so obvious drift is caught outside the builder.
@@ -68,6 +68,7 @@ cached_sha256 <- function(path) {
 ledger <- read_csv(file.path(manuscript_dir, "journal-claim-ledger.csv"))
 main_table <- read_csv(file.path(manuscript_dir, "main-table-engagement-indicators.csv"))
 context_table <- read_csv(file.path(manuscript_dir, "main-table-survey-record-context.csv"))
+qualitative_table <- read_csv(file.path(manuscript_dir, "main-table-qualitative-themes.csv"))
 build_record_path <- file.path(manuscript_dir, "journal-style-manuscript-build-record.json")
 if (!file.exists(build_record_path)) stop("Missing build record: ", build_record_path)
 build_record <- jsonlite::fromJSON(build_record_path, simplifyVector = FALSE)
@@ -96,6 +97,11 @@ for (i in seq_len(nrow(ledger))) {
 
 check(nrow(context_table) == 4L, "Table 1 should contain four survey-record context rows.")
 check(nrow(main_table) >= 10L && nrow(main_table) <= 11L, "Table 2 should contain approximately 10-11 central rows.")
+check(nrow(qualitative_table) == 7L, "Table 3 should contain seven disclosure-safe open-text themes.")
+check(all(c("Theme", "Records", "Disclosure-safe summary") %in% names(qualitative_table)),
+      "Table 3 is missing required open-text theme columns.")
+check(!grepl("@|Timestamp|E-?mail|\\bR[0-9]+\\b", paste(qualitative_table, collapse = " "), ignore.case = TRUE),
+      "Table 3 appears to contain row-level or contact-like material.")
 check(!any(grepl("Scheduling conflict|editathon_nonparticipant_reasons", paste(main_table, collapse = " "), ignore.case = TRUE)),
       "Routing-dependent editathon reason appears in the main table.")
 check(!grepl("Scheduling conflict|editathon_nonparticipant_reasons", md, ignore.case = TRUE),
@@ -131,10 +137,10 @@ check(!grepl("\\\\scriptsize", tex),
 check(grepl("\\\\usepackage\\{float\\}", tex) && grepl("\\\\begin\\{table\\}\\[H\\]", tex),
       "Manuscript TeX should use nonfloating table placement so Table 2 cannot interrupt Discussion.")
 check(grepl("\\\\usepackage\\{lineno\\}", tex) && grepl("\\\\linenumbers", tex),
-      "Coauthor-review PDF should include line numbers.")
+      "Review PDF should include line numbers.")
 check(grepl("## References", md, fixed = TRUE) && grepl("\\\\section\\*\\{References\\}", tex),
       "Rendered manuscript should include a References section in Markdown and TeX.")
-for (citation_anchor in c("AAPOR", "Eysenbach", "Freeman", "Sadera", "UNESCO", "von Elm")) {
+for (citation_anchor in c("AAPOR", "Eysenbach", "Freeman", "GitHub Docs", "Rouder", "Sadera", "UNESCO", "von Elm")) {
   check(grepl(citation_anchor, md, fixed = TRUE),
         paste0("Rendered manuscript is missing citation anchor: ", citation_anchor))
 }
@@ -148,6 +154,8 @@ check(nrow(direct_yes) >= 1L && nrow(direct_no) >= 1L && nrow(bound) >= 1L,
       "Contribution direct Yes/No claims and missing-response bound must all be present.")
 check(any(ledger$routing_required == "yes" & ledger$raw_review_required == "yes"),
       "Routing-dependent secondary claims should be explicitly marked as requiring raw/routing review.")
+check(any(ledger$claim_class == "nonexclusive_theme" & ledger$source_artifact == "tables/qualitative-theme-summary.csv"),
+      "Open-text theme claims should be present in the claim ledger.")
 
 if (length(failures)) {
   stop("Journal manuscript validation failed:\n- ", paste(failures, collapse = "\n- "))

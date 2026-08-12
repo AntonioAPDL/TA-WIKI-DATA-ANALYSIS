@@ -1,6 +1,6 @@
 # TA Wiki structured aggregate supplement
 
-This supplement is generated from the same aggregate analysis package as the manuscript. It is an internal coauthor-review supplement, not a public-release artifact.
+This supplement is generated from the same aggregate analysis package as the manuscript. It contains disclosure-safe aggregate summaries only.
 
 ## Supplemental selected indicators
 
@@ -32,7 +32,7 @@ This supplement is generated from the same aggregate analysis package as the man
 | Ownership | Agree/strongly agree | 6/12 (50%) | Sense-of-ownership item; not a governance assignment. | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | Ownership | Neutral | 4/12 (33%) | Sense-of-ownership item; not a governance assignment. | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | Ownership | Disagree/strongly disagree | 2/12 (17%) | Sense-of-ownership item; not a governance assignment. | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
-| Reason-informed scenario | Yes / No / missing | Yes 5; no 6; missing 1 | Secondary scenario only; reclassifies missing direct responses as No when a valid noncontribution-reason response exists; routing remains unverified. | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
+| Reason-informed scenario | Yes / No / missing | Yes 5; no 6; missing 1 | Secondary scenario only; reclassifies missing direct responses as No when a valid noncontribution-reason response exists; routing remains unverified. | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
 
 ## Item completeness
 
@@ -75,6 +75,20 @@ This supplement is generated from the same aggregate analysis package as the man
 | Perceived value and maintenance | Maintained TA Wiki would improve teaching quality | 12 | 12 | 0 | 0 | 0 | 12 |
 | Perceived value and maintenance | TA Wiki is or could be a valuable departmental resource | 12 | 12 | 0 | 0 | 0 | 12 |
 
+## Open-text theme summary
+
+Themes are nonexclusive and are based on disclosure-screened open-text review. Raw open-text responses and direct quotations are not included.
+
+| Theme | Records | Disclosure-safe summary |
+| --- | --- | --- |
+| Contribution triggers and contribution spaces | 6 | Open-text responses suggested that future contribution would be more likely when contributors could see that the Wiki was used, identify a concrete gap, add updated course materials or templates, or use a clearer course-specific space. |
+| Course-specific and current materials | 5 | Open-text responses pointed to course-specific tips, updated assignment formats, templates, explanations of commonly confusing concepts, and links to authoritative existing resources as useful content directions. |
+| Human support and instructional coordination | 5 | Open-text responses indicated that some TA needs are interpersonal or coordination-related, including preference for help from people and support for navigating instructor-facing or department-level teaching situations. |
+| Positive or conditional value | 5 | Open-text responses included both direct statements that the Wiki met current needs and comments suggesting the Wiki would be valuable when its usefulness is visible or tied to concrete TA problems. |
+| Visibility and demonstrated usefulness | 4 | Open-text responses suggested that advertising, faculty promotion, testimonials, visible use by others, or clear evidence of benefit could increase engagement with the Wiki. |
+| Platform friction and navigation | 3 | Open-text responses identified hard-to-navigate content and Git/GitHub-related editing friction as barriers for some records, including interest in a simpler non-Git contribution path. |
+| Maintenance responsibility and content currency | 2 | Open-text responses raised maintenance concerns, including avoiding duplicated information that can fall out of sync and considering a designated role for keeping materials current. |
+
 ## Full structured response distributions by domain
 
 ### TA Wiki awareness and use
@@ -97,10 +111,10 @@ This supplement is generated from the same aggregate analysis package as the man
 | needs_met | How well the TA Wiki meets TA needs | Moderately - it covers the basics but could be more comprehensive | 2 | 9 | 22% | 3 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | needs_met | How well the TA Wiki meets TA needs | Very well - it addresses most of what I need | 3 | 9 | 33% | 3 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | needs_met | How well the TA Wiki meets TA needs | Completely - it is an excellent, comprehensive resource | 1 | 9 | 11% | 3 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
-| needs_reason | Reason the TA Wiki does not fully meet needs | The Wiki does meet my needs | 3 | 4 | 75% | 3 | 5 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| needs_reason | Reason the TA Wiki does not fully meet needs | Content is not relevant to the courses I TA | 0 | 4 | 0% | 3 | 5 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| needs_reason | Reason the TA Wiki does not fully meet needs | Hard to navigate or find what I need | 0 | 4 | 0% | 3 | 5 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| needs_reason | Reason the TA Wiki does not fully meet needs | I prefer getting help from people rather than a wiki | 1 | 4 | 25% | 3 | 5 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
+| needs_reason | Reason the TA Wiki does not fully meet needs | The Wiki does meet my needs | 3 | 4 | 75% | 3 | 5 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| needs_reason | Reason the TA Wiki does not fully meet needs | Content is not relevant to the courses I TA | 0 | 4 | 0% | 3 | 5 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| needs_reason | Reason the TA Wiki does not fully meet needs | Hard to navigate or find what I need | 0 | 4 | 0% | 3 | 5 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| needs_reason | Reason the TA Wiki does not fully meet needs | I prefer getting help from people rather than a wiki | 1 | 4 | 25% | 3 | 5 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
 | useful_content | TA Wiki content found useful | General TA policies and expectations | 1 | 9 | 11% | 3 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | useful_content | TA Wiki content found useful | Tips on preparing and leading sections | 3 | 9 | 33% | 3 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | useful_content | TA Wiki content found useful | Grading guidelines and rubrics | 1 | 9 | 11% | 3 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
@@ -127,9 +141,9 @@ This supplement is generated from the same aggregate analysis package as the man
 | contribution_straightforward | Contribution process is straightforward | Neutral | 6 | 12 | 50% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | contribution_straightforward | Contribution process is straightforward | Agree | 4 | 12 | 33% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | contribution_straightforward | Contribution process is straightforward | Strongly agree | 1 | 12 | 8% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
-| noncontribution_reasons | Reasons for not contributing to the TA Wiki | I didn't have anything to add | 2 | 6 | 33% | 3 | 3 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| noncontribution_reasons | Reasons for not contributing to the TA Wiki | I didn't have time | 3 | 6 | 50% | 3 | 3 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| noncontribution_reasons | Reasons for not contributing to the TA Wiki | I wasn't sure my contributions would be valued or used | 2 | 6 | 33% | 3 | 3 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
+| noncontribution_reasons | Reasons for not contributing to the TA Wiki | I didn't have anything to add | 2 | 6 | 33% | 3 | 3 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| noncontribution_reasons | Reasons for not contributing to the TA Wiki | I didn't have time | 3 | 6 | 50% | 3 | 3 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| noncontribution_reasons | Reasons for not contributing to the TA Wiki | I wasn't sure my contributions would be valued or used | 2 | 6 | 33% | 3 | 3 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
 | simpler_interface | Simpler interface would increase willingness to contribute | Strongly disagree | 1 | 12 | 8% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | simpler_interface | Simpler interface would increase willingness to contribute | Disagree | 2 | 12 | 17% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | simpler_interface | Simpler interface would increase willingness to contribute | Neutral | 1 | 12 | 8% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
@@ -187,18 +201,18 @@ This supplement is generated from the same aggregate analysis package as the man
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | editathon_awareness | Awareness of the TA Wiki editathon | Yes, but I did not participate | 8 | 12 | 67% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
 | editathon_awareness | Awareness of the TA Wiki editathon | Yes, and I participated | 4 | 12 | 33% | 0 | 0 | structured_supplement | direct_or_unconditional_item | aggregate_exact_count |
-| editathon_experience | Reported editathon experience | Negative | 0 | 4 | 0% | 7 | 1 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_experience | Reported editathon experience | Neutral | 1 | 4 | 25% | 7 | 1 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_experience | Reported editathon experience | Positive | 3 | 4 | 75% | 7 | 1 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_improvement | Changes that would improve the editathon | A clearer explanation of what to expect and how to contribute | 3 | 5 | 60% | 5 | 2 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_improvement | Changes that would improve the editathon | A hands-on Git/GitHub tutorial as part of the event | 3 | 5 | 60% | 5 | 2 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_improvement | Changes that would improve the editathon | A more flexible timeframe | 2 | 5 | 40% | 5 | 2 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_improvement | Changes that would improve the editathon | Snacks, social incentives, or community-building elements | 0 | 5 | 0% | 5 | 2 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_improvement | Changes that would improve the editathon | Smaller, focused tasks or a list of “wanted” contributions | 3 | 5 | 60% | 5 | 2 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_improvement | Changes that would improve the editathon | Recognition or credit for contributions | 0 | 5 | 0% | 5 | 2 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_nonparticipant_reasons | Reasons for editathon nonparticipation | Scheduling conflict | 6 | 8 | 75% | 4 | 0 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_nonparticipant_reasons | Reasons for editathon nonparticipation | I didn't feel I had relevant knowledge to contribute | 2 | 8 | 25% | 4 | 0 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
-| editathon_nonparticipant_reasons | Reasons for editathon nonparticipation | I wasn't motivated or didn't see the value | 1 | 8 | 12% | 4 | 0 | restricted_diagnostic | routing_unverified | internal_only_not_manuscript_evidence |
+| editathon_experience | Reported editathon experience | Negative | 0 | 4 | 0% | 7 | 1 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_experience | Reported editathon experience | Neutral | 1 | 4 | 25% | 7 | 1 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_experience | Reported editathon experience | Positive | 3 | 4 | 75% | 7 | 1 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_improvement | Changes that would improve the editathon | A clearer explanation of what to expect and how to contribute | 3 | 5 | 60% | 5 | 2 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_improvement | Changes that would improve the editathon | A hands-on Git/GitHub tutorial as part of the event | 3 | 5 | 60% | 5 | 2 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_improvement | Changes that would improve the editathon | A more flexible timeframe | 2 | 5 | 40% | 5 | 2 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_improvement | Changes that would improve the editathon | Snacks, social incentives, or community-building elements | 0 | 5 | 0% | 5 | 2 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_improvement | Changes that would improve the editathon | Smaller, focused tasks or a list of “wanted” contributions | 3 | 5 | 60% | 5 | 2 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_improvement | Changes that would improve the editathon | Recognition or credit for contributions | 0 | 5 | 0% | 5 | 2 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_nonparticipant_reasons | Reasons for editathon nonparticipation | Scheduling conflict | 6 | 8 | 75% | 4 | 0 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_nonparticipant_reasons | Reasons for editathon nonparticipation | I didn't feel I had relevant knowledge to contribute | 2 | 8 | 25% | 4 | 0 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
+| editathon_nonparticipant_reasons | Reasons for editathon nonparticipation | I wasn't motivated or didn't see the value | 1 | 8 | 12% | 4 | 0 | restricted_diagnostic | routing_unverified | diagnostic_not_manuscript_evidence |
 
 ### Background and teaching context
 
