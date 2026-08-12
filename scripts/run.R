@@ -9,8 +9,8 @@ args <- commandArgs(trailingOnly = TRUE)
 targets <- c(
   bootstrap = "00_bootstrap.R",
   `manuscript-check` = "check_main_manuscript.R",
-  `journal-style-manuscript` = "build_journal_style_manuscript.R",
-  `journal-claim-validation` = "validate_journal_claims.R",
+  `build-manuscript` = "build_manuscript.R",
+  `validate-manuscript` = "validate_manuscript.R",
   `reproduce-results` = "reproduce_results_from_aggregate.R"
 )
 
@@ -21,8 +21,8 @@ usage <- c(
   "  bootstrap                  Restore the locked R environment.",
   "  privacy [--strict-history] Scan the tracked-file boundary.",
   "  manuscript-check           Check root main.tex; compiles when pdflatex is available.",
-  "  journal-style-manuscript   Rebuild manuscript artifacts from aggregate tables.",
-  "  journal-claim-validation   Validate rebuilt manuscript artifacts.",
+  "  build-manuscript           Rebuild manuscript artifacts from aggregate tables.",
+  "  validate-manuscript        Validate rebuilt manuscript artifacts.",
   "  reproduce-results          Rebuild/check manuscript values from the tracked aggregate bundle."
 )
 

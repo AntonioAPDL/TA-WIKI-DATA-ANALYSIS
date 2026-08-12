@@ -3,7 +3,9 @@ Type: Project
 Title: Reproducible TA Wiki Assessment Workflow
 Version: 0.1.0
 Authors@R: c(
-    person("Antonio", "Aguirre", role = c("aut", "cre"))
+    person("Antonio", "Aguirre", role = c("aut", "cre")),
+    person("Andrew", "Le", role = "aut"),
+    person("Marcela", "Alfaro-Cordoba", role = "aut")
     )
 Description: Dependency declaration for the aggregate-result reproduction
     workflow. This is a project manifest, not a distributable R package.

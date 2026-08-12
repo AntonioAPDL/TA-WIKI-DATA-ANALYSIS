@@ -23,7 +23,7 @@ Rscript scripts/run.R reproduce-results --check
 ```
 
 The command stages the tracked aggregate inputs in a temporary directory,
-rebuilds the journal-style manuscript artifacts, validates the claim ledger, and
+rebuilds the manuscript artifacts, validates the claim ledger, and
 checks that rebuilt outputs match the tracked expected snapshots and `main.tex`.
 
 The aggregate inputs include structured item summaries and a disclosure-safe
@@ -34,7 +34,7 @@ Directory layout:
 | Path | Purpose |
 |---|---|
 | `aggregate-data/` | Aggregate analysis inputs consumed by the manuscript builder. |
-| `expected/journal-manuscript/` | Expected rebuilt manuscript/tables/claim-ledger snapshots. |
+| `expected/manuscript/` | Expected rebuilt manuscript, table, and claim-ledger snapshots. |
 | `manifest.json` | Bundle metadata and LF-normalized text hashes. |
 
 If result values change, regenerate this bundle from the approved aggregate

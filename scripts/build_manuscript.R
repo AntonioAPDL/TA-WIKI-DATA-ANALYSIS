@@ -15,8 +15,8 @@ if (length(setdiff(cli$flags, character()))) {
   stop("Unsupported flag(s): ", paste(cli$flags, collapse = ", "))
 }
 
-analysis_dir <- option_value(cli, "analysis-dir", default = file.path(root, "reports", "internal", "full-analysis"))
-out_dir <- option_value(cli, "out-dir", default = file.path(root, "reports", "internal", "journal-manuscript"))
+analysis_dir <- option_value(cli, "analysis-dir", default = file.path(root, "reports", "analysis"))
+out_dir <- option_value(cli, "out-dir", default = file.path(root, "reports", "manuscript"))
 copy_to <- option_value(cli, "copy-to", default = "")
 manuscript_date <- option_value(cli, "manuscript-date", default = Sys.getenv("TA_WIKI_MANUSCRIPT_DATE", unset = ""))
 if (nzchar(manuscript_date) && !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", manuscript_date)) {
@@ -580,7 +580,7 @@ ledger <- do.call(rbind, list(
   interpretive_claim("C051", "Implementation implication", "Discussion", "Desired features of a departmental teaching resource are candidate Wiki features to test, not direct evidence of requested Wiki changes.", "C009+C010+C011+C012", claim_class = "recommendation", interpretation_boundary = "Desired-feature item concerned a general departmental teaching resource."),
   do.call(rbind, lapply(seq_len(nrow(qualitative_theme_summary)), qualitative_claim))
 ))
-write_csv(ledger, file.path(out_dir, "journal-claim-ledger.csv"))
+write_csv(ledger, file.path(out_dir, "claim-ledger.csv"))
 
 main_table_context <- data.frame(
   Characteristic = c(
@@ -825,27 +825,27 @@ version_date <- paste0(
 )
 
 abstract <- paste0(
-  "This departmental evaluation examined a GitHub-hosted teaching-assistant (TA) Wiki as a platform for local teaching resources, procedures, and guidelines using ", cohort_n, " survey records classified as eligible and consenting under the project's cohort rules. ",
-  "Structured items were summarized with counts and item-specific valid-response denominators, and disclosure-safe open-text themes were summarized as nonexclusive record counts. ",
+  "We report a descriptive evaluation of a GitHub-hosted teaching-assistant (TA) Wiki as a departmental platform for teaching resources, procedures, and guidelines. The analysis used ", cohort_n, " eligible, consenting survey records. ",
+  "Structured items were summarized with counts and item-specific denominators. Open-text responses were summarized as disclosure-safe, nonexclusive themes. ",
   "No response rate or department-wide prevalence estimate was calculated because a verified invitation denominator and final eligible sampling frame were unavailable. ",
   "All 12 records indicated at least some awareness of the Wiki, 9 reported a prior visit, and 4 selected it as a current teaching-support resource. ",
   "Potential value was endorsed more consistently than active use: all 12 agreed that the Wiki is or could be valuable, 8 would recommend it, and 11 supported continued maintenance. ",
   "GitHub-specific responses were mixed: version control and transparency were selected as advantages, while learning curve, technical setup, and overly formal contribution workflows were selected as disadvantages. ",
-  "Open-text themes emphasized contribution triggers and contribution spaces (", theme_count("Q01"), " records), course-specific and current materials (", theme_count("Q02"), "), human support and instructional coordination (", theme_count("Q03"), "), and platform friction or navigation (", theme_count("Q06"), "). ",
-  "The findings support treating the Wiki as a promising but incomplete local platform whose next iteration should lower contribution friction, clarify maintenance responsibility, and test whether targeted changes increase observed use and contribution."
+  "Open-text themes emphasized reasons and spaces for contributing (", theme_count("Q01"), " records), course-specific and current materials (", theme_count("Q02"), "), human support and instructional coordination (", theme_count("Q03"), "), and platform friction or navigation (", theme_count("Q06"), "). ",
+  "The results suggest that the Wiki is a promising but incomplete local platform. The next iteration should lower contribution friction, clarify maintenance responsibility, and test whether targeted changes increase observed use and contribution."
 )
 
 intro <- c(
   "Graduate-student teaching knowledge often circulates through local, informal, and course-specific channels. Advice from peers, instructors, prior teaching assistants, orientation materials, and online sources can all help teaching assistants prepare for classroom, grading, office-hour, and communication responsibilities. Recent reviews of graduate-teaching-assistant professional development emphasize departmental support, peer networks, pedagogical training, and sustainable structures rather than one-time information delivery alone (Sadera et al., 2024; Freeman et al., 2026).",
-  "A departmental TA Wiki offers one way to make that knowledge easier to preserve and update. In the implementation studied here, the Wiki is not only a collection of pages; it is a GitHub-hosted platform for course-specific advice, reusable teaching materials, recurring procedures, and links to departmental or university resources. GitHub's wiki feature is designed for long-form repository documentation that others can use and contribute to, and its history is commit-based, making revision history and accountability part of the platform design (GitHub Docs, 2026a, 2026b).",
-  "That platform choice creates a real implementation tradeoff. GitHub can support transparent version history, distributed editing, and collaborative maintenance, but it can also make ordinary reading or first-time contribution feel technical. For a TA-facing teaching-resource platform, the important question is therefore not only whether graduate students value the resource, but whether the GitHub-hosted format supports or inhibits awareness, use, contribution, and maintenance.",
-  "Documented evaluations of GitHub-hosted departmental TA resource wikis appear uncommon, so the present paper is framed as a focused local platform evaluation. It addresses four descriptive questions: (1) what awareness, visitation, consultation, and perceived value were reported; (2) how GitHub hosting was perceived as an affordance or barrier; (3) what contribution and maintenance barriers were reported; and (4) what open-text themes suggested about improving the Wiki as a platform. The analysis reports item-level counts and disclosure-safe open-text themes to inform local planning. It does not estimate department-wide prevalence, causal effects, or intervention effectiveness."
+  "A departmental TA Wiki offers one way to preserve and update that knowledge. In the implementation studied here, the Wiki is not only a collection of pages; it is a GitHub-hosted platform for course-specific advice, reusable teaching materials, recurring procedures, and links to departmental or university resources. GitHub wikis are designed for long-form repository documentation that others can use and contribute to, and their history is commit-based. Those features make revision history and accountability part of the platform design (GitHub Docs, 2026a, 2026b).",
+  "The GitHub choice also creates a practical tradeoff. GitHub can support transparent version history, distributed editing, and collaborative maintenance, but it can also make ordinary reading or first-time contribution feel technical. For a TA-facing teaching-resource platform, the key question is not only whether graduate students value the resource, but whether the GitHub-hosted format supports or inhibits awareness, use, contribution, and maintenance.",
+  "Documented evaluations of GitHub-hosted departmental TA resource wikis appear uncommon. We therefore treat this study as a focused local platform evaluation. The paper addresses four descriptive questions: (1) what awareness, visitation, consultation, and perceived value were reported; (2) how GitHub hosting was perceived as an affordance or barrier; (3) what contribution and maintenance barriers were reported; and (4) what open-text themes suggested about improving the Wiki. The analysis reports item-level counts and disclosure-safe open-text themes to inform local planning. It does not estimate department-wide prevalence, causal effects, or intervention effectiveness."
 )
 
 methods_sections <- list(
   list(
     heading = "Survey context and analytic cohort",
-    paragraphs = c(paste0("Data came from a voluntary departmental TA Wiki feedback survey. The analytic cohort contained ", cohort_n, " survey records classified as eligible and consenting under documented project rules. Because a verified invitation denominator and final eligible sampling frame were unavailable, no response rate was calculated."))
+    paragraphs = c(paste0("Data came from a voluntary departmental TA Wiki feedback survey. The analytic cohort contained ", cohort_n, " eligible, consenting survey records. Because a verified invitation denominator and final eligible sampling frame were unavailable, no response rate was calculated."))
   ),
   list(
     heading = "Descriptive summaries",
@@ -862,14 +862,14 @@ methods_sections <- list(
   list(
     heading = "Open-text theme review",
     paragraphs = c(
-      "Open-text responses from five survey fields were reviewed locally and coded into nonexclusive platform-evaluation themes. The coding emphasized how comments explained or refined the structured findings about usefulness, GitHub hosting, contribution barriers, content needs, outreach, and maintenance.",
-      "Only aggregate theme counts and disclosure-safe paraphrases are reported. Raw open-text responses, survey-record-level coding notes, timestamps, and any locally identifying details remain outside the public repository. Direct quotations are not used because some open-text responses included identifiable local context."
+      "Open-text responses from five survey fields were reviewed and coded into nonexclusive platform-evaluation themes. The coding focused on how comments explained or refined the structured findings about usefulness, GitHub hosting, contribution barriers, content needs, outreach, and maintenance.",
+      "Only aggregate theme counts and disclosure-safe paraphrases are reported. Raw open-text responses, survey-record-level coding notes, timestamps, and locally identifying details are not included in the public repository. Direct quotations are not used because some open-text responses included identifiable local context."
     )
   ),
   list(
     heading = "Analysis transparency",
     paragraphs = c(
-      "The descriptive analysis rules were formalized after data collection and were not preregistered. Manuscript values were generated from version-controlled aggregate analysis tables; row-level data and raw open-text responses are not reported in this manuscript.",
+      "The descriptive analysis rules were finalized after data collection rather than registered in advance. Manuscript values were generated from version-controlled aggregate analysis tables; row-level data and raw open-text responses are not reported in this manuscript.",
       "Reporting choices were aligned with general guidance for complete observational-study reporting, internet-survey reporting, open-ended survey response analysis, and survey-method disclosure where applicable: denominators are item-specific, missing and invalid responses are separated, unavailable response-rate inputs are explicitly named, open-text themes are coded before interpretation, and unsupported generalization is avoided (von Elm et al., 2007; Eysenbach, 2004; Rouder et al., 2021; AAPOR, 2022)."
     )
   )
@@ -880,7 +880,7 @@ results_sections <- list(
     heading = "Survey-record and platform context",
     paragraphs = c(
       paste0("The survey records primarily reflected experienced TAs: ", metric_ta_experience$prose, " reported at least five departmental TA quarters, ", metric_git_comfort$prose, " reported at least moderate Git/GitHub comfort, and ", metric_teaching_interest$prose, " reported at least moderate interest in developing teaching skills."),
-      paste0("The TA Wiki was selected as a current teaching-support resource by ", metric_ta_wiki_current$prose, " records. Peer advice, instructor or faculty advice, and online resources were selected more often in the current-resource item. This context matters because the Wiki is being evaluated as a platform that would need to coexist with, organize, or supplement those existing channels.")
+      paste0("The TA Wiki was selected as a current teaching-support resource by ", metric_ta_wiki_current$prose, " records. Peer advice, instructor or faculty advice, and online resources were selected more often in the current-resource item. This matters because the Wiki would need to coexist with, organize, or supplement those existing channels.")
     )
   ),
   list(
@@ -894,7 +894,7 @@ results_sections <- list(
     heading = "Contribution process and GitHub platform perceptions",
     paragraphs = c(
       paste0("Five records reported prior contribution, four reported no prior contribution, and three were missing. Assigning all three missing responses to No or all three to Yes yields a possible contributor count of ", gsub("-", " to ", contribution_bound_text, fixed = TRUE), ". This is a deterministic missing-response range, not a confidence interval."),
-      paste0("Agreement that records indicated understanding how to contribute was more common than agreement that the process was straightforward: ", metric_understand$prose, " agreed or strongly agreed that they understood how to contribute, while ", metric_straightforward$prose, " agreed or strongly agreed that the process was straightforward. ", metric_simpler$prose, " agreed or strongly agreed that a simpler interface would increase willingness to contribute, and ", metric_training$prose, " agreed or strongly agreed that training or a walkthrough would do so."),
+      paste0("More records indicated understanding how to contribute than agreed that the process was straightforward: ", metric_understand$prose, " agreed or strongly agreed that they understood how to contribute, while ", metric_straightforward$prose, " agreed or strongly agreed that the process was straightforward. ", metric_simpler$prose, " agreed or strongly agreed that a simpler interface would increase willingness to contribute, and ", metric_training$prose, " agreed or strongly agreed that training or a walkthrough would do so."),
       paste0("Reported effects of GitHub hosting were mixed rather than uniformly positive or negative. For willingness to use the Wiki, ", metric_github_use_none$prose, " reported no difference, ", metric_github_use_more$prose, " reported being more likely to use it, and ", metric_github_use_less$prose, " reported being less likely. For willingness to contribute, the corresponding counts were ", metric_github_contrib_none$prose, ", ", metric_github_contrib_more$prose, ", and ", metric_github_contrib_less$prose, ". Version control and transparency were the most prominent selected advantages, while steep learning curve, technical setup, and an overly formal contribution process were selected disadvantages.")
     )
   ),
@@ -905,8 +905,8 @@ results_sections <- list(
   list(
     heading = "Open-text themes for platform improvement",
     paragraphs = c(
-      paste0("Open-text themes were nonexclusive and are used to explain the structured platform findings rather than to estimate prevalence. The most common theme was contribution triggers and contribution spaces (", theme_count("Q01"), " records), followed by course-specific and current materials (", theme_count("Q02"), "), human support and instructional coordination (", theme_count("Q03"), "), and positive or conditional value (", theme_count("Q04"), "). Visibility and demonstrated usefulness appeared in ", theme_count("Q05"), " records, platform friction and navigation in ", theme_count("Q06"), ", and maintenance responsibility and content currency in ", theme_count("Q07"), "."),
-      "The themes point to a practical platform-design agenda: make contribution easier, make course-specific updating more natural, advertise the Wiki through trusted channels, and define a maintenance process that keeps links and content current without duplicating authoritative information."
+      paste0("Open-text themes were nonexclusive and are used to explain the structured platform findings rather than to estimate prevalence. The most common theme was reasons and spaces for contributing (", theme_count("Q01"), " records), followed by course-specific and current materials (", theme_count("Q02"), "), human support and instructional coordination (", theme_count("Q03"), "), and value tied to concrete use (", theme_count("Q04"), "). Visibility and demonstrated usefulness appeared in ", theme_count("Q05"), " records, platform friction and navigation in ", theme_count("Q06"), ", and maintenance responsibility and content currency in ", theme_count("Q07"), "."),
+      "The themes suggest practical next steps: make contribution easier, make course-specific updating more natural, advertise the Wiki through trusted channels, and define a maintenance process that keeps links and content current without duplicating authoritative information."
     )
   )
 )
@@ -914,15 +914,15 @@ results_sections <- list(
 discussion_sections <- list(
   list(
     heading = "The Wiki is promising as a platform, but value is not the same as adoption",
-    paragraphs = c("The central finding is not simply that the Wiki is known or valued. It is that perceived value was much stronger than current-resource selection, reported consultation, or complete contribution status. All 12 records agreed that the Wiki is or could be valuable, but only 4 selected it as a current teaching-support resource, and consultation-frequency responses were mixed. For a GitHub-hosted platform, this gap matters: awareness and approval do not guarantee that the platform is part of ordinary TA work.")
+    paragraphs = c("The main finding is not simply that the Wiki is known or valued. It is that perceived value was much stronger than current-resource selection, reported consultation, or complete contribution status. All 12 records agreed that the Wiki is or could be valuable, but only 4 selected it as a current teaching-support resource, and consultation-frequency responses were mixed. For a GitHub-hosted platform, this gap matters: awareness and approval do not guarantee that the platform is part of ordinary TA work.")
   ),
   list(
     heading = "GitHub is both an affordance and a barrier",
-    paragraphs = c("The platform-centered framing is supported by the data: GitHub hosting should be treated as part of the intervention, not a neutral storage choice. Structured items identified version control and transparency as advantages, but they also identified learning curve, technical setup, and formal contribution workflows as barriers. The open-text themes sharpen this interpretation by pointing to navigation and Git/GitHub friction alongside requests for simpler contribution routes. A lower-friction contribution path could preserve the benefits of GitHub while reducing the entry cost for TAs who mainly want to share course materials or practical tips.")
+    paragraphs = c("GitHub hosting should be treated as part of the intervention, not a neutral storage choice. Structured items identified version control and transparency as advantages, but they also identified learning curve, technical setup, and formal contribution workflows as barriers. The open-text themes add the same concern from another angle, pointing to navigation and Git/GitHub friction alongside requests for simpler contribution routes. A lower-friction contribution path could preserve the benefits of GitHub while reducing the entry cost for TAs who mainly want to share course materials or practical tips.")
   ),
   list(
     heading = "Content and maintenance are platform-design questions",
-    paragraphs = c("The desired-features item concerned a useful departmental teaching resource rather than the Wiki specifically, so course-linked tips, rubrics, activities, templates, and instructor-facing coordination needs should be treated as candidate platform improvements rather than direct proof that every feature belongs in the Wiki. The open-text themes suggest that course-specific and current materials, better visibility, and maintenance responsibility are central to making the Wiki useful. A reasonable next iteration would identify a small number of high-value course-specific pages, clarify who keeps them current, and measure whether those changes increase observed use or contribution.")
+    paragraphs = c("The desired-features item concerned a useful departmental teaching resource rather than the Wiki specifically, so course-linked tips, rubrics, activities, templates, and instructor-facing coordination needs should be treated as candidate platform improvements rather than direct proof that every feature belongs in the Wiki. The open-text themes suggest that course-specific and current materials, better visibility, and maintenance responsibility are central to making the Wiki useful. A reasonable next iteration would identify a small number of high-value course-specific pages, clarify who keeps them current, and then measure whether those changes increase observed use or contribution.")
   )
 )
 
@@ -931,7 +931,7 @@ limitations <- c(
   "The survey was cross-sectional and relied on self-reports, including hypothetical willingness rather than observed Wiki-use or contribution logs. Missing and invalid responses reduced several item-specific denominators, and verified display logic was unavailable, preventing confirmation of routing for conditional items. Three direct contribution responses were missing, producing a possible full-cohort contributor count of 5 to 8. The records primarily reflected experienced TAs and included relatively few reports of low Git/GitHub comfort. Open-text themes were coded for local interpretation and are reported only as disclosure-safe aggregate summaries; no direct quotations are used."
 )
 
-conclusion <- "In these 12 survey records, the GitHub-hosted TA Wiki was viewed as a valuable departmental platform, but reported use and contribution lagged behind that potential. The evidence supports a focused next step: keep the platform idea, but reduce contribution friction, strengthen course-specific content, make usefulness more visible, and define a maintenance process. A follow-up evaluation should measure observed Wiki use and contribution after those changes and should document the invitation denominator and survey routing more completely."
+conclusion <- "In these 12 survey records, the GitHub-hosted TA Wiki was viewed as a valuable departmental platform, but reported use and contribution lagged behind that potential. The evidence supports a focused next step: keep the platform, reduce contribution friction, strengthen course-specific content, make usefulness more visible, and define a maintenance process. A follow-up evaluation should measure observed Wiki use and contribution after those changes and should document the invitation denominator and survey routing more completely."
 
 references <- data.frame(
   text = c(
@@ -1044,7 +1044,7 @@ supplement_md <- c(
   appendix_domain_md(appendix_full)
 )
 supplement_md <- trim_terminal_blank_lines(supplement_md)
-supplement_md_path <- file.path(out_dir, "journal-style-manuscript-supplement.md")
+supplement_md_path <- file.path(out_dir, "manuscript-supplement.md")
 writeLines(supplement_md, supplement_md_path, useBytes = TRUE)
 
 supplement_html <- c(
@@ -1065,7 +1065,7 @@ supplement_html <- c(
   appendix_domain_html(appendix_full),
   "</body></html>"
 )
-supplement_html_path <- file.path(out_dir, "journal-style-manuscript-supplement.html")
+supplement_html_path <- file.path(out_dir, "manuscript-supplement.html")
 writeLines(supplement_html, supplement_html_path, useBytes = TRUE)
 
 md <- c(
@@ -1124,7 +1124,7 @@ md <- c(
   "",
   "Full item-completeness summaries, structured response distributions, and disclosure-safe open-text theme summaries are provided in the aggregate supplement. Routing-dependent conditional items and sparse exploratory cross-tabs are retained as diagnostics and are not interpreted as manuscript findings."
 )
-md_path <- file.path(out_dir, "journal-style-manuscript.md")
+md_path <- file.path(out_dir, "manuscript.md")
 writeLines(md, md_path, useBytes = TRUE)
 
 html <- c(
@@ -1163,7 +1163,7 @@ html <- c(
   p("Full item-completeness summaries, structured response distributions, and disclosure-safe open-text theme summaries are provided in the aggregate supplement. Routing-dependent conditional items and sparse exploratory cross-tabs are retained as diagnostics and are not interpreted as manuscript findings."),
   "</body></html>"
 )
-html_path <- file.path(out_dir, "journal-style-manuscript.html")
+html_path <- file.path(out_dir, "manuscript.html")
 writeLines(html, html_path, useBytes = TRUE)
 
 tex <- c(
@@ -1218,7 +1218,7 @@ tex <- c(
   "Full item-completeness summaries, structured response distributions, and disclosure-safe open-text theme summaries are provided in the aggregate supplement. Routing-dependent conditional items and sparse exploratory cross-tabs are retained as diagnostics and are not interpreted as manuscript findings.",
   "\\end{document}"
 )
-tex_path <- file.path(out_dir, "journal-style-manuscript.tex")
+tex_path <- file.path(out_dir, "manuscript.tex")
 writeLines(tex, tex_path, useBytes = TRUE)
 
 input_files <- c(
@@ -1235,7 +1235,7 @@ output_files <- list(
   tex = tex_path,
   supplement_markdown = supplement_md_path,
   supplement_html = supplement_html_path,
-  claim_ledger = file.path(out_dir, "journal-claim-ledger.csv"),
+  claim_ledger = file.path(out_dir, "claim-ledger.csv"),
     main_table_survey_record_context = file.path(out_dir, "main-table-survey-record-context.csv"),
   main_table_engagement_indicators = file.path(out_dir, "main-table-engagement-indicators.csv"),
   main_table_qualitative_themes = file.path(out_dir, "main-table-qualitative-themes.csv"),
@@ -1243,11 +1243,11 @@ output_files <- list(
 )
 bundle_relative_input <- function(path) {
   repo_rel <- rel_path(path, root)
-  repo_rel <- sub("^reports/internal/full-analysis/tables/quantitative-structured-summary-labeled.csv$", "aggregate-data/quantitative-structured-summary-labeled.csv", repo_rel)
-  repo_rel <- sub("^reports/internal/full-analysis/tables/quantitative-item-completeness.csv$", "aggregate-data/quantitative-item-completeness.csv", repo_rel)
-  repo_rel <- sub("^reports/internal/full-analysis/tables/quantitative-cohort-flow.csv$", "aggregate-data/quantitative-cohort-flow.csv", repo_rel)
-  repo_rel <- sub("^reports/internal/full-analysis/tables/quantitative-contribution-sensitivity.csv$", "aggregate-data/quantitative-contribution-sensitivity.csv", repo_rel)
-  repo_rel <- sub("^reports/internal/full-analysis/tables/qualitative-theme-summary.csv$", "aggregate-data/qualitative-theme-summary.csv", repo_rel)
+  repo_rel <- sub("^reports/analysis/tables/quantitative-structured-summary-labeled.csv$", "aggregate-data/quantitative-structured-summary-labeled.csv", repo_rel)
+  repo_rel <- sub("^reports/analysis/tables/quantitative-item-completeness.csv$", "aggregate-data/quantitative-item-completeness.csv", repo_rel)
+  repo_rel <- sub("^reports/analysis/tables/quantitative-cohort-flow.csv$", "aggregate-data/quantitative-cohort-flow.csv", repo_rel)
+  repo_rel <- sub("^reports/analysis/tables/quantitative-contribution-sensitivity.csv$", "aggregate-data/quantitative-contribution-sensitivity.csv", repo_rel)
+  repo_rel <- sub("^reports/analysis/tables/qualitative-theme-summary.csv$", "aggregate-data/qualitative-theme-summary.csv", repo_rel)
   repo_rel
 }
 input_descriptor <- function(path) {
@@ -1299,13 +1299,13 @@ if (nzchar(pdflatex) && file.exists(pdflatex)) {
   args <- c("-interaction=nonstopmode", "-halt-on-error", "-file-line-error", "-no-shell-escape", basename(tex_path))
   status1 <- system2(pdflatex, args, stdout = TRUE, stderr = TRUE)
   status2 <- system2(pdflatex, args, stdout = TRUE, stderr = TRUE)
-  pdf_path <- file.path(out_dir, "journal-style-manuscript.pdf")
+  pdf_path <- file.path(out_dir, "manuscript.pdf")
   output_files$pdf <- pdf_path
   build_record$outputs$pdf <- rel_path(pdf_path, root)
   build_record$pdflatex_status <- c(attr(status1, "status") %||% 0L, attr(status2, "status") %||% 0L)
   build_record$pdflatex_output_tail <- tail(c(status1, status2), 40)
   if (any(as.integer(build_record$pdflatex_status) != 0L)) {
-    writeLines(jsonlite::toJSON(build_record, auto_unbox = TRUE, pretty = TRUE), file.path(out_dir, "journal-style-manuscript-build-record.json"), useBytes = TRUE)
+    writeLines(jsonlite::toJSON(build_record, auto_unbox = TRUE, pretty = TRUE), file.path(out_dir, "build-record.json"), useBytes = TRUE)
     stop("pdflatex failed; see build record tail for details.")
   }
   warning_pattern <- "Overfull \\\\hbox|Overfull \\\\vbox|Underfull|Infinite glue shrinkage|undefined references?|Reference .*undefined|Label\\(s\\) may have changed|Missing character|Rerun to get cross-references right"
@@ -1318,7 +1318,7 @@ if (nzchar(pdflatex) && file.exists(pdflatex)) {
   build_record$pdflatex_warnings <- pdflatex_warnings
   build_record$pdflatex_quality_issues <- fatal_quality
   if (length(fatal_quality)) {
-    writeLines(jsonlite::toJSON(build_record, auto_unbox = TRUE, pretty = TRUE), file.path(out_dir, "journal-style-manuscript-build-record.json"), useBytes = TRUE)
+    writeLines(jsonlite::toJSON(build_record, auto_unbox = TRUE, pretty = TRUE), file.path(out_dir, "build-record.json"), useBytes = TRUE)
     stop("PDF quality gate failed: see pdflatex_quality_issues in build record.")
   }
 } else {
@@ -1351,12 +1351,12 @@ if (nzchar(copy_to)) {
   build_record$copied_to <- copied
 }
 
-record_path <- file.path(out_dir, "journal-style-manuscript-build-record.json")
+record_path <- file.path(out_dir, "build-record.json")
 writeLines(jsonlite::toJSON(build_record, auto_unbox = TRUE, pretty = TRUE), record_path, useBytes = TRUE)
 
-cat("Journal-style manuscript written to: ", out_dir, "\n", sep = "")
+cat("Manuscript artifacts written to: ", out_dir, "\n", sep = "")
 if (nzchar(output_files$pdf) && file.exists(output_files$pdf)) {
-  cat("Journal-style manuscript PDF: ", output_files$pdf, "\n", sep = "")
+  cat("Manuscript PDF: ", output_files$pdf, "\n", sep = "")
 }
 if (nzchar(copy_to)) {
   cat("Copied review artifacts to: ", copy_to, "\n", sep = "")

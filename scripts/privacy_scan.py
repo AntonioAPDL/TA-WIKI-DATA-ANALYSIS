@@ -66,11 +66,11 @@ SAFE_DATA_PATHS = {
     "results/structured-aggregate/aggregate-data/quantitative-item-completeness.csv",
     "results/structured-aggregate/aggregate-data/quantitative-structured-summary-labeled.csv",
     "results/structured-aggregate/aggregate-data/qualitative-theme-summary.csv",
-    "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
-    "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
-    "results/structured-aggregate/expected/journal-manuscript/main-table-qualitative-themes.csv",
-    "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
-    "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
+    "results/structured-aggregate/expected/manuscript/claim-ledger.csv",
+    "results/structured-aggregate/expected/manuscript/main-table-engagement-indicators.csv",
+    "results/structured-aggregate/expected/manuscript/main-table-qualitative-themes.csv",
+    "results/structured-aggregate/expected/manuscript/main-table-survey-record-context.csv",
+    "results/structured-aggregate/expected/manuscript/supplemental-structured-indicators.csv",
 }
 HISTORICAL_SAFE_DATA_PATHS = {
     "admin/evidence-index.csv",
@@ -92,6 +92,11 @@ HISTORICAL_SAFE_DATA_PATHS = {
     "data/metadata/variable_map.csv",
     "tests/synthetic-survey-fixture.csv",
     "tests/fixtures_synthetic.csv",
+    "results/structured-aggregate/expected/journal-manuscript/journal-claim-ledger.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-engagement-indicators.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-qualitative-themes.csv",
+    "results/structured-aggregate/expected/journal-manuscript/main-table-survey-record-context.csv",
+    "results/structured-aggregate/expected/journal-manuscript/supplemental-structured-indicators.csv",
 }
 FORBIDDEN_EXTENSIONS = {
     ".7z", ".bmp", ".csv", ".docx", ".feather", ".gif", ".gz", ".jpeg",
@@ -103,7 +108,7 @@ RELEASE_EXACT = {"manuscript/generated-results.tex"}
 SENSITIVE_TERMS = re.compile(r"(@[A-Za-z0-9.-]+\.[A-Za-z]{2,}|\bTimestamp\b|\bE-?mail\b)", re.I)
 AGGREGATE_RESULT_PREFIXES = (
     "results/structured-aggregate/aggregate-data/",
-    "results/structured-aggregate/expected/journal-manuscript/",
+    "results/structured-aggregate/expected/manuscript/",
 )
 RESULTS_PLACEHOLDER_MARKER = "no disclosure-approved numerical result artifact is currently available for this manuscript"
 HISTORICAL_RESULTS_PLACEHOLDER_MARKERS = {

@@ -17,8 +17,8 @@ if (length(setdiff(cli$flags, character()))) {
   stop("Unsupported flag(s): ", paste(cli$flags, collapse = ", "))
 }
 
-manuscript_dir <- option_value(cli, "manuscript-dir", default = file.path(root, "reports", "internal", "journal-manuscript"))
-analysis_dir <- option_value(cli, "analysis-dir", default = file.path(root, "reports", "internal", "full-analysis"))
+manuscript_dir <- option_value(cli, "manuscript-dir", default = file.path(root, "reports", "manuscript"))
+analysis_dir <- option_value(cli, "analysis-dir", default = file.path(root, "reports", "analysis"))
 manuscript_dir <- normalizePath(manuscript_dir, winslash = "/", mustWork = TRUE)
 analysis_dir <- normalizePath(analysis_dir, winslash = "/", mustWork = TRUE)
 
@@ -65,15 +65,15 @@ cached_sha256 <- function(path) {
   get(key, envir = source_hash_cache, inherits = FALSE)
 }
 
-ledger <- read_csv(file.path(manuscript_dir, "journal-claim-ledger.csv"))
+ledger <- read_csv(file.path(manuscript_dir, "claim-ledger.csv"))
 main_table <- read_csv(file.path(manuscript_dir, "main-table-engagement-indicators.csv"))
 context_table <- read_csv(file.path(manuscript_dir, "main-table-survey-record-context.csv"))
 qualitative_table <- read_csv(file.path(manuscript_dir, "main-table-qualitative-themes.csv"))
-build_record_path <- file.path(manuscript_dir, "journal-style-manuscript-build-record.json")
+build_record_path <- file.path(manuscript_dir, "build-record.json")
 if (!file.exists(build_record_path)) stop("Missing build record: ", build_record_path)
 build_record <- jsonlite::fromJSON(build_record_path, simplifyVector = FALSE)
-md_path <- file.path(manuscript_dir, "journal-style-manuscript.md")
-tex_path <- file.path(manuscript_dir, "journal-style-manuscript.tex")
+md_path <- file.path(manuscript_dir, "manuscript.md")
+tex_path <- file.path(manuscript_dir, "manuscript.tex")
 md <- paste(readLines(md_path, warn = FALSE), collapse = "\n")
 tex <- paste(readLines(tex_path, warn = FALSE), collapse = "\n")
 

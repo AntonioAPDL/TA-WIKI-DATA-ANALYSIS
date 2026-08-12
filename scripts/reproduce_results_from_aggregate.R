@@ -117,7 +117,7 @@ if (!nzchar(out_dir)) on.exit(unlink(stage_parent, recursive = TRUE, force = TRU
 
 analysis_dir <- file.path(stage_parent, "full-analysis")
 tables_dir <- file.path(analysis_dir, "tables")
-rebuilt_dir <- file.path(stage_parent, "journal-manuscript")
+rebuilt_dir <- file.path(stage_parent, "manuscript")
 dir.create(tables_dir, recursive = TRUE, showWarnings = FALSE)
 
 for (entry in manifest$aggregate_inputs) {
@@ -129,7 +129,7 @@ for (entry in manifest$aggregate_inputs) {
 rscript <- file.path(R.home("bin"), "Rscript")
 build_args <- c(
   file.path(root, "scripts", "run.R"),
-  "journal-style-manuscript",
+  "build-manuscript",
   "--analysis-dir", analysis_dir,
   "--out-dir", rebuilt_dir
 )
@@ -144,7 +144,7 @@ if (build_status != 0L) {
 
 validate_args <- c(
   file.path(root, "scripts", "run.R"),
-  "journal-claim-validation",
+  "validate-manuscript",
   "--manuscript-dir", rebuilt_dir,
   "--analysis-dir", analysis_dir
 )
@@ -171,7 +171,7 @@ for (entry in manifest$expected_outputs) {
   compare_file(entry$path, entry$rebuilt_relative)
 }
 
-generated_tex <- file.path(rebuilt_dir, "journal-style-manuscript.tex")
+generated_tex <- file.path(rebuilt_dir, "manuscript.tex")
 main_tex <- file.path(root, "main.tex")
 if (!identical(canonical_text_sha256(generated_tex), canonical_text_sha256(main_tex))) {
   stop("Rebuilt manuscript TeX does not match root main.tex.")
