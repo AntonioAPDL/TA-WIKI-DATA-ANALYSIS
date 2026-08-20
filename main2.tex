@@ -1,0 +1,269 @@
+% =====================================================================
+% TA Wiki Paper — LaTeX Template
+% Working title: A GitHub-Hosted Wiki as a Centralized TA Resource:
+%                Design, Implementation, and Evaluation
+% Target journal: [e.g., JSDSE — adjust document class as needed]
+% =====================================================================
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{booktabs}        % nice tables
+\usepackage{natbib}          % author-year citations
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos, textsize=small]{todonotes}
+
+% Shortcut for inline TODO items inside todo lists
+\newcommand{\td}[1]{\item \textcolor{red!70!black}{TODO: #1}}
+
+\title{A GitHub-Hosted Wiki as a Centralized TA Resource:\\
+Design, Implementation, and Evaluation}
+\author{Author One\thanks{Department of Statistics, University of California, Santa Cruz} \and Author Two \and Marcela Alfaro Córdoba}
+\date{Manuscript version: \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\todo[inline]{Please leave this for the end. ~200 words: problem (ad hoc TA support), intervention (GitHub-hosted wiki), evaluation (12-respondent survey), central finding (universal value endorsement vs.\ low adoption), implications.}
+\end{abstract}
+
+\noindent\textbf{Keywords:} teaching assistants, wikis, GitHub, professional development, knowledge management, statistics education
+\todo[inline]{Adjust keywords to target journal's conventions.}
+
+% =====================================================================
+\section{Introduction}
+% =====================================================================
+
+% Main problem: TA support is ad hoc and fragmented; knowledge circulates
+% through informal channels, which is inefficient.
+% What we did: collaboratively maintained wiki hosted on GitHub as a
+% centralized TA resource platform.
+% Why GitHub: open-source principles (version control, transparency,
+% community ownership) applied to teaching support.
+% Main finding: universally seen as valuable, but usage/contribution lag.
+% Purpose: document design + implementation of the WIKI (not the survey),
+% evaluate via 12-respondent survey, discuss closing the value-adoption gap.
+
+\begin{itemize}
+  \td{Open with the problem: TA support in academic departments is often ad hoc and fragmented; knowledge moves through informal channels. Add list of references here.}
+  \td{Introduce the intervention: a collaboratively maintained wiki hosted on GitHub as a centralized TA resource. Add list of references here.}
+  \td{Justify GitHub briefly (full rationale in Section 3): open-source principles applied to teaching support. Add list of references here.}
+  \td{Preview central finding: universal value endorsement vs.\ low actual usage and contribution.}
+  \td{State the paper's purpose: document the design and implementation of the wiki (not the survey), evaluate via survey, discuss what closing the gap requires.}
+  \td{End with a roadmap paragraph for the paper.}
+\end{itemize}
+
+% =====================================================================
+\section{Background and Related Work}
+% =====================================================================
+
+These are numbered, but it doesn't have to end up being different sections in the paper. 
+
+\subsection{TA Support Structures}
+\begin{itemize}
+  \td{Summarize how departments typically support TAs: orientations, handbooks, peer mentorship, informal channels.}
+  \td{Review recent literature on sustainable TA professional development beyond one-time training \citep{sadera2024, freeman2026}.}
+\end{itemize}
+
+\subsection{Collaborative Knowledge Management and Wikis}
+\begin{itemize}
+  \td{Cover collaborative knowledge management in academic settings.}
+  \td{Review wikis as educational tools.}
+\end{itemize}
+
+\subsection{GitHub Beyond Software}
+\begin{itemize}
+  \td{Review GitHub's use in education, open science, and open courseware.}
+  \td{Describe GitHub wikis specifically: commit-based history, distributed editing, documentation features \citep{githubdocs2026a, githubdocs2026b}.}
+  \td{Develop the key analogy: TA work as software development; the wiki as documentation of HOW to do TA work, parallel to documenting how code is written.}
+  \td{Verify the novelty claim: departmental TA resource wikis appear uncommon --- do a targeted search. Note the UCSC Physics wiki exists but is not open for student contributions and lacks course-material repositories (currently in Limitations; decide whether it belongs here instead or in both).}
+\end{itemize}
+
+% =====================================================================
+\section{The TA Wiki: Design and Implementation}
+% =====================================================================
+
+\begin{itemize}
+  \td{Motivation: why the department needed a centralized resource even though it is small.}
+  \td{Design decisions and tradeoffs for GitHub: version control (change tracking, accountability, full history), modularity (organize by course/topic/role), customizability (markdown, flexible structure), transparency (visible edits and authorship).}
+  \td{Name the known tradeoff explicitly: technical barrier for non-Git users.}
+  \td{Compare to alternatives (e.g., Google Docs) --- argue GitHub is more streamlined for this purpose.}
+  \td{Describe wiki contents: course-specific advice, reusable teaching materials, recurring procedures, links to departmental/university resources.}
+  \td{Describe maintenance model: PRs and direct edits; who contributes.}
+  \td{Describe how TAs can contribute: uploading materials/resources/tools through the repo as a PR, or editing the wiki pages directly.}
+  \td{Add a short primer on how GitHub works so readers can understand the barriers discussed later --- consider a boxed figure or appendix.}
+  \td{Document the organized engagement attempt (editathon etc.) and the low participation that motivated the survey study.}
+  \td{Add a screenshot or figure of the wiki structure.}
+\end{itemize}
+
+% =====================================================================
+\section{Study Design}
+% =====================================================================
+
+\begin{itemize}
+  \td{MISSING FROM ANTONIO'S DOC: explain how the questionnaire was designed (item development, constructs, pilot testing if any).}
+  \td{MISSING FROM ANTONIO'S DOC: explain how subjects were approached (recruitment channel, timing, consent, response rate context).}
+  \td{Note IRB/ethics status.}
+  \td{State the five descriptive research questions:}
+  \begin{enumerate}
+    \item Awareness and access: overall level of awareness of the TA Wiki among graduate students, and how they are finding out about it (or not).
+    \item Usage and value: are graduate students finding the wiki helpful, and where does it fit within the broader landscape of TA resources.
+    \item Platform and accessibility: benefits of hosting on GitHub, and how comfort with GitHub relates to usage and contribution.
+    \item Engagement and contribution: main barriers to contributing (skills, motivation, confidence); effectiveness of the editathon as outreach.
+    \item Future directions: what an ideal TA resource would look like, and how close the current wiki is to that vision.
+  \end{enumerate}
+  \td{Describe the analysis approach for closed items (descriptive counts) and open-text responses (thematic coding --- describe the coding process).}
+\end{itemize}
+
+% =====================================================================
+\section{Results}
+% =====================================================================
+
+This is numbered as well, but it doesn't have to be written as separate sections.
+
+\subsection{Respondent Context}
+\begin{itemize}
+  \td{Report: 9/12 with 5+ TA quarters; 9/12 at least moderate Git comfort; 10/12 at least moderate teaching interest.}
+  \td{State the interpretive caveat: this is a relatively experienced, technically comfortable group.}
+  \td{Consider a summary table of respondent characteristics.}
+\end{itemize}
+
+\subsection{Current Resource Landscape}
+\begin{itemize}
+  \td{Report: only 4/12 selected the wiki as a current teaching-support resource; peer advice, instructor/faculty advice, and online resources selected more often.}
+  \td{Frame the implication: the wiki must coexist with and supplement existing channels, not replace them.}
+\end{itemize}
+
+\subsection{Awareness, Visitation, and Consultation}
+\begin{itemize}
+  \td{Report: 12/12 at least some awareness; 9/12 visited at least once; among 9 valid consultation responses: 4 never, 2 rarely, 3 sometimes.}
+  \td{State the pattern: high awareness does not translate to regular use.}
+\end{itemize}
+
+\subsection{Perceived Value (the Gap)}
+\begin{itemize}
+  \td{Report: 12/12 agree the wiki is or could be valuable; 8/12 would recommend it; 11/12 support continued maintenance.}
+  \td{Flag this as the central finding: universal value endorsement vs.\ low actual usage.}
+  \td{Consider a figure juxtaposing value items against usage items.}
+\end{itemize}
+
+\subsection{Contribution}
+\begin{itemize}
+  \td{Report: 5 yes, 4 no, 3 missing (possible contributor range 5--8).}
+  \td{Report: 8/12 understand how to contribute, but only 5/12 agree the process is straightforward.}
+  \td{Report: 8/12 say a simpler interface would increase willingness; 6/12 say training or a walkthrough would help.}
+  \td{Name the distinction: understanding $\neq$ finding it easy.}
+\end{itemize}
+
+\subsection{GitHub as a Platform}
+\begin{itemize}
+  \td{Report willingness to use: 5/12 no difference, 4/12 more likely, 3/12 less likely.}
+  \td{Report willingness to contribute: 6/12 no difference, 3/12 more likely, 3/12 less likely.}
+  \td{Report advantages selected (version control, transparency) and disadvantages (steep learning curve, technical setup, overly formal contribution process).}
+  \td{Characterize the picture as mixed rather than uniformly positive or negative.}
+\end{itemize}
+
+\subsection{Editathon}
+\begin{itemize}
+  \td{Report: 12/12 had heard of it; only 4/12 participated.}
+  \td{State the pattern: awareness was not the problem --- motivation and accessibility were.}
+\end{itemize}
+
+\subsection{Open-Text Themes}
+\begin{itemize}
+  \td{Present the seven themes with record counts: reasons and spaces for contributing (6); course-specific and current materials (5); human support and instructional coordination (5); value tied to concrete use (5); visibility and demonstrated usefulness (4); platform friction and navigation (3); maintenance responsibility and content currency (2).}
+  \td{Add 1--2 illustrative (anonymized) quotes per major theme.}
+  \td{Consider a summary table of themes.}
+\end{itemize}
+
+% =====================================================================
+\section{Discussion}
+% =====================================================================
+
+This is numbered as well, but it doesn't have to be written as separate sections.
+
+\subsection{The Gap Between Value and Adoption}
+\begin{itemize}
+  \td{Interpret: students think the wiki is valuable, but it is not part of ordinary TA work.}
+  \td{Frame the central challenge: moving from approval to adoption (note: outline says ``from merely adoption to approval'' --- confirm intended direction; approval $\to$ adoption seems right).}
+\end{itemize}
+
+\subsection{GitHub Considerations}
+\begin{itemize}
+  \td{Weigh version control and transparency as real advantages against learning curve and formal workflows as barriers --- even in a Git-comfortable sample.}
+  \td{Pose the design question: how to keep the benefits while reducing entry cost.}
+  \td{Extrapolate: if adoption is low among Git-experienced students, what about less-experienced ones?}
+  \td{Motivate friction-reduction proposals: explicit contribution pathways on the wiki page, direct uploads, etc.}
+\end{itemize}
+
+\subsection{Content and Maintenance as Platform Design Questions}
+\begin{itemize}
+  \td{Argue: course-specific tips, rubrics, templates, and current materials are what TAs want.}
+  \td{Argue: maintenance responsibility needs to be explicitly defined.}
+\end{itemize}
+
+\subsection{Editathon Lessons}
+\begin{itemize}
+  \td{Interpret: widespread awareness, low participation; format, timing, and perceived value of contributing were the issues, not awareness.}
+\end{itemize}
+
+\subsection{Potential and Recommendations}
+\begin{itemize}
+  \td{Sketch what this model could look like if barriers are addressed.}
+  \td{List recommendations for the department: lower friction for participation, strengthen course-specific content, make usefulness visible, define maintenance responsibility.}
+\end{itemize}
+
+% =====================================================================
+\section{Limitations}
+% =====================================================================
+
+\begin{itemize}
+  \td{Small department size and small sample (n = 12); descriptive, not inferential, claims only.}
+  \td{Sample skew: experienced, Git-comfortable respondents limit generalizability.}
+  \td{Address the repeated-text issue: content duplicated from other webpages means the wiki needs ``cleaning'' to avoid double work --- decide how to frame this (limitation of current implementation).}
+  \td{Situate relative to existing efforts: other departments (e.g., Physics, UCSC) have wikis, but they are not open to student contributions and do not include course-material repositories --- clarifies but also bounds the novelty claim.}
+\end{itemize}
+
+% =====================================================================
+\section{Conclusion}
+% =====================================================================
+
+\begin{itemize}
+  \td{Restate: promising proof of concept and novel approach --- valued but not adopted as a regular resource.}
+  \td{Restate the key finding: the value--adoption gap.}
+  \td{Next steps: make contributing easier, strengthen course-specific content, make usefulness visible, define maintenance, and measure whether these changes increase use.}
+  \td{Closing thought: open-source platforms like GitHub have potential to support teaching, but platform design has to meet users where they are.}
+\end{itemize}
+
+% =====================================================================
+% References
+% =====================================================================
+
+\bibliographystyle{apalike} % adjust to target journal
+\bibliography{references}
+% TODO (references.bib):
+%   - sadera2024      (Sadera et al., 2024 — sustainable TA PD)
+%   - freeman2026     (Freeman et al., 2026 — TA PD structures)
+%   - githubdocs2026a (GitHub Docs, 2026a — wiki features)
+%   - githubdocs2026b (GitHub Docs, 2026b — wiki features)
+%   - add: wikis in education, GitHub in education/open science,
+%          collaborative knowledge management, TA training literature
+
+% =====================================================================
+% Appendices
+% =====================================================================
+\appendix
+
+\section{Survey Instrument}
+\todo[inline]{Include the full questionnaire.}
+
+\section{GitHub Primer}
+\todo[inline]{Optional: short explanation of repos, commits, PRs, and wikis for readers unfamiliar with GitHub.}
+
+\end{document}
