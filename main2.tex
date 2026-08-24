@@ -11,7 +11,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage{booktabs}        % nice tables
+\usepackage{booktabs}
+\usepackage{array}
+% nice tables
 \usepackage{natbib}          % author-year citations
 \usepackage{hyperref}
 \usepackage{xcolor}
@@ -128,59 +130,149 @@ These are numbered, but it doesn't have to end up being different sections in th
 This is numbered as well, but it doesn't have to be written as separate sections.
 
 \subsection{Respondent Context}
-\begin{itemize}
-  \td{Report: 9/12 with 5+ TA quarters; 9/12 at least moderate Git comfort; 10/12 at least moderate teaching interest.}
-  \td{State the interpretive caveat: this is a relatively experienced, technically comfortable group.}
-  \td{Consider a summary table of respondent characteristics.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report: 9/12 with 5+ TA quarters; 9/12 at least moderate Git comfort; 10/12 at least moderate teaching interest.}
+%   \td{State the interpretive caveat: this is a relatively experienced, technically comfortable group.}
+%   \td{Consider a summary table of respondent characteristics.}
+% \end{itemize}
+
+The survey sample included 12 respondents. Most had substantial TA experience: 9 of 12 reported at least five quarters of TA experience. The sample also included respondents with relatively high Git/GitHub comfort and teaching-development interest, with 9 of 12 reporting at least moderate comfort and 10 of 12 reporting at least moderate interest in developing their teaching skills.
+
+\begin{table}[htbp]
+\centering
+\caption{Respondent context for the survey sample.}
+\label{tab:respondent-context}
+\begin{tabular}{@{}p{0.58\textwidth}p{0.24\textwidth}@{}}
+\toprule
+Respondent context & Result \\
+\midrule
+Survey respondents & 12 \\
+At least five quarters of TA experience & 9 of 12 \\
+At least moderate Git/GitHub comfort & 9 of 12 \\
+At least moderate interest in developing teaching skills & 10 of 12 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Current Resource Landscape}
-\begin{itemize}
-  \td{Report: only 4/12 selected the wiki as a current teaching-support resource; peer advice, instructor/faculty advice, and online resources selected more often.}
-  \td{Frame the implication: the wiki must coexist with and supplement existing channels, not replace them.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report: only 4/12 selected the wiki as a current teaching-support resource; peer advice, instructor/faculty advice, and online resources selected more often.}
+%   \td{Frame the implication: the wiki must coexist with and supplement existing channels, not replace them.}
+% \end{itemize}
+
+When asked about current teaching-support resources, 4 of the 12 respondents selected the TA Wiki. Respondents selected peer advice, instructor or faculty advice, and online resources more often. Because respondents could select more than one resource, this result situates the Wiki among the resources TAs already use rather than measuring how often they consult it. 
 
 \subsection{Awareness, Visitation, and Consultation}
-\begin{itemize}
-  \td{Report: 12/12 at least some awareness; 9/12 visited at least once; among 9 valid consultation responses: 4 never, 2 rarely, 3 sometimes.}
-  \td{State the pattern: high awareness does not translate to regular use.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report: 12/12 at least some awareness; 9/12 visited at least once; among 9 valid consultation responses: 4 never, 2 rarely, 3 sometimes.}
+%   \td{State the pattern: high awareness does not translate to regular use.}
+% \end{itemize}
 
+All 12 respondents indicated at least some awareness of the TA Wiki, and 9 of 12 reported having visited it at least once. Consultation was less frequent. Among the 9 valid responses to the consultation question, 4 selected never, 2 selected rarely, and 3 selected sometimes. Thus, these respondents suggest that awareness and prior usage were higher than reported regular use.
 \subsection{Perceived Value (the Gap)}
-\begin{itemize}
-  \td{Report: 12/12 agree the wiki is or could be valuable; 8/12 would recommend it; 11/12 support continued maintenance.}
-  \td{Flag this as the central finding: universal value endorsement vs.\ low actual usage.}
-  \td{Consider a figure juxtaposing value items against usage items.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report: 12/12 agree the wiki is or could be valuable; 8/12 would recommend it; 11/12 support continued maintenance.}
+%   \td{Flag this as the central finding: universal value endorsement vs.\ low actual usage.}
+%   \td{Consider a figure juxtaposing value items against usage items.}
+% \end{itemize}
+All 12 survey respondents agreed or strongly agreed that the TA Wiki is or could be valuable. In addition, 8 of 12 agreed or strongly agreed that they would recommend the Wiki to other TAs, and 11 of 12 agreed or strongly agreed that the Wiki should continue to be maintained. These responses suggest that perceived value was higher than reported current use and consultation in this group of survey respondents.
 
 \subsection{Contribution}
-\begin{itemize}
-  \td{Report: 5 yes, 4 no, 3 missing (possible contributor range 5--8).}
-  \td{Report: 8/12 understand how to contribute, but only 5/12 agree the process is straightforward.}
-  \td{Report: 8/12 say a simpler interface would increase willingness; 6/12 say training or a walkthrough would help.}
-  \td{Name the distinction: understanding $\neq$ finding it easy.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report: 5 yes, 4 no, 3 missing (possible contributor range 5--8).}
+%   \td{Report: 8/12 understand how to contribute, but only 5/12 agree the process is straightforward.}
+%   \td{Report: 8/12 say a simpler interface would increase willingness; 6/12 say training or a walkthrough would help.}
+%   \td{Name the distinction: understanding $\neq$ finding it easy.}
+% \end{itemize}
+Five respondents reported prior contribution to the TA Wiki, four reported no prior contribution, and three had missing responses on the direct contribution question. Without assigning those missing responses, the number of respondents reporting prior contribution could range from 5 to 8 of 12.
+
+Responses about contributing suggest a distinction between understanding the process and finding it straightforward.  Eight of 12 respondents agreed or strongly agreed that they understood how to contribute, whereas 5 of 12 agreed or strongly agreed that the process was straightforward. Eight of 12 agreed or strongly agreed that a simpler interface would increase their willingness to contribute, and 6 of 12 agreed or strongly agreed that training or a walkthrough would increase willingness.
 
 \subsection{GitHub as a Platform}
-\begin{itemize}
-  \td{Report willingness to use: 5/12 no difference, 4/12 more likely, 3/12 less likely.}
-  \td{Report willingness to contribute: 6/12 no difference, 3/12 more likely, 3/12 less likely.}
-  \td{Report advantages selected (version control, transparency) and disadvantages (steep learning curve, technical setup, overly formal contribution process).}
-  \td{Characterize the picture as mixed rather than uniformly positive or negative.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report willingness to use: 5/12 no difference, 4/12 more likely, 3/12 less likely.}
+%   \td{Report willingness to contribute: 6/12 no difference, 3/12 more likely, 3/12 less likely.}
+%   \td{Report advantages selected (version control, transparency) and disadvantages (steep learning curve, technical setup, overly formal contribution process).}
+%   \td{Characterize the picture as mixed rather than uniformly positive or negative.}
+% \end{itemize}
+Respondents reported mixed views about GitHub as the platform for the TA Wiki. For willingness to use the Wiki, 5 of 12 respondents reported that GitHub made no difference, 4 reported that it made them more likely to use the Wiki, and 3 reported that it made them less likely to use it. For willingness to contribute, 6 of 12 reported no difference, 3 reported being more likely to contribute, and 3 reported being less likely to contribute.
+
+Respondents also selected both advantages and disadvantages of GitHub hosting. Version control and transparency were the main advantages selected, whereas steep learning curve, technical setup, and an overly formal contribution process were selected as disadvantages. These responses suggest that GitHub was viewed as both a useful platform feature and a source of friction.
 
 \subsection{Editathon}
-\begin{itemize}
-  \td{Report: 12/12 had heard of it; only 4/12 participated.}
-  \td{State the pattern: awareness was not the problem --- motivation and accessibility were.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Report: 12/12 had heard of it; only 4/12 participated.}
+%   \td{State the pattern: awareness was not the problem --- motivation and accessibility were.}
+% \end{itemize}
+All 12 respondents reported hearing about the TA Wiki editathon, and 4 of 12 reported participating. These responses suggest that awareness of the event was high, but participation was more limited.
+
+Table~\ref{tab:structured-results} summarizes the main structured survey results reported in this section.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of structured survey results.}
+\label{tab:structured-results}
+\begin{tabular}{@{}p{0.50\textwidth}p{0.36\textwidth}@{}}
+\toprule
+Survey topic & Result \\
+\midrule
+TA Wiki selected as a current teaching-support resource & 4 of 12 respondents \\
+At least some awareness of the TA Wiki & 12 of 12 respondents \\
+Visited the TA Wiki at least once & 9 of 12 respondents \\
+Consultation frequency among valid responses & 4 of 9 never; 2 of 9 rarely; 3 of 9 sometimes \\
+TA Wiki is or could be valuable & 12 of 12 agreed or strongly agreed \\
+Would recommend the TA Wiki to other TAs & 8 of 12 agreed or strongly agreed \\
+TA Wiki should continue to be maintained & 11 of 12 agreed or strongly agreed \\
+Prior contribution to the TA Wiki & 5 yes; 4 no; 3 missing \\
+Understood how to contribute & 8 of 12 agreed or strongly agreed \\
+Contribution process was straightforward & 5 of 12 agreed or strongly agreed \\
+Simpler interface would increase willingness to contribute & 8 of 12 agreed or strongly agreed \\
+Training or a walkthrough would increase willingness to contribute & 6 of 12 agreed or strongly agreed \\
+Effect of GitHub on willingness to use the Wiki & 4 of 12 more likely; 3 of 12 less likely; 5 of 12 no difference \\
+Effect of GitHub on willingness to contribute & 3 of 12 more likely; 3 of 12 less likely; 6 of 12 no difference \\
+Heard about the TA Wiki editathon & 12 of 12 respondents \\
+Participated in the TA Wiki editathon & 4 of 12 respondents \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Open-Text Themes}
-\begin{itemize}
-  \td{Present the seven themes with record counts: reasons and spaces for contributing (6); course-specific and current materials (5); human support and instructional coordination (5); value tied to concrete use (5); visibility and demonstrated usefulness (4); platform friction and navigation (3); maintenance responsibility and content currency (2).}
-  \td{Add 1--2 illustrative (anonymized) quotes per major theme.}
-  \td{Consider a summary table of themes.}
-\end{itemize}
+% \begin{itemize}
+%   \td{Present the seven themes with record counts: reasons and spaces for contributing (6); course-specific and current materials (5); human support and instructional coordination (5); value tied to concrete use (5); visibility and demonstrated usefulness (4); platform friction and navigation (3); maintenance responsibility and content currency (2).}
+%   \td{Add 1--2 illustrative (anonymized) quotes per major theme.}
+%   \td{Consider a summary table of themes.}
+% \end{itemize}
+We summarized the open-text responses into seven themes. The most frequent theme was reasons and opportunities for contributing, which appeared in 6 responses. Three themes appeared in 5 responses each: course-specific and current materials, human support and instructional coordination, and value tied to concrete use. Visibility and demonstrated usefulness appeared in 4 responses, platform friction and navigation appeared in 3 responses, and maintenance responsibility and content currency appeared in 2 responses.
+
+These themes aim to add context to the structured responses. They point to several issues relevant to future Wiki development: clearer opportunities for contribution, current course-specific materials, visible usefulness, and lower platform friction.
+
+%table!
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.05}
+\caption{Open-text themes from the survey responses.}
+\label{tab:open-text-themes}
+\begin{tabular}{@{}p{0.32\textwidth}
+                >{\centering\arraybackslash}p{0.14\textwidth}
+                p{0.42\textwidth}@{}}
+\toprule
+Theme & Responses & Description \\
+\midrule
+Reasons and opportunities for contributing & 6 & Comments about when respondents would be more likely to add materials, identify gaps, or contribute to course-specific spaces. \\
+Course-specific and current materials & 5 & Requests for updated course materials, examples, templates, and practical teaching resources. \\
+Human support and instructional coordination & 5 & Comments emphasizing interpersonal support, instructor coordination, or help navigating teaching situations. \\
+Value tied to concrete use & 5 & Comments linking the Wiki's value to specific teaching needs or visible examples of usefulness. \\
+Visibility and demonstrated usefulness & 4 & Comments about advertising, faculty promotion, examples, or evidence that the Wiki is useful. \\
+Platform friction and navigation & 3 & Comments about Git/GitHub barriers, editing friction, or difficulty finding information. \\
+Maintenance responsibility and content currency & 2 & Comments about keeping materials updated and clarifying who maintains the Wiki. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The themes were nonexclusive, so a single response could be represented in more than one theme.
 
 % =====================================================================
 \section{Discussion}
