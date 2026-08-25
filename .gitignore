@@ -11,6 +11,13 @@ local-review/**
 external-review/**
 review-exports/**
 
+# Local writing guides copied from adjacent private workspaces.
+academic_writting,md
+academic_writing*.md
+academic/_writting,md
+academic/**/_writting,md
+academic/_writing*.md
+
 # Local R state and rendered intermediates.
 renv/library/
 renv/staging/
